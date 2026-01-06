@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  6 JAN 2026 19:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  6 JAN 2026 20:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -839,9 +839,11 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 
 {/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
 
-[3])
+[3]
 
-[4]
+[4])
+
+[5]
 LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 58.
  (/usr/share/texmf-dist/tex/latex/newtx/ot1minntx.fd
 File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
@@ -908,7 +910,7 @@ LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
 (Font)              scaled to size 6.6pt on input line 58.
 
 
-[5
+[6
 
 
 
@@ -928,12 +930,12 @@ Here is how much of TeX's memory you used:
  40875 multiletter control sequences out of 15000+600000
  595150 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,6n,141p,693b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,6n,141p,773b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
-Output written on main.pdf (5 pages, 148876 bytes).
+Output written on main.pdf (6 pages, 151870 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 43 PDF objects out of 1000 (max. 8388607)
+ 26 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
