@@ -10,12 +10,22 @@
     ]{geometry}
 \usepackage{newtxtext}
 \usepackage{newtxmath}
+\usepackage{csquotes}
 \usepackage{setspace}
 \onehalfspacing
 \setlength{\parindent}{1.25cm}
 \setlength{\parskip}{0pt}
 \usepackage{ragged2e}
-\usepackage{biblatex}
+\usepackage[
+    backend=biber,
+    style=apa,
+    sortcites=true,
+    giveninits=true,
+    maxcitenames=2,
+    maxbibnames=99,
+    language=polish
+]{biblatex}
+\DeclareLanguageMapping{polish}{polish-apa}
 \addbibresource{bibliography.bib}
 \begin{document}
 \justifying
