@@ -11,8 +11,7 @@ W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Minister
 Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną oraz \enquote{bezbolesną }% TODO: znaleźć mniej kolokwialny synonim - "minimalizującą koszty i skomplikowanie"?
 integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis? ew. napomnienie o często używanej nazwie Golang
 i przybierze formę pojedynczego pliku wykonywalnego, kompatybilnego z systemami Windows, MacOS oraz Linux. 
-\\
-\\
+\par
 Zakres pracy obejmuje:
 \begin{itemize}
     \item analizę wymagań technicznych oraz oficjalnej dokumentacji Krajowego Systemu e-Faktur
@@ -24,11 +23,10 @@ Zakres pracy obejmuje:
 % TODO: po ukończeniu pracy - przypisy do odpowiednich sekcji pracy
 
 \section{Założenia projektu}
-Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027. 
+Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027. % TODO: znów źródło? 
 
 Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla których integracja z Krajowym Systemem e-Faktur może wiązać się z komplikacjami oraz znaczącym podniesieniem kosztów - i na podstawie tego założenia zostaną przyjęte wszystkie inne.
-\\
-\\
+\par
 Założenia:
 \begin{itemize}
     \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw (bis)
@@ -42,9 +40,8 @@ Założenia:
 \end{itemize}
 
 \section{Architektura oprogramowania}
-Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą/pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur w wybrany przez użytkownika sposób, przekonwertowanie ich do formatu akcepotwanego przez KSeF, wysyłka oraz upewnienie się, że proces został wykonany bez żadnych nieprawidłowości - lub poinformowanie użytkownika o działaniach wymaganych do poprawnego wykonania procesu.
-\\
-\\
+Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą lub pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur w wybrany przez użytkownika sposób, przekonwertowanie ich do formatu akcepotwanego przez KSeF, wysyłka oraz upewnienie się, że proces został wykonany bez żadnych nieprawidłowości - lub poinformowanie użytkownika o działaniach wymaganych do poprawnego wykonania procesu.
+\par
 Na oprogramowanie składają się następujące elementy:
 \begin{itemize}
     \item interfejs wejściowy, przyjmujący dane bezpośrednio od przedsiębiorcy lub systemów zewnętrznych
