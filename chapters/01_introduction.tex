@@ -3,7 +3,7 @@
 Krajowy System e-Faktur, w skrócie KSeF, to platforma online pozwalająca na wystawianie, odbieranie oraz przechowywanie faktur ustrukturyzowanych, opracowana przez Ministerstwo Finansów \parencite{ministerstwo_finansow_pytania_2025}. 
 W trakcie powstawania tej pracy nie występuje wciąż obowiązek wystawiania faktur za pomocą platformy - jednak obowiązek ten będzie stopniowo wprowadzany na przestrzeni 2026 roku \parencite{ministerstwo_finansow_pytania_2025}. 
 
-Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem.
+Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem, opisanym poniżej.
 
 W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z owych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. 
 
@@ -64,7 +64,7 @@ SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serw
 \subsection{Biblioteki/pakiety}
 Projekt będzie korzystał przede wszystkim z biblioteki standardowej Go - w tym pakietów takich jak net, crypto, encoding i database. % TODO: przypis
 Dodatkowo, by zapewnić integrację z SQLite, wykorzystany będzie pakiet modernc.org/sqlite % TODO: przypis
-jest on napisany całkowicie w Go, wpisując się w założenie o przenośności.
+- jest on napisany całkowicie w Go, wpisując się w założenie o przenośności.
 
 % TODO: docker
 % TODO: dopytać, czy powinienem również opisać środowisko, w którym oprogramowanie było tworzone
