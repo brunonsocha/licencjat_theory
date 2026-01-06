@@ -2,11 +2,14 @@
 \section{Wprowadzenie}
 Krajowy System e-Faktur, w skrócie KSeF, to platforma online pozwalająca na wystawianie, odbieranie oraz przechowywanie faktur ustrukturyzowanych, opracowana przez Ministerstwo Finansów % TODO: dodać źródło.
 W trakcie powstawania tej pracy nie występuje wciąż obowiązek wystawiania faktur za pomocą platformy - jednak obowiązek ten będzie stopniowo wprowadzany na przestrzeni 2026 roku. % TODO: dodać źródło.
-W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku.
+
+Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem.
+
+W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z owych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca. % TODO: znów źródło?
 
 \section{Cel i zakres pracy}
-Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną oraz \enquote{bezbolesną}% TODO: znaleźć mniej kolokwialny synonim - "minimalizującą koszty i skomplikowanie"?
-integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis?
+Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną oraz \enquote{bezbolesną }% TODO: znaleźć mniej kolokwialny synonim - "minimalizującą koszty i skomplikowanie"?
+integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis? ew. napomnienie o często używanej nazwie Golang
 i przybierze formę pojedynczego pliku wykonywalnego, kompatybilnego z systemami Windows, MacOS oraz Linux. 
 \\
 \\
@@ -18,4 +21,38 @@ Zakres pracy obejmuje:
     \item testowanie jego działania,
     \item praktyczne wykorzystanie go w realnym scenariuszu oraz ocenę działania na podstawie wyników.
 \end{itemize}
+% TODO: po ukończeniu pracy - przypisy do odpowiednich sekcji pracy
 
+\section{Założenia projektu}
+Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027. 
+
+Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla których integracja z Krajowym Systemem e-Faktur może wiązać się z komplikacjami oraz znaczącym podniesieniem kosztów - i na podstawie tego założenia zostaną przyjęte wszystkie inne.
+\\
+\\
+Założenia:
+\begin{itemize}
+    \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw (bis)
+    \item oprogramowanie może być dostosowane do wymagań przedsiębiorstwa % TODO: w którejś części pracy zamieścić informacje o możliwości integracji z systemami ERP, Excelem, etc.
+    \item oprogramowanie nie wymaga wiedzy na temat funkcjonalności Krajowego Systemu e-Faktur
+    \item oprogramowanie jest kompatybilne z trzema najpopularniejszymi systemami operacyjnymi w Polsce, na dzień przygotowywania tej pracy % TODO: źródło o wykorzystaniu systemów
+    \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego % TODO: w którejś części pracy zamieścić wymagania sprzętowe
+    \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi
+    \item oprogramowanie nie ingeruje w treść faktur i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
+    %TODO: dodatkowe wymagania, wspomnieć o panelu zatwierdzania?
+\end{itemize}
+
+\section{Architektura oprogramowania}
+Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą/pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur w wybrany przez użytkownika sposób, przekonwertowanie ich do formatu akcepotwanego przez KSeF, wysyłka oraz upewnienie się, że proces został wykonany bez żadnych nieprawidłowości - lub poinformowanie użytkownika o działaniach wymaganych do poprawnego wykonania procesu.
+\\
+\\
+Na oprogramowanie składają się następujące elementy:
+\begin{itemize}
+    \item interfejs wejściowy, przyjmujący dane bezpośrednio od przedsiębiorcy lub systemów zewnętrznych
+    \item oprogramowanie przetwarzające faktury i konwertujące je do formatu akceptowanego przez KSeF
+    \item oprogramowanie komunikujące się z Krajowym Systemem e-Faktur, odpowiedzialne za wysyłanie faktur oraz pobieranie informacji na temat ich stanu - m.in. Urzędowe Poświadczenia Odbioru
+    \item lokalna baza danych do przechowywania danych na temat statusu wysyłki poszczególnych faktur
+    \item \enquote{kolejka} lokalna, do przechowywania danych w przypadku przerwania komunikacji z internetem/braku dostępności 
+    \item panel z interfejsem graficznym przeznaczonym dla użytkownika, informujący o statusie wysyłki lub/oraz o napotkanych nieprawidłowościach
+\end{itemize}
+
+Oprogramowanie przyjmuje faktury od przedsiębiorcy/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie.
