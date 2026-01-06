@@ -11,6 +11,7 @@
 \usepackage{newtxtext}
 \usepackage{newtxmath}
 \usepackage{csquotes}
+\usepackage{graphicx}
 \usepackage{setspace}
 \onehalfspacing
 \setlength{\parindent}{1.25cm}
@@ -23,9 +24,32 @@
     giveninits=true,
     maxcitenames=2,
     maxbibnames=99,
-    language=polish
+    autolang=none
 ]{biblatex}
-\DeclareLanguageMapping{polish}{polish-apa}
+\DeclareLanguageMapping{polish}{american-apa}
+\DeclareSortingTemplate{apa}{
+  \sort{
+    \field{presort}
+  }
+  \sort{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
 \addbibresource{bibliography.bib}
 \begin{document}
 \justifying
