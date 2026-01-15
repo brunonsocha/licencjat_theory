@@ -5,11 +5,69 @@ W trakcie powstawania tej pracy nie występuje wciąż obowiązek wystawiania fa
 
 Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem, opisanym poniżej.
 
-W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z owych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. 
+W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z tych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. 
 
-\section{Cel i zakres pracy}
-Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną oraz \enquote{bezbolesną} % TODO: znaleźć mniej kolokwialny synonim - "minimalizującą koszty i skomplikowanie"?
-integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis? ew. napomnienie o często używanej nazwie Golang
+Celem niniejszej pracy będzie utworzenie oraz dokumentacja oprogramowania pozwalającego małym i średnim przedsiębiorstwom na prostą integrację z wprowadzanym systemem. 
+
+\section{Tło prawne i gospodarcze}
+KSeF wprowadzany jest w celu załatania luki VAT, wywiązania się ze zgodności z dyrektywą UE 2025/516 oraz ułatwienia procesu fakturowania - jednak wprowadzenie tego systemu może wiązać się z wieloma komplikacjami dla małych i średnich przedsiębiorstw, biorąc pod uwagę skalę zmian, które niesie ze sobą pełna cyfryzacja.
+
+\subsection{Luka VAT}
+Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z konsumpcji dóbr i usług, a faktycznym przychodem skarbu państwa na jego podstawie. W przypadku Polski, na 2024 rok, wynosiła ona 6,9 proc., czyli ok. 21,5 miliardów złotych \parencite{mf_wiadomosci_luka_2024}.
+
+\begin{table}[H]
+    \centering
+    \caption{Wielkość luki VAT w Polsce w latach 2004--2023}
+    \label{tab:luka_vat_full}
+    \renewcommand{\arraystretch}{1.2} 
+    
+    \begin{tabular}{ccc}
+    \toprule
+    \textbf{Rok} & \textbf{Luka VAT w \%} & \textbf{Luka VAT w mld zł} \\ 
+    \midrule
+    2004 & 18,5\% & 15,0 \\
+    2005 & 15,0\% & 13,4 \\
+    2006 & 11,1\% & 10,8 \\
+    2007 & 8,9\%  & 9,6  \\
+    2008 & 15,5\% & 18,8 \\
+    2009 & 20,3\% & 25,3 \\
+    2010 & 18,7\% & 25,2 \\
+    2011 & 19,7\% & 30,0 \\
+    2012 & 25,6\% & 40,1 \\
+    2013 & 25,7\% & 40,4 \\
+    2014 & 24,1\% & 38,8 \\
+    2015 & 23,9\% & 39,6 \\
+    2016 & 20,0\% & 33,7 \\
+    2017 & 14,0\% & 25,2 \\
+    
+    \midrule[0.05pt] 
+    2018 & 14,2\% & 28,4 \\
+    2019 & 13,9\% & 29,4 \\
+    2020 & 11,6\% & 24,5 \\
+    2021 & 5,6\%  & 13,4 \\
+    2022 & 8,4\%  & 20,5 \\
+    2023 & 10,5\% & ---\\ 
+    \bottomrule 
+    \end{tabular}
+    
+    \vspace{0.2cm} \\
+    \raggedright
+    \footnotesize{
+    \textit{Źródło: Opracowanie własne na podstawie raportu Ministerstwa Finansów (lata 2004--2017) \parencite{mf_raport_luka_2019} oraz raportu Komisji Europejskiej dla Polski (lata 2018--2023) \parencite{vat_gap_poland_2025}.}
+    }
+\end{table}
+
+Jak widać, wystapił znaczący spadek luki po latach 2015/2016. Można wywnioskować, że przyczyniło się do tego wprowadzenie JPK, czyli inaczej Jednolitego Pliku Kontrolnego - dokumentu elektronicznego, w którym przedsiębiorcy informują Urząd Skarbowy na temat transakcji dokonanych w ramach działalności gospodarczej, takich jak zakup czy sprzedaż towarów lub usług. Obowiązek składania plików JPK\_VAT, w odmianie V7M (miesięcznej) lub V7K (kwartalnej) nałożony został na wszystkich podatników VAT w trzech terminach, między połową 2016 roku a początkiem 2018 %TODO: przypis
+. Jednolite Pliki Kontrolne jednak opierają się w głównej mierze na uczciwości podatników - są to pliki XML, do których wnoszone są informacje na temat faktur wystawionych oraz odebranych w określonym okresie rozliczeniowym, jednak same faktury nie są załączane, tak więc prawidłowość raportu może być sprawdzona jedynie za pomocą audytu. Kolejnym problemem jest fakt, że informacja na temat transakcji dociera do Urzędu Skarbowego do 25 dni po zakończeniu okresu rozliczeniowego. Wprowadzenie Krajowego Systemu e-Faktur ma wyeliminować te problemy poprzez eliminację tradycyjnych faktur oraz wprowadzenie faktur ustrukturyzowanych, które będą mogły być monitorowane na bieżąco. % TODO: przypis do sekcji na temat faktur ustrukturyzowanych.
+
+\subsection{Dyrektywy UE 2014/55 oraz UE 2025/516}
+Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych. W celu ułatwienia handlu interunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 25 marca 2025 ustanowiono zaś dyrektywę 2025/516, nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, jest krokiem w stronę wywiązania się z tego obowiązku.
+
+\subsection{Wyzwania dla małych i średnich przedsiębiorstw}
+Nadchodzące zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i jest wyposażone w tryb awaryjny w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
+
+\section{Cel, zakres oraz założenia pracy}
+Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną, nieinwazyjną i minimalizującą koszty integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis? ew. napomnienie o często używanej nazwie Golang
 i przybierze formę pojedynczego pliku wykonywalnego, kompatybilnego z systemami Windows, MacOS oraz Linux. 
 \par
 Zakres pracy obejmuje:
@@ -20,9 +78,7 @@ Zakres pracy obejmuje:
     \item testowanie jego działania,
     \item praktyczne wykorzystanie go w realnym scenariuszu oraz ocenę działania na podstawie wyników.
 \end{itemize}
-% TODO: po ukończeniu pracy - przypisy do odpowiednich sekcji pracy
 
-\section{Założenia projektu}
 Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027 \parencite{ministerstwo_finansow_zakres_2025}. 
 
 Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla których integracja z Krajowym Systemem e-Faktur może wiązać się z komplikacjami oraz znaczącym podniesieniem kosztów - i na podstawie tego założenia zostaną przyjęte wszystkie inne.
@@ -30,7 +86,7 @@ Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla 
 Założenia:
 \begin{itemize}
     \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw (bis)
-    \item oprogramowanie może być dostosowane do wymagań przedsiębiorstwa % TODO: w którejś części pracy zamieścić informacje o możliwości integracji z systemami ERP, Excelem, etc.
+    \item oprogramowanie może być dostosowane do wymagań użytkownika % TODO: w którejś części pracy zamieścić informacje o możliwości integracji z systemami ERP, Excelem, etc.
     \item oprogramowanie nie wymaga wiedzy na temat funkcjonalności Krajowego Systemu e-Faktur
     \item oprogramowanie jest kompatybilne z trzema najpopularniejszymi systemami operacyjnymi w Polsce, na dzień przygotowywania tej pracy \parencite{statcounter_desktop_2025}
     \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego % TODO: w którejś części pracy zamieścić wymagania sprzętowe
@@ -44,7 +100,7 @@ Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między prze
 \par
 Na oprogramowanie składają się następujące elementy:
 \begin{itemize}
-    \item interfejs wejściowy, przyjmujący dane bezpośrednio od przedsiębiorcy lub systemów zewnętrznych
+    \item interfejs wejściowy, przyjmujący dane bezpośrednio od użytkownika lub systemów zewnętrznych
     \item oprogramowanie przetwarzające faktury i konwertujące je do formatu akceptowanego przez KSeF
     \item oprogramowanie komunikujące się z Krajowym Systemem e-Faktur, odpowiedzialne za wysyłanie faktur oraz pobieranie informacji na temat ich stanu - m.in. Urzędowe Poświadczenia Odbioru
     \item lokalna baza danych do przechowywania danych na temat statusu wysyłki poszczególnych faktur
@@ -52,11 +108,11 @@ Na oprogramowanie składają się następujące elementy:
     \item panel z interfejsem graficznym przeznaczonym dla użytkownika, informujący o statusie wysyłki lub/oraz o napotkanych nieprawidłowościach
 \end{itemize}
 
-Oprogramowanie przyjmuje faktury od przedsiębiorcy/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie.
+Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie.
 
 \section{Narzędzia wykorzystane do realizacji}
 \subsection{Język programowania Go}
-Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizwany będzie projekt. % TODO: przypis
+Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Nie wymaga również żadnych lokalnych zależności w trakcie deploymentu - cały projekt może zostać skompilowany do pojedynczego pliku wykonywalnego. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizowany będzie projekt. % TODO: przypis
 
 \subsection{Baza danych SQLite}
 SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serwera. Wszystkie dane przechowywane są w jednym pliku, lokalnie. Jest to przenośne rozwiązanie, które ułatwi implementację warstwy aplikacji odpowiedzialnej za działanie w razie zakłóceń z połączeniem internetowym/dostępnością KSeF. 
@@ -64,9 +120,6 @@ SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serw
 \subsection{Biblioteki/pakiety}
 Projekt będzie korzystał przede wszystkim z biblioteki standardowej Go - w tym pakietów takich jak net, crypto, encoding i database. % TODO: przypis
 Dodatkowo, by zapewnić integrację z SQLite, wykorzystany będzie pakiet modernc.org/sqlite % TODO: przypis
-- jest on napisany całkowicie w Go, wpisując się w założenie o przenośności.
+- jest on napisany całkowicie w Go, wpisując się w założenie o przenośności. Do wczytywania pliku konfiguracyjnego oprogramowania wykorzystano pakiet goccy/go-yaml - oficjalna biblioteka jest niewspierana na dzień przygotowywania pracy. % TODO: przypis
 
-% TODO: docker
-% TODO: dopytać, czy powinienem również opisać środowisko, w którym oprogramowanie było tworzone
-% TODO: wspominać o gicie?
-% TODO: zdecydować się, czy określać ostatecznego odbiorcę mianem "przedsiębiorcy" czy "użytkownika" - w tekście występują oba
+
