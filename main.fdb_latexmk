@@ -1,11 +1,12 @@
 # Fdb version 4
-["biber main"] 1768504744.61044 "main.bcf" "main.bbl" "main" 1768573651.72835 2
-  "main.bcf" 1768573651.61383 133681 aaa56d05087698ad81f0df761ca8b306 "pdflatex"
+["biber main"] 1768577742.81265 "main.bcf" "main.bbl" "main" 1768577746.4217 0
+  "bibliografia.bib" 1768577741.21668 8752 434c5b75d2e6d2c37b8db03f5753b1fb ""
+  "main.bcf" 1768577746.31365 135304 1fce988a359af9a7ac0166c1b6f2f374 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1768573649.8616 "main.tex" "main.pdf" "main" 1768573651.72884 2
+["pdflatex"] 1768577744.08799 "main.tex" "main.pdf" "main" 1768577746.42215 2
   "/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1767555874 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1767555874 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1767555874 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -121,14 +122,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1767555874 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1767702586 5467117 e063ce8e53b0cc3d0312473583ebc51c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1767702564 3459354 1a208b5b7826068140b4485cc9da656f ""
-  "chapters/00_cover.aux" 1768573651.48828 4089 ffc7c8b4eb399c4780936f206a473a38 "pdflatex"
+  "chapters/00_cover.aux" 1768577745.8089 4089 1bbc0f84453d937f55186d2414b79abf "pdflatex"
   "chapters/00_cover.tex" 1767780675.45216 750 8f30a4544b0aaf7e7ef8a65b6dcf9b1d ""
-  "chapters/01_introduction.aux" 1768573651.60334 6220 4d15260c58255872723ff4b0f74f45e9 "pdflatex"
-  "chapters/01_introduction.tex" 1768573649.74882 15438 5bd96fc426e1bffbbc7c569aa88eab8c ""
+  "chapters/01_introduction.aux" 1768577746.14165 6221 bdf84ba9b0777028b3471a8ca909806b "pdflatex"
+  "chapters/01_introduction.tex" 1768577286.23046 15768 0ffd1dacffa2c25207807a74dfc344c8 ""
   "images/pieczec_uek.png" 1630063144 78646 743eb18e76dbb1957afed4d205c9447b ""
-  "main.aux" 1768573651.60483 1592 1251b66ab7c1c788bcc9a9626f4a7b50 "pdflatex"
-  "main.bbl" 0 -1 0 "biber main"
-  "main.run.xml" 1768573651.61593 2429 3cd5977cc9a9c87e010564cb20767967 "pdflatex"
+  "main.aux" 1768577746.30365 7319 83ce5be84d92140a38f5f86ebbddc9f6 "pdflatex"
+  "main.bbl" 1768577744.05461 70268 f3b2564de86bc0b105867bac05e1a587 "biber main"
+  "main.run.xml" 1768577746.31605 2429 15b6df33d5d8eb1304e7f85575d3a310 "pdflatex"
   "main.tex" 1768499922.03377 1138 4485303312998a28b8c89d741f27b191 ""
   (generated)
   "chapters/00_cover.aux"

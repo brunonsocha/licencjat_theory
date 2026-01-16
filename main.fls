@@ -225,6 +225,11 @@ INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT main.bcf
+INPUT main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT main.bbl
 INPUT ./chapters/00_cover.tex
 INPUT ./chapters/00_cover.tex
 OUTPUT chapters/00_cover.aux
@@ -250,7 +255,6 @@ INPUT ./chapters/01_introduction.tex
 INPUT ./chapters/01_introduction.tex
 INPUT chapters/01_introduction.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/tex/latex/newtx/ot1minntx.fd
 INPUT /usr/share/texmf-dist/tex/latex/newtx/ot1minntx.fd
@@ -288,9 +292,9 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsyc.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 INPUT /usr/share/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 INPUT /usr/share/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd

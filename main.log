@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  16 JAN 2026 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  16 JAN 2026 16:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -833,14 +833,13 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `main.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'main.bbl' not found.
-
-No file main.bbl.
+Package biblatex Info: ... file 'main.bbl' found.
+ (./main.bbl)
 Package biblatex Info: Reference section=0 on input line 57.
 Package biblatex Info: Reference segment=0 on input line 57.
 \openout2 = `chapters/00_cover.aux'.
 
-(./chapters/00_cover.tex
+ (./chapters/00_cover.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 17.28pt on input line 5.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -871,25 +870,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 24.88pt on input line 1.
 
-LaTeX Warning: Citation 'ministerstwo_finansow_pytania_2025' on page 2 undefined on input line 3.
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 3.
-
-LaTeX Warning: Citation 'ministerstwo_finansow_pytania_2025' on page 2 undefined on input line 4.
-
-
-LaTeX Warning: Citation 'ministerstwo_finansow_zakres_2025' on page 2 undefined on input line 10.
-
-
-LaTeX Warning: Citation 'mf_wiadomosci_luka_2024' on page 2 undefined on input line 19.
-
-
-Overfull \hbox (3.23668pt too wide) in paragraph at lines 18--20
-\T1/ntxtlf/m/n/12 2024 rok, wy-no-siªa ona 6,9 proc., czyli ok. 21,5 mi-liar-dów zªo-tych ([]). 
- []
-
-
 
 [2
 
@@ -898,118 +878,104 @@ Overfull \hbox (3.23668pt too wide) in paragraph at lines 18--20
 
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 27.
+LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 24.
  (/usr/share/texmf-dist/tex/latex/newtx/ot1minntx.fd
 File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
 )
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 24.
  (/usr/share/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
 )
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 27.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 24.
  (/usr/share/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
 )
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 24.
  (/usr/share/texmf-dist/tex/latex/newtx/untxsyc.fd
 File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 )
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.8pt on input line 27.
+(Font)              scaled to size 8.8pt on input line 24.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 27.
+(Font)              scaled to size 6.6pt on input line 24.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.0pt on input line 26.
 
 
-./chapters/01_introduction.tex:56: LaTeX Error: There's no line here to end.
+./chapters/01_introduction.tex:53: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.56     \vspace{0.2cm} \\
+l.53     \vspace{0.2cm} \\
                           
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.0pt on input line 58.
+(Font)              scaled to size 10.0pt on input line 55.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.0pt on input line 59.
-
-LaTeX Warning: Citation 'mf_raport_luka_2019' on page 3 undefined on input line 59.
-
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.0pt on input line 59.
-
-LaTeX Warning: Citation 'vat_gap_poland_2025' on page 3 undefined on input line 59.
-
+(Font)              scaled to size 10.0pt on input line 56.
 
 
 [3]
 
 [4]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 98.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 83.
  (/usr/share/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.0pt on input line 98.
-
-
-LaTeX Warning: Citation 'ministerstwo_finansow_zakres_2025' on page 5 undefined on input line 108.
-
+(Font)              scaled to size 12.0pt on input line 83.
 
 
 [5{/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-
-LaTeX Warning: Citation 'statcounter_desktop_2025' on page 6 undefined on input line 117.
-
-
 
 [6]
 
@@ -1017,39 +983,34 @@ LaTeX Warning: Citation 'statcounter_desktop_2025' on page 6 undefined on input 
 
 [8]
 
-LaTeX Warning: Empty bibliography on input line 61.
+[9
 
-(./main.aux (./chapters/00_cover.aux) (./chapters/01_introduction.aux))
+
+
+]
+
+[10] (./main.aux (./chapters/00_cover.aux) (./chapters/01_introduction.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run Biber on the file:
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
-
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19279 strings out of 473190
- 334248 string characters out of 5722594
- 1289253 words of memory out of 5000000
- 42276 multiletter control sequences out of 15000+600000
- 606612 words of font info for 75 fonts, out of 8000000 for 9000
+ 19443 strings out of 473190
+ 340410 string characters out of 5722594
+ 1292725 words of memory out of 5000000
+ 42438 multiletter control sequences out of 15000+600000
+ 603745 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,8n,141p,928b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,8n,141p,1028b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (8 pages, 194397 bytes).
+Output written on main.pdf (10 pages, 199020 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

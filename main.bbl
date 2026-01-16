@@ -1,0 +1,1673 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{sqlite_package}{misc}{}{}
+      \field{sortinit}{s}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{sqlite package - modernc.org/sqlite - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb sqlite package - modernc.org/sqlite - Go Packages:/home/anon/Zotero/storage/EXYY2Z8U/sqlite.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/modernc.org/sqlite
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/modernc.org/sqlite
+      \endverb
+    \endentry
+    \entry{vida_council_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2be4a816598128ae272abd2cb54c8a67}{%
+           family={{Council of the European Union}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{fullhash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{fullhashraw}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{bibnamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorbibnamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authornamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorfullhash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorfullhashraw}{2be4a816598128ae272abd2cb54c8a67}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{Council {Directive} ({EU}) 2025/516 of 11 {March} 2025 amending {Directive} 2006/112/{EC} as regards {VAT} rules for the digital age}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb EUR-Lex HTML (EN):/home/anon/Zotero/storage/CBWYMC46/oj.html:text/html;EUR-Lex PDF (EN):/home/anon/Zotero/storage/7DB2KSCP/2025 - Council Directive (EU) 2025516 of 11 March 2025 amending Directive 2006112EC as regards VAT rules.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://data.europa.eu/eli/dir/2025/516/oj
+      \endverb
+      \verb{url}
+      \verb http://data.europa.eu/eli/dir/2025/516/oj
+      \endverb
+    \endentry
+    \entry{vat_gap_poland_2025}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=a1b813a6e85874b4c945aec2cdbea74c}{%
+           family={{European Commission}},
+           familyi={E\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=bea5438a9521adc1b23a9117024bbb43}{%
+           family={{CASE}},
+           familyi={C\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=ef988582afdd85df0f795a7ab493f73f}{%
+           family={{Oxford Economics}},
+           familyi={O\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=5a12cbca5e5dfec616d41028d80e1619}{%
+           family={{Syntesia}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Publications Office of the European Union}%
+      }
+      \strng{namehash}{b79fc786d11313b8e2b8c1007a45d0c0}
+      \strng{fullhash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{fullhashraw}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{bibnamehash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authorbibnamehash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authornamehash}{b79fc786d11313b8e2b8c1007a45d0c0}
+      \strng{authorfullhash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authorfullhashraw}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{VAT gap in the EU -- Country report 2024 -- Poland}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.2778/2516273
+      \endverb
+      \verb{urlraw}
+      \verb https://data.europa.eu/doi/10.2778/2516273
+      \endverb
+      \verb{url}
+      \verb https://data.europa.eu/doi/10.2778/2516273
+      \endverb
+    \endentry
+    \entry{european_directive_2014}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=04477f088e2d7fa909d6f010ddf08b41}{%
+           family={{European Parliament}},
+           familyi={E\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=2be4a816598128ae272abd2cb54c8a67}{%
+           family={{Council of the European Union}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{fullhash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{fullhashraw}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{bibnamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorbibnamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authornamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorfullhash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorfullhashraw}{000a9a0d5f0f06101811874d891db3a2}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Directive 2014/55/{EU} of the {European} {Parliament} and of the {Council} of 16 {April} 2014 on electronic invoicing in public procurement {Text} with {EEA} relevance}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{volume}{133}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb EUR-Lex HTML (EN):/home/anon/Zotero/storage/45G29RGP/oj.html:text/html;EUR-Lex PDF (EN):/home/anon/Zotero/storage/IVA3IA6L/2014 - Directive 201455EU of the European Parliament and of the Council of 16 April 2014 on electronic in.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://data.europa.eu/eli/dir/2014/55/oj
+      \endverb
+      \verb{url}
+      \verb http://data.europa.eu/eli/dir/2014/55/oj
+      \endverb
+    \endentry
+    \entry{golang_specification}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The {Go} {Programming} {Language} {Specification} - {The} {Go} {Programming} {Language}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/RYJ3QSUC/spec.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://go.dev/ref/spec
+      \endverb
+      \verb{url}
+      \verb https://go.dev/ref/spec
+      \endverb
+    \endentry
+    \entry{golang_release_history}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Release {History} - {The} {Go} {Programming} {Language}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/AET5SUB6/release.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://go.dev/doc/devel/release
+      \endverb
+      \verb{url}
+      \verb https://go.dev/doc/devel/release
+      \endverb
+    \endentry
+    \entry{golang_stdlib}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{3}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Standard library - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Standard library - Go Packages:/home/anon/Zotero/storage/VK8VWL4I/std.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/std
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/std
+      \endverb
+    \endentry
+    \entry{yaml_package}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=663d7de7df1466e03d8b707995aaaa77}{%
+           family={Goshima},
+           familyi={G\bibinitperiod},
+           given={Masaaki},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{fullhash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{fullhashraw}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{bibnamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorbibnamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authornamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorfullhash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorfullhashraw}{663d7de7df1466e03d8b707995aaaa77}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{yaml package - github.com/goccy/go-yaml - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb yaml package - github.com/goccy/go-yaml - Go Packages:/home/anon/Zotero/storage/VW8S82CN/go-yaml.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/github.com/goccy/go-yaml#section-readme
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/github.com/goccy/go-yaml#section-readme
+      \endverb
+    \endentry
+    \entry{mf_raport_luka_2019}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=5db54b3e0ed6ebd50b1842632210c30c}{%
+           family={Mazur},
+           familyi={M\bibinitperiod},
+           given={Tomasz},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dcc532e124aef2b4a089afec65b45bbf}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={Dorota},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d6003a10ace19ee8ed44e890b453914}{%
+           family={Juźwik},
+           familyi={J\bibinitperiod},
+           given={Agnieszka},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d6a58f58eafb15d474ca8b95e34d9097}{%
+           family={Czechowicz},
+           familyi={C\bibinitperiod},
+           given={Iwona},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5718e8329d116d33df4f9f36d213a50e}{%
+           family={Bieńkowska},
+           familyi={B\bibinitperiod},
+           given={Jadwiga},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Ministerstwo Finansów}%
+      }
+      \list{location}{1}{%
+        {Warszawa}%
+      }
+      \strng{namehash}{3ac6b4993994d0a65de3b1e7d60c3627}
+      \strng{fullhash}{d276687b0033c26b915cee095d83e018}
+      \strng{fullhashraw}{d276687b0033c26b915cee095d83e018}
+      \strng{bibnamehash}{d276687b0033c26b915cee095d83e018}
+      \strng{authorbibnamehash}{d276687b0033c26b915cee095d83e018}
+      \strng{authornamehash}{3ac6b4993994d0a65de3b1e7d60c3627}
+      \strng{authorfullhash}{d276687b0033c26b915cee095d83e018}
+      \strng{authorfullhashraw}{d276687b0033c26b915cee095d83e018}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Raport na temat wielkości luki podatkowej w podatku VAT w Polsce w latach 2004-2017}
+      \field{type}{MF Opracowania i Analizy}
+      \field{year}{2019}
+    \endentry
+    \entry{structured_invoice_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Faktura ustrukturyzowana i struktura logiczna {FA} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/VXHN8LYN/faktura-ustrukturyzowana-i-struktura-logiczna-fa.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/faktura-ustrukturyzowana-i-struktura-logiczna-fa/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/faktura-ustrukturyzowana-i-struktura-logiczna-fa/
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_terminy_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Podstawy Prawne {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/22RYBKMD/zakres-obowiazkowego-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/podstawy-prawne-oraz-kluczowe-terminy
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/podstawy-prawne-oraz-kluczowe-terminy
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_pytania_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Pytania i odpowiedzi {KSeF} 2.0 - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/HDXTBWVA/pytania-i-odpowiedzi-ksef-20.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
+      \endverb
+    \endentry
+    \entry{mf_offline_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{4}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tryb offline - niedostępność {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/65X87L25/tryb-offline-niedostepnosc-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
+      \endverb
+    \endentry
+    \entry{mf_offline24_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tryb offline24 - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/HSWW5UEX/tryb-offline24.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{6}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Zakres obowiązkowego {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/22RYBKMD/zakres-obowiazkowego-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/zakres-obowiazkowego-ksef
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/zakres-obowiazkowego-ksef
+      \endverb
+    \endentry
+    \entry{mf_wiadomosci_luka_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ministerstwo Finansów}
+      \field{title}{Informacja dotycząca metody liczenia luki {VAT} - {Ministerstwo} {Finansów} - {Portal} {Gov}.pl}
+      \field{urlday}{15}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/CILTQHWX/informacja-dotyczaca-metody-liczenia-luki-vat.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.gov.pl/web/finanse/informacja-dotyczaca-metody-liczenia-luki-vat
+      \endverb
+      \verb{url}
+      \verb https://www.gov.pl/web/finanse/informacja-dotyczaca-metody-liczenia-luki-vat
+      \endverb
+    \endentry
+    \entry{mf_jpk_informacje}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Jednolity {Plik} {Kontrolny} - najważniejsze informacje - {Informacje} prasowe - {Dla} mediów - {Ministerstwo} {Finansów}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Jednolity Plik Kontrolny - najważniejsze informacje - Informacje prasowe - Dla mediów - Ministerstwo Finansów:/home/anon/Zotero/storage/LIVNTFHL/jednolity-plik-kontrolny-najwazniejsze-informacje.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
+      \endverb
+      \verb{url}
+      \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
+      \endverb
+    \endentry
+    \entry{sqlite_features}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9a9ab6daa89d3a40e1d166986df843e3}{%
+           family={{SQLite Development Team}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{fullhash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{fullhashraw}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{bibnamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorbibnamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authornamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorfullhash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorfullhashraw}{9a9ab6daa89d3a40e1d166986df843e3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{title}{Distinctive {Features} {Of} {SQLite}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Distinctive Features Of SQLite:/home/anon/Zotero/storage/F6ACD7S6/different.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sqlite.org/different.html
+      \endverb
+      \verb{url}
+      \verb https://www.sqlite.org/different.html
+      \endverb
+    \endentry
+    \entry{statcounter_desktop_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fee3fc182e02f376217580e5bfec4f51}{%
+           family={{StatCounter}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{fullhash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{fullhashraw}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{bibnamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorbibnamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authornamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorfullhash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorfullhashraw}{fee3fc182e02f376217580e5bfec4f51}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This graph shows the market share of desktop operating systems in Poland based on over 5 billion monthly page views.}
+      \field{journaltitle}{StatCounter Global Stats}
+      \field{month}{12}
+      \field{title}{Desktop {Operating} {System} {Market} {Share} {Poland}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/M2YT5M5X/poland.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://gs.statcounter.com/os-market-share/desktop/poland
+      \endverb
+      \verb{url}
+      \verb https://gs.statcounter.com/os-market-share/desktop/poland
+      \endverb
+    \endentry
+    \entry{zebrowska-fresenbet_jpk_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c20c2784ad15de8064f795a3648920c5}{%
+           family={Żebrowska-Fresenbet},
+           familyi={Ż\bibinithyphendelim F\bibinitperiod},
+           given={Daria},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {pl}%
+      }
+      \strng{namehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{fullhash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{fullhashraw}{c20c2784ad15de8064f795a3648920c5}
+      \strng{bibnamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorbibnamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authornamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorfullhash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorfullhashraw}{c20c2784ad15de8064f795a3648920c5}
+      \field{sortinit}{Ż}
+      \field{sortinithash}{e8feee526060f7a484a6388c13c5056c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Logo serwisu Biznes.gov.pl z orłem RP, umieszczone na czerwonym tle}
+      \field{month}{6}
+      \field{title}{Jak składać {JPK}\_VAT z deklaracją}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/CFJP5YR4/portal.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://biznes.gov.pl/pl/portal
+      \endverb
+      \verb{url}
+      \verb https://biznes.gov.pl/pl/portal
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{sqlite_package}{misc}{}{}
+      \field{sortinit}{s}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \field{labeltitlesource}{title}
+      \field{title}{sqlite package - modernc.org/sqlite - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb sqlite package - modernc.org/sqlite - Go Packages:/home/anon/Zotero/storage/EXYY2Z8U/sqlite.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/modernc.org/sqlite
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/modernc.org/sqlite
+      \endverb
+    \endentry
+    \entry{vida_council_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2be4a816598128ae272abd2cb54c8a67}{%
+           family={{Council of the European Union}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{fullhash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{fullhashraw}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{bibnamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorbibnamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authornamehash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorfullhash}{2be4a816598128ae272abd2cb54c8a67}
+      \strng{authorfullhashraw}{2be4a816598128ae272abd2cb54c8a67}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{Council {Directive} ({EU}) 2025/516 of 11 {March} 2025 amending {Directive} 2006/112/{EC} as regards {VAT} rules for the digital age}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb EUR-Lex HTML (EN):/home/anon/Zotero/storage/CBWYMC46/oj.html:text/html;EUR-Lex PDF (EN):/home/anon/Zotero/storage/7DB2KSCP/2025 - Council Directive (EU) 2025516 of 11 March 2025 amending Directive 2006112EC as regards VAT rules.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://data.europa.eu/eli/dir/2025/516/oj
+      \endverb
+      \verb{url}
+      \verb http://data.europa.eu/eli/dir/2025/516/oj
+      \endverb
+    \endentry
+    \entry{vat_gap_poland_2025}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=a1b813a6e85874b4c945aec2cdbea74c}{%
+           family={{European Commission}},
+           familyi={E\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=bea5438a9521adc1b23a9117024bbb43}{%
+           family={{CASE}},
+           familyi={C\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=ef988582afdd85df0f795a7ab493f73f}{%
+           family={{Oxford Economics}},
+           familyi={O\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=5a12cbca5e5dfec616d41028d80e1619}{%
+           family={{Syntesia}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Publications Office of the European Union}%
+      }
+      \strng{namehash}{b79fc786d11313b8e2b8c1007a45d0c0}
+      \strng{fullhash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{fullhashraw}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{bibnamehash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authorbibnamehash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authornamehash}{b79fc786d11313b8e2b8c1007a45d0c0}
+      \strng{authorfullhash}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \strng{authorfullhashraw}{bfc29cd8bbd9708d57dea77076d4ad47}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{VAT gap in the EU -- Country report 2024 -- Poland}
+      \field{year}{2025}
+      \verb{doi}
+      \verb 10.2778/2516273
+      \endverb
+      \verb{urlraw}
+      \verb https://data.europa.eu/doi/10.2778/2516273
+      \endverb
+      \verb{url}
+      \verb https://data.europa.eu/doi/10.2778/2516273
+      \endverb
+    \endentry
+    \entry{european_directive_2014}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=04477f088e2d7fa909d6f010ddf08b41}{%
+           family={{European Parliament}},
+           familyi={E\bibinitperiod}}}%
+        {{un=0,uniquepart=base,hash=2be4a816598128ae272abd2cb54c8a67}{%
+           family={{Council of the European Union}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{fullhash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{fullhashraw}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{bibnamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorbibnamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authornamehash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorfullhash}{000a9a0d5f0f06101811874d891db3a2}
+      \strng{authorfullhashraw}{000a9a0d5f0f06101811874d891db3a2}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{title}{Directive 2014/55/{EU} of the {European} {Parliament} and of the {Council} of 16 {April} 2014 on electronic invoicing in public procurement {Text} with {EEA} relevance}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{volume}{133}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb EUR-Lex HTML (EN):/home/anon/Zotero/storage/45G29RGP/oj.html:text/html;EUR-Lex PDF (EN):/home/anon/Zotero/storage/IVA3IA6L/2014 - Directive 201455EU of the European Parliament and of the Council of 16 April 2014 on electronic in.pdf:application/pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://data.europa.eu/eli/dir/2014/55/oj
+      \endverb
+      \verb{url}
+      \verb http://data.europa.eu/eli/dir/2014/55/oj
+      \endverb
+    \endentry
+    \entry{golang_specification}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The {Go} {Programming} {Language} {Specification} - {The} {Go} {Programming} {Language}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/RYJ3QSUC/spec.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://go.dev/ref/spec
+      \endverb
+      \verb{url}
+      \verb https://go.dev/ref/spec
+      \endverb
+    \endentry
+    \entry{golang_release_history}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Release {History} - {The} {Go} {Programming} {Language}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/AET5SUB6/release.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://go.dev/doc/devel/release
+      \endverb
+      \verb{url}
+      \verb https://go.dev/doc/devel/release
+      \endverb
+    \endentry
+    \entry{golang_stdlib}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhashraw}{8b36e9207c24c76e6719268e49201d94}
+      \field{extraname}{3}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradate}{3}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Standard library - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Standard library - Go Packages:/home/anon/Zotero/storage/VK8VWL4I/std.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/std
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/std
+      \endverb
+    \endentry
+    \entry{yaml_package}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=663d7de7df1466e03d8b707995aaaa77}{%
+           family={Goshima},
+           familyi={G\bibinitperiod},
+           given={Masaaki},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{fullhash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{fullhashraw}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{bibnamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorbibnamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authornamehash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorfullhash}{663d7de7df1466e03d8b707995aaaa77}
+      \strng{authorfullhashraw}{663d7de7df1466e03d8b707995aaaa77}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{yaml package - github.com/goccy/go-yaml - {Go} {Packages}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb yaml package - github.com/goccy/go-yaml - Go Packages:/home/anon/Zotero/storage/VW8S82CN/go-yaml.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://pkg.go.dev/github.com/goccy/go-yaml#section-readme
+      \endverb
+      \verb{url}
+      \verb https://pkg.go.dev/github.com/goccy/go-yaml#section-readme
+      \endverb
+    \endentry
+    \entry{mf_raport_luka_2019}{misc}{}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=5db54b3e0ed6ebd50b1842632210c30c}{%
+           family={Mazur},
+           familyi={M\bibinitperiod},
+           given={Tomasz},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dcc532e124aef2b4a089afec65b45bbf}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={Dorota},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d6003a10ace19ee8ed44e890b453914}{%
+           family={Juźwik},
+           familyi={J\bibinitperiod},
+           given={Agnieszka},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d6a58f58eafb15d474ca8b95e34d9097}{%
+           family={Czechowicz},
+           familyi={C\bibinitperiod},
+           given={Iwona},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5718e8329d116d33df4f9f36d213a50e}{%
+           family={Bieńkowska},
+           familyi={B\bibinitperiod},
+           given={Jadwiga},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Ministerstwo Finansów}%
+      }
+      \list{location}{1}{%
+        {Warszawa}%
+      }
+      \strng{namehash}{3ac6b4993994d0a65de3b1e7d60c3627}
+      \strng{fullhash}{d276687b0033c26b915cee095d83e018}
+      \strng{fullhashraw}{d276687b0033c26b915cee095d83e018}
+      \strng{bibnamehash}{d276687b0033c26b915cee095d83e018}
+      \strng{authorbibnamehash}{d276687b0033c26b915cee095d83e018}
+      \strng{authornamehash}{3ac6b4993994d0a65de3b1e7d60c3627}
+      \strng{authorfullhash}{d276687b0033c26b915cee095d83e018}
+      \strng{authorfullhashraw}{d276687b0033c26b915cee095d83e018}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Raport na temat wielkości luki podatkowej w podatku VAT w Polsce w latach 2004-2017}
+      \field{type}{MF Opracowania i Analizy}
+      \field{year}{2019}
+    \endentry
+    \entry{structured_invoice_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Faktura ustrukturyzowana i struktura logiczna {FA} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/VXHN8LYN/faktura-ustrukturyzowana-i-struktura-logiczna-fa.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/faktura-ustrukturyzowana-i-struktura-logiczna-fa/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/faktura-ustrukturyzowana-i-struktura-logiczna-fa/
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_terminy_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Podstawy Prawne {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/22RYBKMD/zakres-obowiazkowego-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/podstawy-prawne-oraz-kluczowe-terminy
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/podstawy-prawne-oraz-kluczowe-terminy
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_pytania_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{3}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{Pytania i odpowiedzi {KSeF} 2.0 - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/HDXTBWVA/pytania-i-odpowiedzi-ksef-20.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
+      \endverb
+    \endentry
+    \entry{mf_offline_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{4}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tryb offline - niedostępność {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/65X87L25/tryb-offline-niedostepnosc-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
+      \endverb
+    \endentry
+    \entry{mf_offline24_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tryb offline24 - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/HSWW5UEX/tryb-offline24.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
+      \endverb
+    \endentry
+    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{6}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{6}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{Zakres obowiązkowego {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/22RYBKMD/zakres-obowiazkowego-ksef.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/zakres-obowiazkowego-ksef
+      \endverb
+      \verb{url}
+      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/zakres-obowiazkowego-ksef
+      \endverb
+    \endentry
+    \entry{mf_wiadomosci_luka_2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {pl-PL}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{1}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Ministerstwo Finansów}
+      \field{title}{Informacja dotycząca metody liczenia luki {VAT} - {Ministerstwo} {Finansów} - {Portal} {Gov}.pl}
+      \field{urlday}{15}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/CILTQHWX/informacja-dotyczaca-metody-liczenia-luki-vat.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.gov.pl/web/finanse/informacja-dotyczaca-metody-liczenia-luki-vat
+      \endverb
+      \verb{url}
+      \verb https://www.gov.pl/web/finanse/informacja-dotyczaca-metody-liczenia-luki-vat
+      \endverb
+    \endentry
+    \entry{mf_jpk_informacje}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
+           family={{Ministerstwo Finansów}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
+      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
+      \field{extraname}{8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradate}{2}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Jednolity {Plik} {Kontrolny} - najważniejsze informacje - {Informacje} prasowe - {Dla} mediów - {Ministerstwo} {Finansów}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Jednolity Plik Kontrolny - najważniejsze informacje - Informacje prasowe - Dla mediów - Ministerstwo Finansów:/home/anon/Zotero/storage/LIVNTFHL/jednolity-plik-kontrolny-najwazniejsze-informacje.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
+      \endverb
+      \verb{url}
+      \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
+      \endverb
+    \endentry
+    \entry{sqlite_features}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9a9ab6daa89d3a40e1d166986df843e3}{%
+           family={{SQLite Development Team}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{fullhash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{fullhashraw}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{bibnamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorbibnamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authornamehash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorfullhash}{9a9ab6daa89d3a40e1d166986df843e3}
+      \strng{authorfullhashraw}{9a9ab6daa89d3a40e1d166986df843e3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{5}
+      \field{title}{Distinctive {Features} {Of} {SQLite}}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Distinctive Features Of SQLite:/home/anon/Zotero/storage/F6ACD7S6/different.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sqlite.org/different.html
+      \endverb
+      \verb{url}
+      \verb https://www.sqlite.org/different.html
+      \endverb
+    \endentry
+    \entry{statcounter_desktop_2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fee3fc182e02f376217580e5bfec4f51}{%
+           family={{StatCounter}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \strng{namehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{fullhash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{fullhashraw}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{bibnamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorbibnamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authornamehash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorfullhash}{fee3fc182e02f376217580e5bfec4f51}
+      \strng{authorfullhashraw}{fee3fc182e02f376217580e5bfec4f51}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This graph shows the market share of desktop operating systems in Poland based on over 5 billion monthly page views.}
+      \field{journaltitle}{StatCounter Global Stats}
+      \field{month}{12}
+      \field{title}{Desktop {Operating} {System} {Market} {Share} {Poland}}
+      \field{urlday}{6}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/M2YT5M5X/poland.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://gs.statcounter.com/os-market-share/desktop/poland
+      \endverb
+      \verb{url}
+      \verb https://gs.statcounter.com/os-market-share/desktop/poland
+      \endverb
+    \endentry
+    \entry{zebrowska-fresenbet_jpk_2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c20c2784ad15de8064f795a3648920c5}{%
+           family={Żebrowska-Fresenbet},
+           familyi={Ż\bibinithyphendelim F\bibinitperiod},
+           given={Daria},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{language}{1}{%
+        {pl}%
+      }
+      \strng{namehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{fullhash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{fullhashraw}{c20c2784ad15de8064f795a3648920c5}
+      \strng{bibnamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorbibnamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authornamehash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorfullhash}{c20c2784ad15de8064f795a3648920c5}
+      \strng{authorfullhashraw}{c20c2784ad15de8064f795a3648920c5}
+      \field{sortinit}{Ż}
+      \field{sortinithash}{e8feee526060f7a484a6388c13c5056c}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Logo serwisu Biznes.gov.pl z orłem RP, umieszczone na czerwonym tle}
+      \field{month}{6}
+      \field{title}{Jak składać {JPK}\_VAT z deklaracją}
+      \field{urlday}{16}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb Snapshot:/home/anon/Zotero/storage/CFJP5YR4/portal.html:text/html
+      \endverb
+      \verb{urlraw}
+      \verb https://biznes.gov.pl/pl/portal
+      \endverb
+      \verb{url}
+      \verb https://biznes.gov.pl/pl/portal
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
