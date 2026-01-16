@@ -3,7 +3,9 @@
 Krajowy System e-Faktur, w skrócie KSeF, to platforma online pozwalająca na wystawianie, odbieranie oraz przechowywanie faktur ustrukturyzowanych, opracowana przez Ministerstwo Finansów \parencite{ministerstwo_finansow_pytania_2025}. 
 W trakcie powstawania tej pracy nie występuje wciąż obowiązek wystawiania faktur za pomocą platformy - jednak obowiązek ten będzie stopniowo wprowadzany na przestrzeni 2026 roku \parencite{ministerstwo_finansow_pytania_2025}. 
 
-Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem, opisanym poniżej.
+Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT% TODO: przypis
+. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 %TODO: przypis
+- poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem, opisanym poniżej.
 
 W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z tych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. 
 
@@ -13,7 +15,8 @@ Celem niniejszej pracy będzie utworzenie oraz dokumentacja oprogramowania pozwa
 KSeF wprowadzany jest w celu załatania luki VAT, wywiązania się ze zgodności z dyrektywą UE 2025/516 oraz ułatwienia procesu fakturowania - jednak wprowadzenie tego systemu może wiązać się z wieloma komplikacjami dla małych i średnich przedsiębiorstw, biorąc pod uwagę skalę zmian, które niesie ze sobą pełna cyfryzacja.
 
 \subsection{Luka VAT}
-Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z konsumpcji dóbr i usług, a faktycznym przychodem skarbu państwa na jego podstawie. W przypadku Polski, na 2024 rok, wynosiła ona 6,9 proc., czyli ok. 21,5 miliardów złotych \parencite{mf_wiadomosci_luka_2024}.
+Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z konsumpcji dóbr i usług, a faktycznym przychodem skarbu państwa na jego podstawie %TODO: przypis
+. W przypadku Polski, na 2024 rok, wynosiła ona 6,9 proc., czyli ok. 21,5 miliardów złotych \parencite{mf_wiadomosci_luka_2024}.
 
 \begin{table}[H]
     \centering
@@ -57,14 +60,34 @@ Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z ko
     }
 \end{table}
 
-Jak widać, wystapił znaczący spadek luki po latach 2015/2016. Można wywnioskować, że przyczyniło się do tego wprowadzenie JPK, czyli inaczej Jednolitego Pliku Kontrolnego - dokumentu elektronicznego, w którym przedsiębiorcy informują Urząd Skarbowy na temat transakcji dokonanych w ramach działalności gospodarczej, takich jak zakup czy sprzedaż towarów lub usług. Obowiązek składania plików JPK\_VAT, w odmianie V7M (miesięcznej) lub V7K (kwartalnej) nałożony został na wszystkich podatników VAT w trzech terminach, między połową 2016 roku a początkiem 2018 %TODO: przypis
-. Jednolite Pliki Kontrolne jednak opierają się w głównej mierze na uczciwości podatników - są to pliki XML, do których wnoszone są informacje na temat faktur wystawionych oraz odebranych w określonym okresie rozliczeniowym, jednak same faktury nie są załączane, tak więc prawidłowość raportu może być sprawdzona jedynie za pomocą audytu. Kolejnym problemem jest fakt, że informacja na temat transakcji dociera do Urzędu Skarbowego do 25 dni po zakończeniu okresu rozliczeniowego. Wprowadzenie Krajowego Systemu e-Faktur ma wyeliminować te problemy poprzez eliminację tradycyjnych faktur oraz wprowadzenie faktur ustrukturyzowanych, które będą mogły być monitorowane na bieżąco. % TODO: przypis do sekcji na temat faktur ustrukturyzowanych.
+Jak widać, wystapił znaczący spadek luki po latach 2015/2016. Można wywnioskować, że przyczyniło się do tego wprowadzenie JPK, czyli inaczej Jednolitego Pliku Kontrolnego - dokumentu elektronicznego, w którym przedsiębiorcy informują Urząd Skarbowy na temat transakcji dokonanych w ramach działalności gospodarczej, takich jak zakup czy sprzedaż towarów lub usług %TODO: przypis jpk 
+. Obowiązek składania plików JPK\_VAT, w odmianie V7M (miesięcznej) %TODO: przypis
+lub V7K (kwartalnej) %TODO: przypis
+nałożony został na wszystkich podatników VAT w trzech terminach, między połową 2016 roku a początkiem 2018 %TODO: przypis
+. Jednolite Pliki Kontrolne jednak opierają się w głównej mierze na uczciwości podatników - są to pliki XML, do których wnoszone są informacje na temat faktur wystawionych oraz odebranych w określonym okresie rozliczeniowym, jednak same faktury nie są załączane, tak więc prawidłowość raportu może być sprawdzona jedynie za pomocą audytu. Kolejnym problemem jest fakt, że informacja na temat transakcji dociera do Urzędu Skarbowego do 25 dni %TODO: przypis
+po zakończeniu okresu rozliczeniowego. Wprowadzenie Krajowego Systemu e-Faktur ma wyeliminować te problemy poprzez eliminację tradycyjnych faktur oraz wprowadzenie faktur ustrukturyzowanych, które będą mogły być monitorowane na bieżąco. % TODO: przypis do sekcji na temat faktur ustrukturyzowanych.
 
 \subsection{Dyrektywy UE 2014/55 oraz UE 2025/516}
-Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych. W celu ułatwienia handlu interunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 25 marca 2025 ustanowiono zaś dyrektywę 2025/516, nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, jest krokiem w stronę wywiązania się z tego obowiązku.
+Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych %TODO: przypis
+. W celu ułatwienia handlu interunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 25 marca 2025 ustanowiono zaś dyrektywę 2025/516, nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku
+% TODO: przypis
+. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, można traktować jako krok w stronę wywiązania się z tego obowiązku.
 
 \subsection{Wyzwania dla małych i średnich przedsiębiorstw}
-Nadchodzące zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i jest wyposażone w tryb awaryjny w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
+Nadchodzące zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści %TODO: przypis
+, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i jest wyposażone w tryb awaryjny w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
+
+\subsection{Faktury ustrukturyzowane}
+Wprowadzany system przyjmować będzie jedynie faktury ustrukturyzowane - czyli w formacie XML (eXtensible Markup Language), o jednolitym układzie danych, umożliwiającym automatyczną analizę danych %TODO: przypis
+. Faktury najpierw walidowane są wobec schematu (schema, w formacie XSD) % TODO: przypis
+, po czym otrzymują unikalny numer identifykacyjny nadany przez KSeF i przechowywane są na okres 10 lat od wystawienia %TODO: przypis
+. Na dzień powstawania tej pracy obowiązujący schemat to FA(3) % TODO przypis
+, na który poświęcona jest cała sekcja [odnośnik do sekcji w rozdziale 2]. 
+
+Faktury te różnią się od \enquote{tradycyjnych} faktur elektronicznych w formacie PDF przede wszystkim tym, że mogą być odczytywane maszynowo - choć tracą na czytelności dla człowieka. Dlatego również system pozwala na pobieranie wizualizacji tych faktur w wyżej wspomnianym formacie.
+
+\subsection{Tryby offline oraz offline24}
+Oficjalna dokumentacja KSeF zakłada możliwość wyłączenia systemu na czas prac serwisowych oraz możliwe problemy z łącznością po stronie przedsiębiorcy - jednak rozwiązaniem jest możliwość wystawiania faktur w trybie offline z nałożonym obowiązkiem wysłania ich następnego dnia roboczego, lub 7 dni roboczych w przypadku awarii po stronie Krajowego Systemu e-Faktur. Oprogramowanie, którego tyczy niniejsza praca, ma ułatwić proces wywiązywania się z tego obowiązku poprzez nacisk na offline-first - przechowywanie faktur lokalnie i pilnowanie wysłania ich w terminie. %TODO: przypis
 
 \section{Cel, zakres oraz założenia pracy}
 Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną, nieinwazyjną i minimalizującą koszty integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go % TODO: przypis? ew. napomnienie o często używanej nazwie Golang
@@ -79,6 +102,9 @@ Zakres pracy obejmuje:
     \item praktyczne wykorzystanie go w realnym scenariuszu oraz ocenę działania na podstawie wyników.
 \end{itemize}
 
+Niniejsza praca ustrukturyzowana jest według powyższej listy. Końcowy rozdział składa się z analizy wykorzystania oprogramowania w realnym scenariuszu, dla [napisać nazwę spółki dla której wykorzystane będzie oprogramowanie?]. 
+
+\subsection{Założenia pracy}
 Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027 \parencite{ministerstwo_finansow_zakres_2025}. 
 
 Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla których integracja z Krajowym Systemem e-Faktur może wiązać się z komplikacjami oraz znaczącym podniesieniem kosztów - i na podstawie tego założenia zostaną przyjęte wszystkie inne.
@@ -94,6 +120,8 @@ Założenia:
     \item oprogramowanie nie ingeruje w treść faktur i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
     %TODO: dodatkowe wymagania, wspomnieć o panelu zatwierdzania?
 \end{itemize}
+
+Najważniejszym założeniem jednak jest poprawność danych wprowadzanych przez użytkownika, a zatem również brak odpowiedzialności oprogramowania za ewentualne błędy, takie jak przykładowo niepoprawna stawka VAT - system nie waliduje danych pod względem prawidłowości prawnej, ani nie zastępuje pełnoprawnych narzędzi księgowych.
 
 \section{Ogólna architektura oprogramowania}
 Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą lub pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur w wybrany przez użytkownika sposób, przekonwertowanie ich do formatu akcepotwanego przez KSeF, wysyłka oraz upewnienie się, że proces został wykonany bez żadnych nieprawidłowości - lub poinformowanie użytkownika o działaniach wymaganych do poprawnego wykonania procesu.
@@ -112,14 +140,14 @@ Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz prze
 
 \section{Narzędzia wykorzystane do realizacji}
 \subsection{Język programowania Go}
-Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Nie wymaga również żadnych lokalnych zależności w trakcie deploymentu - cały projekt może zostać skompilowany do pojedynczego pliku wykonywalnego. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizowany będzie projekt. % TODO: przypis
+Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Nie wymaga również żadnych lokalnych zależności w trakcie deploymentu - cały projekt może zostać skompilowany do pojedynczego pliku wykonywalnego. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizowany będzie projekt.% TODO: przypis
 
 \subsection{Baza danych SQLite}
-SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serwera. Wszystkie dane przechowywane są w jednym pliku, lokalnie. Jest to przenośne rozwiązanie, które ułatwi implementację warstwy aplikacji odpowiedzialnej za działanie w razie zakłóceń z połączeniem internetowym/dostępnością KSeF. 
+SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serwera. Wszystkie dane przechowywane są w jednym pliku, lokalnie %TODO: przypis
+. Jest to przenośne rozwiązanie, które ułatwi implementację warstwy aplikacji odpowiedzialnej za działanie w razie zakłóceń z połączeniem internetowym/dostępnością KSeF. 
 
 \subsection{Biblioteki/pakiety}
-Projekt będzie korzystał przede wszystkim z biblioteki standardowej Go - w tym pakietów takich jak net, crypto, encoding i database. % TODO: przypis
+Projekt będzie korzystał w głównej mierze z biblioteki standardowej Go - przede wszystkim pakietów służących do komunikacji za pomocą HTTP, podpisów kryptograficznych, przetwarzania plików w formatach JSON oraz XML, współbieżności. % TODO: przypis
 Dodatkowo, by zapewnić integrację z SQLite, wykorzystany będzie pakiet modernc.org/sqlite % TODO: przypis
 - jest on napisany całkowicie w Go, wpisując się w założenie o przenośności. Do wczytywania pliku konfiguracyjnego oprogramowania wykorzystano pakiet goccy/go-yaml - oficjalna biblioteka jest niewspierana na dzień przygotowywania pracy. % TODO: przypis
-
 
