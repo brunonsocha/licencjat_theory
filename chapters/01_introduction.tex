@@ -50,7 +50,7 @@ Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z ko
     \bottomrule 
     \end{tabular}
     
-    \vspace{0.2cm} \\
+    \vspace{0.2cm}
     \raggedright
     \footnotesize{
     \textit{Źródło: Opracowanie własne na podstawie raportu Ministerstwa Finansów (lata 2004--2017) \parencite{mf_raport_luka_2019} oraz raportu Komisji Europejskiej dla Polski (lata 2018--2023) \parencite{vat_gap_poland_2025}.}
@@ -102,14 +102,14 @@ Założenia:
     \item oprogramowanie jest kompatybilne z trzema najpopularniejszymi systemami operacyjnymi w Polsce, na dzień przygotowywania tej pracy \parencite{statcounter_desktop_2025}
     \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego % TODO: w którejś części pracy zamieścić wymagania sprzętowe
     \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi
-    \item oprogramowanie nie ingeruje w treść faktur i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
+    \item oprogramowanie nie ingeruje w treść faktur poza walidacją i normalizacją (przykładowo, wypełnienie pustych pól, które muszą zawierać wartości domyślne) i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
     %TODO: dodatkowe wymagania, wspomnieć o panelu zatwierdzania?
 \end{itemize}
 
 Najważniejszym założeniem jednak jest poprawność danych wprowadzanych przez użytkownika, a zatem również brak odpowiedzialności oprogramowania za ewentualne błędy, takie jak przykładowo niepoprawna stawka VAT - system nie waliduje danych pod względem prawidłowości prawnej, ani nie zastępuje pełnoprawnych narzędzi księgowych.
 
 \section{Ogólna architektura oprogramowania}
-Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą lub pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur w wybrany przez użytkownika sposób, przekonwertowanie ich do formatu akcepotwanego przez KSeF, wysyłka oraz upewnienie się, że proces został wykonany bez żadnych nieprawidłowości - lub poinformowanie użytkownika o działaniach wymaganych do poprawnego wykonania procesu.
+Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą lub pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur od użytkownika/z systemu zewnętrznego poprzez interfejs HTTP API, przekonwertowanie ich do formatu akceptowanego przez KSeF, wysyłka, upewnienie się, że proces został wykonany bez żadnych nieprawidłowości oraz wysłanie informacji zwrotnej o statusie faktury.
 \par
 Na oprogramowanie składają się następujące elementy:
 \begin{itemize}
@@ -121,16 +121,4 @@ Na oprogramowanie składają się następujące elementy:
     \item panel z interfejsem graficznym przeznaczonym dla użytkownika, informujący o statusie wysyłki lub/oraz o napotkanych nieprawidłowościach
 \end{itemize}
 
-Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie.
-
-\section{Narzędzia wykorzystane do realizacji}
-\subsection{Język programowania Go}
-Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Nie wymaga również żadnych lokalnych zależności w trakcie deploymentu - cały projekt może zostać skompilowany do pojedynczego pliku wykonywalnego \parencite{golang_specification}. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizowany będzie projekt \parencite{golang_release_history}. 
-
-\subsection{Baza danych SQLite}
-SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serwera. Wszystkie dane przechowywane są w jednym pliku, lokalnie \parencite{sqlite_features}. Jest to przenośne rozwiązanie, które ułatwi implementację warstwy aplikacji odpowiedzialnej za działanie w razie zakłóceń z połączeniem internetowym/dostępnością KSeF. 
-
-\subsection{Biblioteki/pakiety}
-Projekt będzie korzystał w głównej mierze z biblioteki standardowej Go - przede wszystkim pakietów służących do komunikacji za pomocą HTTP, podpisów kryptograficznych, przetwarzania plików w formatach JSON oraz XML, współbieżności \parencite{golang_stdlib}. 
-Dodatkowo, by zapewnić integrację z SQLite, wykorzystany będzie pakiet modernc.org/sqlite - jest on napisany całkowicie w Go, wpisując się w założenie o przenośności \parencite{sqlite_package}. Do wczytywania pliku konfiguracyjnego oprogramowania wykorzystano pakiet goccy/go-yaml - oficjalna biblioteka jest niewspierana na dzień przygotowywania pracy \parencite{yaml_package}. 
-
+Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie. Jeśli przyjęte przez interfejs HTTP API żądanie zawierało adres, na który powinna zostać wysłana informacja zwrotna, aplikacja zwraca informacje dotyczące pomyślnego przetworzenia faktury lub ewentualnej porażki.
