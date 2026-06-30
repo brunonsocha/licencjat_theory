@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.6)  18 JUN 2026 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.6)  30 JUN 2026 14:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1145,16 +1145,25 @@ ignored: Infinite glue shrinkage found in box being split [8
 
 ] [9]
 ignored: Infinite glue shrinkage found in box being split [10] [11]
-Overfull \hbox (25.46178pt too wide) in paragraph at lines 160--161
-\T1/ntxtlf/m/n/12 W celu uwie-rzy-tel-nie-nia, apli-ka-cja wy-ko-nuje pu-ste »¡
--da-nie POST do en-po-intu \T1/ntxtt/m/n/12 /auth/token/redeem
+Overfull \hbox (7.5889pt too wide) in paragraph at lines 160--161
+\T1/ntxtlf/m/n/12 caªy okres jej dzia-ªa-nia. Apli-ka-cja wy-ko-nuje pu-ste »¡-
+da-nie POST do end-po-intu \T1/ntxtt/m/n/12 /auth/challenge
  []
 
-[12]) [13] [14] [15
+[12] [13]
+Overfull \hbox (7.50653pt too wide) in paragraph at lines 203--203
+[]|\T1/ntxtlf/m/n/10.95 ksef.confirmation_max_attempts|  
+ []
+
+
+ignored: Infinite glue shrinkage found in box being split [14]
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.95pt on input line 246.
+ [15]) [16] [17
 
 
 
-] [16] (./main.aux (./chapters/00_cover.aux)
+] [18] (./main.aux (./chapters/00_cover.aux)
 (./chapters/01_introduction.aux) (./chapters/02_project_documentation.aux))
  ***********
 LaTeX2e <2025-11-01>
@@ -1165,21 +1174,21 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19830 strings out of 467525
- 348404 string characters out of 5425862
- 1322848 words of memory out of 5000000
- 48459 multiletter control sequences out of 15000+600000
- 675818 words of font info for 80 fonts, out of 8000000 for 9000
+ 19799 strings out of 467525
+ 347035 string characters out of 5425862
+ 1322534 words of memory out of 5000000
+ 48428 multiletter control sequences out of 15000+600000
+ 676140 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,9n,141p,1037b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,9n,141p,954b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf
 -dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (16 pages, 215259 bytes).
+Output written on main.pdf (18 pages, 218946 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -3094,12 +3094,6 @@
     <bcf:citekey order="21" intorder="1">mf_offline24_2025</bcf:citekey>
     <bcf:citekey order="22" intorder="1">ministerstwo_finansow_zakres_2025</bcf:citekey>
     <bcf:citekey order="23" intorder="1">statcounter_desktop_2025</bcf:citekey>
-    <bcf:citekey order="24" intorder="1">golang_specification</bcf:citekey>
-    <bcf:citekey order="25" intorder="1">golang_release_history</bcf:citekey>
-    <bcf:citekey order="26" intorder="1">sqlite_features</bcf:citekey>
-    <bcf:citekey order="27" intorder="1">golang_stdlib</bcf:citekey>
-    <bcf:citekey order="28" intorder="1">sqlite_package</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">yaml_package</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">

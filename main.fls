@@ -322,6 +322,7 @@ INPUT /usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm
 INPUT main.aux
 INPUT ./chapters/00_cover.aux
 INPUT ./chapters/00_cover.aux

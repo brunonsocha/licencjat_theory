@@ -14,7 +14,7 @@ Format JSON został wybrany ze względu na swoją kompatybilność z HTTP API or
 % citation
 .
 
-Oprogramowanie spodziewa się następujących danych:
+\noindent Oprogramowanie spodziewa się następujących danych:
 \begin{small}
 \begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{7cm}}
 \caption{Pola żądania wejściowego HTTP przekazywanego do endpointu \texttt{/invoices}}
@@ -76,7 +76,7 @@ udostępnionego przez Ministerstwo Finansów.
 \subsection{Zapis danych}
 W przypadku pomyślności poprzednich kroków, dane zapisywane są w lokalnej bazie danych SQLite.
 
-Zapisywane są następujące dane:
+\noindent Zapisywane są następujące dane:
 \begin{small}
 \begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{7cm}}
 \caption{Najważniejsze kolumny tabeli Invoices w lokalnej bazie danych}
@@ -120,7 +120,7 @@ Aplikacja skanuje bazę danych w poszukiwaniu faktur oznaczonych jako niewysłan
 Jeśli w oryginalnych danych przekazanych aplikacji żądaniem figurował adres, na który wysłana powinna zostać informacja zwrotna dotycząca statusu wysyłki, mechanizm webhooków (z ang. haków sieciowych - aplikacja "zahacza" o dostawcę danych, na potrzebę przyszłej interakcji)
 prześle zewnętrznemu systemowi dane w formacie JSON po oznaczeniu faktury jako wysłana lub odrzucona, potwierdzając pomyślność operacji lub podając powód odrzucenia faktury. W przypadku błędu w trakcie próby przekazania danych, aplikacja podejmie kolejne próby, aż do osiągnięcia określonego przez użytkownika limitu prób.
 
-Informacja zwrotna przesyłana jest w następującej postaci:
+\noindent Informacja zwrotna przesyłana jest w następującej postaci:
 \begin{small}
 \begin{longtable}{>{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{2cm} >{\raggedright\arraybackslash}p{7cm}}
 \caption{Pola żądania HTTP z informacją zwrotną przesyłanego do systemu zewnętrznego}
@@ -154,30 +154,100 @@ Aplikacja eksponuje również prosty panel na endpoincie \texttt{/ui/invoices} u
     oraz ostylowany za pomocą Tailwind CSS.
 
 \section{Komunikacja z KSeF}
-Podstawowym elementem działania aplikacji jest interakcja z samym Krajowym Systemem e-Faktur - uwierzytelnienie, otwieranie i zamykanie sesji interaktywnych w celu wysyłki faktur oraz sprawdzanie statusu i odbiór Urzędowych Poświadczeń Odbioru.
+Podstawowym elementem działania aplikacji jest interakcja z samym Krajowym Systemem e-Faktur - uwierzytelnienie, otwieranie i zamykanie sesji interaktywnych w celu wysyłki faktur oraz sprawdzanie statusu i odbiór Urzędowych Poświadczeń Odbioru. 
 
 \subsection{Uwierzytelnienie}
-W celu uwierzytelnienia, aplikacja wykonuje puste żądanie POST do enpointu \texttt{/auth/token/redeem} eksponowanego przez KSeF, w odpowiedzi uzyskując \enquote{wyzwanie}. Pozyskane dane, wraz z wcześniej wprowadzonym przez użytkownika w trakcie konfiguracji tokenem API z Panelu Podatnika wykorzystywane są do utworzenia nowego tokena, który umożliwi dostęp oraz odświeżanie sesji. Oprogramowanie wyposażone jest również w mechanizm, który w wypadku działania wymagającego autentykacji, automatycznie sprawdza czy token nie jest przedawniony i odświeża go, jeśli wystąpi taka potrzeba.
+Uwierzytelnienie następuje natychmiast po uruchomieniu aplikacji i podtrzymywane jest przez cały okres jej działania. Aplikacja wykonuje puste żądanie POST do endpointu \texttt{/auth/challenge} eksponowanego przez KSeF, w odpowiedzi uzyskując \enquote{wyzwanie} - timestamp, który po połączeniu z pozyskanym wcześniej przez użytkownika tokenem API z panelu KSeF jest szyfrowany z użyciem klucza publicznego automatycznie pobieranego przez aplikację. Przesyłane następnie jest żądanie do endpointu \texttt{/auth/ksef-token}, zwracające tymczasowy token dostępu. Następnie, token ten wysyłany jest do \texttt{/auth/token/redeem}, pozyskując token dostępu oraz drugi, pozwalający na odświeżenie go. Oprogramowanie automatycznie sprawdza, kiedy dojdzie do przedawnienia, i automatycznie odświeży status uwierzytelnienia, jeśli jest taka potrzeba.
 
 \subsection{Otwieranie i zamykanie sesji}
-
+Do otwierania oraz zamykania tzw. sesji interaktywnych, pozwalających na wysyłkę faktur, dochodzi gdy aplikacja rejestruje pojawienie się nowej faktury lub faktur do wysyłki w bazie danych. Sesja otwierana jest poprzez przesłanie żądania z zaszyfrowanym kluczem symetrycznym oraz wektorem inicjalizacji do endpointu \texttt{/sessions/online}, otrzymując w odpowiedzi identyfikator sesji oraz czas jej ważności. Po wysyłce sesja jest zamykana przez przesłanie żądania do endpointu \texttt{/sessions/online/x/close}, gdzie \enquote{x} jest zapisanym przy otwarciu identyfikatorem.
 
 \subsection{Przesyłanie faktur}
+Faktury z bazy danych, w formacie XML, są następnie szyfrowane oraz przesyłane do endpointu \texttt{/sessions/online/x/invoices}, gdzie \enquote{x} to identyfikator sesji interaktywnej. Zwracany jest identyfikator przesyłki, który wykorzystywany jest do sprawdzenia statusu wysyłki. Niepotwierdzane jest jednak czy faktura została przyjęta przez KSeF.
 
 \subsection{Sprawdzenie statusu i pobranie Urzędowego Poświadczenia Odbioru}
+Aplikacja sprawdza status faktury aż do otrzymania odpowiedzi, lub osiągnięcia limitu ponownych żądań ustalonego przez użytkownika w konfiguracji. W przypadku przyjęcia faktury przez KSeF, aplikacja zapisze Urzędowe Poświadczenie Odbioru w bazie danych, a w przypadku odrzucenia oznaczy w bazie danych porażkę. W przypadku otrzymywania odpowiedzi, że faktura dalej jest przetwarzana, oznaczy jej status jako nieznany, oraz podejmie próbę sprawdzenia jej statusu przy kolejnym cyklu kolejki.
+
+\section{Cykl życia aplikacji}
+W tej sekcji opisane będzie ogólne działanie - od konfiguracji i uruchomienia, przez działanie, po mechanizm bezpiecznego zamknięcia oraz w jaki sposób aplikacja jest wdrażana kontenerowo.
+
+\subsection{Konfiguracja}
+Oprogramowanie jest konfigurowane za pomocą pliku \enquote{config.yaml}, którego format został wybrany ze względu na swoją prostotę, czytelność dla człowieka oraz powielenie użycia we wdrożeniu kontenerowym (plik \enquote{docker-compose.yaml}), któremu dedykowana jest osobna subsekcja. 
 
 
+\noindent Struktura pliku konfiguracyjnego jest następująca:
 
+\begin{small}
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.8cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{6.5cm}}
+\caption{Plik konfiguracyjny aplikacji}
+\label{tab:config_fields} \\
+\toprule
+\textbf{Parametr} & \textbf{Typ} & \textbf{Opis} \\
+\midrule
+\endfirsthead
 
+\toprule
+\textbf{Parametr} & \textbf{Typ} & \textbf{Opis} \\
+\midrule
+\endhead
 
+\bottomrule
+\endfoot
 
+ksef.nip & TEXT & Numer Identyfikacji Podatkowej podmiotu, który reprezentuje użytkownik. \\
+ksef.url & TEXT & Oficjalny adres API KSeF, na wypadek zmiany, lub chęci użytkownika do przetestowania oprogramowania na środowisku testowym. \\
+ksef.token & TEXT & Oficjalny token API pozyskany przez użytkownika z Panelu Podatnika KSeF. \\
+ksef.http\_timeout\_sec & INTEGER & Maksymalny czas oczekiwania na odpowiedź HTTP z KSeF. \\
+ksef.auth\_retry\_delay\_sec & INTEGER & Przerwa w sekundach pomiędzy kolejnymi próbami autentykacji w KSeF. \\
+ksef.polling\_delay\_sec & INTEGER & Przerwa w sekundach pomiędzy kolejnymi zapytaniami o status wysłanej do KSeF faktury. \\
+ksef.confirmation\_max\_attempts & INTEGER & Maksymalna liczba prób sprawdzenia statusu przesłanej faktury. \\
+sqlite.db\_path & TEXT & Ścieżka do lokalnej bazy danych, wybierana przez użytkownika. \\
+sqlite.busy\_timeout\_ms & INTEGER & Czas oczekiwania SQLite na zwolnienie blokady bazy danych. \\
+server.port & TEXT & Port HTTP, na którym uruchamiana jest aplikacja. \\
+user.max\_retries & INTEGER & Maksymalna liczba prób wysyłki faktury lub webhooka w przypadku błędów. \\
+xsd\_path & TEXT & Ścieżka do pliku schematu XSD używanego do walidacji faktur w formacie XML. \\
+dash\_page\_size & INTEGER & Liczba faktur wyświetlanych na jednej stronie panelu użytkownika. \\
+polling\_interval & INTEGER & Czas w sekundach między skanowaniem bazy danych w poszukiwaniu faktur do wysyłki. \\
+shutdown\_timeout\_sec & INTEGER & Maksymalny czas oczekiwania na bezpieczne zamknięcie aplikacji. \\
+sender\_batch\_size & INTEGER & Maksymalna liczba faktur lub webhooków wysyłanych w jednym cyklu działania aplikacji. \\
+sender\_worker\_limit & INTEGER & Limit równoległych wysyłek faktur lub webhooków wykonywanych naraz przez aplikację. \\
+\end{longtable}
+\end{small}
 
-\subsection{Język programowania Go}
-Go, znany również jako \enquote{Golang}, jest językiem programowania open-source o nieskomplikowanej składni, wyposażonym w rozległą bibliotekę standardową i zbudowanym z myślą o współbieżności. Pomimo podobieństwa składni do C, Go automatycznie zarządza pamięcią. Jest również językiem kompilowanym i wspiera wiele platform, a w branży informatycznej stosowany jest głównie do serwisów back-end. Nie wymaga również żadnych lokalnych zależności w trakcie deploymentu - cały projekt może zostać skompilowany do pojedynczego pliku wykonywalnego \parencite{golang_specification}. Biorąc pod uwagę wyżej wymienione cechy oraz ich dopasowanie do założeń projektu, został on wybrany do realizacji oprogramowania. Na dzień przygotowywania tej pracy, najnowszą dostępną wersją Go jest 1.25.5 - w niej również zrealizowany będzie projekt \parencite{golang_release_history}. 
+\subsection{Uruchomienie aplikacji}
+Po uruchomieniu aplikacji, tworzone są loggery odpowiadające za rejestrowanie wszystkich działań aplikacji. Otwierany jest wcześniej wspomniany plik konfiguracyjny, a jego wartości są walidowane. Oprogramowanie utworzy odpowiednią bazę danych SQLite, lub spróbuje połączyć się z już isntiejącą, jeśli owa istnieje. Następnie wczytywany jest schemat XSD służący do walidacji faktur w formacie XML oraz tworzony jest specjalny walidator.
 
-\subsection{Baza danych SQLite}
-SQLite jest lekką, relacyjną bazą danych, która nie wymaga dedykowanego serwera. Wszystkie dane przechowywane są w jednym pliku, lokalnie \parencite{sqlite_features}. Jest to przenośne rozwiązanie, które ułatwi implementację warstwy aplikacji odpowiedzialnej za działanie w razie zakłóceń z połączeniem internetowym/dostępnością KSeF. 
+Tworzony jest klient HTTP oraz struktura aplikacji, z użyciem parametrów z pliku konfiguracyjnego, oraz uruchamiany jest serwer HTTP, asynchronicznie z pętlą odpowiadającą za skanowanie bazy danych w poszukiwaniu faktur. Przygotowywany jest również kontekst pozwalający później na bezpieczne zamknięcie aplikacji. 
 
-\subsection{Biblioteki/pakiety}
-Projekt będzie korzystał w głównej mierze z biblioteki standardowej Go - przede wszystkim pakietów służących do komunikacji za pomocą HTTP, podpisów kryptograficznych, przetwarzania plików w formatach JSON oraz XML, współbieżności \parencite{golang_stdlib}. 
-Dodatkowo, by zapewnić integrację z SQLite, wykorzystany będzie pakiet modernc.org/sqlite - jest on napisany całkowicie w Go, wpisując się w założenie o przenośności \parencite{sqlite_package}. Do wczytywania pliku konfiguracyjnego oprogramowania wykorzystano pakiet goccy/go-yaml - oficjalna biblioteka jest niewspierana na dzień przygotowywania pracy \parencite{yaml_package}. 
+\subsection{Działanie aplikacji}
+Aplikacja w ramach swojego działania eksponuje odpowiednie endpointy API HTTP oraz rozpoczyna cykliczne skanowanie bazy danych SQLite.
+
+\noindent Eksponowane są następujące endpointy:
+
+\begin{small}
+\begin{longtable}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{4cm} >{\raggedright\arraybackslash}p{6cm}}
+\caption{Endpointy eksponowane przez aplikację}
+\label{tab:app_endpoints} \\
+\toprule
+\textbf{Metoda} & \textbf{Endpoint} & \textbf{Opis} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Metoda} & \textbf{Endpoint} & \textbf{Opis} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+POST & /invoices & Główny endpoint wejściowy aplikacji. Przyjmuje faktury w formacie JSON. \\
+GET & /ui/invoices & Endpoint pozwalający na dostęp do panelu użytkownika. \\
+GET & / & Podstawowy endpoint pozwalający na dostęp do panelu użytkownika przez przekierowanie do \texttt{/ui/invoices}. \\
+GET & /ui/invoicetable & Endpoint zwracający interfejs wierszy z fakturami, wykorzystywany do odświeżania widoku z użyciem HTMX. \\
+GET & /ui/invoice?id=\{id\} & Endpoint zwracający szczegółowy widok pojedynczej faktury. \\
+DELETE & /deleteinvoice?id=\{id\} & Endpoint pozwalający na manualne usunięcie faktury. \\
+GET & /health/live & Endpoint pozwalający sprawdzić, czy aplikacja działa. \\
+GET & /health/ready & Endpoint pozwalający sprawdzić, czy aplikacja jest gotowa do obsługi wysyłanych faktur. \\
+\end{longtable}
+\end{small}
