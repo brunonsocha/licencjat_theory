@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.4.6)  22 JUL 2026 14:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.7.25)  29 JUL 2026 14:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -817,7 +817,8 @@ Package csquotes Info: Redefining alias 'default' -> 'polish'.
 Package babel Info: 'polish' activates 'polish' shorthands.
 (babel)             Reported on input line 7.
  (./chapters/01_introduction.aux)
-(./chapters/02_project_documentation.aux))
+(./chapters/02_technologies_used.aux)
+(./chapters/03_project_design_architecture.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 60.
@@ -1119,19 +1120,12 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.0pt on input line 83.
  [5{/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}] [6]) [7]
-\openout2 = `chapters/02_project_documentation.aux'.
+\openout2 = `chapters/02_technologies_used.aux'.
 
 
-(./chapters/02_project_documentation.tex
+(./chapters/02_technologies_used.tex
 Rozdzia\l  2.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
-22.
-(/usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd
-File: t1ntxtt.fd 2012/04/20 v3.1
-)
-LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 12.0pt on input line 22.
- [8
+[8
 
 
 
@@ -1139,87 +1133,110 @@ LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
 ]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.95pt on input line 33.
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 
+45.
+ (/usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.95pt on input line 45.
 
-Overfull \hbox (8.13737pt too wide) in paragraph at lines 33--33
+Overfull \hbox (1.89499pt too wide) in paragraph at lines 46--46
+[]|\T1/ntxtlf/m/n/10.95 github.com/terminalstatic/go- 
+ []
+
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 12.0pt on input line 51.
+[9]) [10]
+\openout2 = `chapters/03_project_design_architecture.aux'.
+
+ (./chapters/03_project_design_architecture.tex
+Rozdzia\l  3.
+[11
+
+
+
+
+] [12] [13]
+Overfull \hbox (8.13737pt too wide) in paragraph at lines 106--106
 []|\T1/ntxtlf/b/n/10.95 Wymagalno±¢|  
  []
 
 
-Overfull \hbox (8.13737pt too wide) in paragraph at lines 38--38
+Overfull \hbox (8.13737pt too wide) in paragraph at lines 111--111
 []|\T1/ntxtlf/b/n/10.95 Wymagalno±¢|  
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [9] [10]
-ignored: Infinite glue shrinkag
-e found in box being split [11] [12]
-Overfull \hbox (7.5889pt too wide) in paragraph at lines 170--171
+ignored: Infinite glue shrinkage found in box being split [14] [15] [16] [17]
+Overfull \hbox (7.5889pt too wide) in paragraph at lines 208--209
 \T1/ntxtlf/m/n/12 caªy okres jej dzia-ªa-nia. Apli-ka-cja wy-ko-nuje pu-ste »¡-
 da-nie POST do end-po-intu \T1/ntxtt/m/n/12 /auth/challenge
  []
 
-[13] [14]
-Overfull \hbox (7.50653pt too wide) in paragraph at lines 213--213
+[18]
+Overfull \hbox (7.50653pt too wide) in paragraph at lines 251--251
 []|\T1/ntxtlf/m/n/10.95 ksef.confirmation_max_attempts|  
  []
 
 
-ignored: Infinite glue shrinkage found in box being split [15]
+ignored: Infinite glue shrinkage found in box being split [19] [20]
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.95pt on input line 256.
+(Font)              scaled to size 10.95pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 256.
+(Font)              scaled to size 8.0pt on input line 294.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.1pt on input line 256.
+(Font)              scaled to size 6.1pt on input line 294.
 
-ignored: Infinite glue shrinkage found in box being split [16] [17]) [18] [19
+ignored: Infinite glue shrinkage found in box being split [21] [22]) [23] [24
 
 
 
-] [20] (./main.aux (./chapters/00_cover.aux)
-(./chapters/01_introduction.aux) (./chapters/02_project_documentation.aux))
+] [25] (./main.aux (./chapters/00_cover.aux)
+(./chapters/01_introduction.aux) (./chapters/02_technologies_used.aux)
+(./chapters/03_project_design_architecture.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1229,21 +1246,21 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19985 strings out of 467525
- 349329 string characters out of 5425862
- 1324432 words of memory out of 5000000
- 48608 multiletter control sequences out of 15000+600000
- 687523 words of font info for 104 fonts, out of 8000000 for 9000
+ 20015 strings out of 467525
+ 350642 string characters out of 5425861
+ 1330222 words of memory out of 5000000
+ 48631 multiletter control sequences out of 15000+600000
+ 687845 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,141p,1704b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,141p,1710b,7396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/share/texmf
 -dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/newtx/ztmb.pfb></usr/share/texmf-dist/fonts/type1/public/newtx/ztmr.pfb><
 /usr/share/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on main.pdf (20 pages, 224476 bytes).
+Output written on main.pdf (25 pages, 235206 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 115 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

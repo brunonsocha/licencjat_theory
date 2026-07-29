@@ -1,3 +1,67 @@
 \chapter{Wykorzystane technologie}
 \section{Wprowadzenie}
 W tym rozdziale omówione zostaną technologie (języki programowania, protokoły, usługi) wykorzystane do realizacji projektu.
+
+\section{Język programowania Go}
+\subsection{Geneza oraz użycie Go}
+Utworzony w 2006 roku przez trzech pracowników Google - Roba Pike'a, Kena Thompsona oraz Roberta Griesemera - Go to język programowania charakteryzujący się prostotą składni, która przypomina język C, z wydajnością języków kompilowanych, takich jak C++ lub Rust. Go jest obecnie popularne w projektach backendowych oraz chmurowych, wykorzystywane przez przykładowo Google, Dropbox, Uber, PayPal, Soundcloud, BBC, Docker, Kubernetes, American Express oraz Netflix. 
+
+\subsection{Cechy Go}
+Go jest językiem statycznie typowanym, o typowaniu silnym - gdzie typ zmiennej (przykładowo, liczba całkowita, liczba zmiennoprzecinkowa) znany jest przed uruchomieniem programu, a każda zmienna ma odgórnie ustalony typ w kodzie. 
+
+Jest również językiem kompilowanym - kod nie jest na bieżąco interpretowany, jak w przypadku przykładowo Pythona, dzięki czemu większość błędów jest wykrywana zanim program zostanie uruchomiony. Zamiast tego tworzony jest w pełni przenośny, uruchamialny plik binarny, który uruchomiony może być na systemach Windows, Linux lub macOS. 
+
+Go wyposażone jest w prostą, jednak wysoko efektywną bibliotekę standardową, co pozwala na minimalizację zewnętrznych zależności. Słynie również ze swojego modelu współbieżności, opartego na \enquote{goroutines} w przeciwieństwie do tradycyjnie wykorzystywanych wątków. Go wymaga jawnej obsługi błędów w przypadku każdej funkcji, która może zwrócić błąd - co ułatwia gwarancję poprawnego funkcjonowania budowanej aplikacji.
+
+\subsection{Model współbieżności Go}
+Go wspiera współbieżne wykonywanie zadań w ramach jednego programu, dzięki swojej alternatywie dla wątków - goroutines (dalej: gorutyny). Język wyposażony jest w swój własny program planujący, który przypisuje osobne \enquote{gorutyny} wątkom systemu operacyjnego - co pozwala na przypisanie kilku pojedynczemu.
+
+Typowy wątek wymaga stosu o wielkości jednego do dwóch megabajtów, w czasie gdy gorutyna potrzebuje zaledwie dwóch kilobajtów. Różnicą jest również to, w jaki sposób dochodzi do dzielenia się danymi pomiędzy wątkami. Tradycyjne wątki odczytują i nadpisują współdzieloną pamięć, w czasie gdy Go zachęca do używania tzw. kanałów, przez które przesyłane mogą być dane lub sygnały, ułatwiając omijanie zjawiska wyścigu, to jest błędów wywołanych pseudolosową kolejnością wykonywanych współbieżnych zadań.
+
+Go posiada również funkcjonalność zwana kontekstem, pozwalająca na wyznaczanie terminów oraz wysyłanie żądań między skoordynowanymi elementami programów.
+
+\subsection{Uzasadnienie wyboru Go do wykonania projektu}
+Go zostało wybrane przedewszystkim z uwagi na jego znajomość przez autora pracy - ale również prostotę składni i pracy z tym językiem. Kod jest przejrzysty i prosty w podziale na osobne elementy, a dzięki wymaganej kompilacji programu przy każdej próbie jego uruchomienia wykrywanie większości błędów odbywało się samoistnie. Biorąc pod uwagę założenia projektu, język umożliwił prostotę wdrożenia - plik końcowy uruchamialny jest na systemach Windows, Linux i macOS. 
+
+Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech zewnętrznych zależności:
+
+\begin{small}
+\begin{longtable}{>{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{6cm}}
+\caption{Biblioteki zewnętrzne wykorzystane w projekcie}
+\label{tab:external_libraries} \\
+\toprule
+\textbf{Biblioteka} & \textbf{Zastosowanie} & \textbf{Rola w projekcie} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Biblioteka} & \textbf{Zastosowanie} & \textbf{Rola w projekcie} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+github.com/goccy/go-yaml & konfiguracja & Odczyt i przetwarzanie pliku konfiguracyjnego \texttt{config.yaml} w formacie YAML. \\
+github.com/terminalstatic/go-xsd-validate & walidacja XML & Walidacja wygenerowanych faktur XML wobec oficjalnego schematu XSD faktur ustrukturyzowanych FA(3). \\
+modernc.org/sqlite & baza danych & Sterownik do bazy danych SQLite. \\
+\end{longtable}
+\end{small}
+
+Go, podobnie jak C, posiada wskaźniki pamięci, które wykorzystane zostały w projekcie do opcjonalnych pól faktur oraz odróżniania brakujących danych od danych, które są zwyczajnie puste. Najważniejszym elementem jednak są wspomniane w poprzedniej subsekcji gorutyny, umożliwiające aplikacji współbieżną obsługę żądań HTTP oraz cykliczne skanowanie bazy danych w poszukiwaniu rekordów do przetworzenia. Sama wysyłka faktur oraz webhooków również jest współbieżna, a limit maksymalnych asynchronicznych zadań narzucany jest przez pojemność kanałów. Aplikacja oczekuje zakończenia obecnej próby przed rozpoczęciem kolejnego cyklu działania poprzez użycie \texttt{WaitGroup}, a użycie kontekstu pozwoliło na wprowadzenie mechanizmu bezpiecznego zamykania programu.
+
+\section{Baza danych SQLite}
+
+\section{Protokół HTTP oraz styl architektoniczny REST API}
+
+\section{Format JSON}
+
+\section{Format XML oraz schemat XSD}
+
+\section{HTMX}
+
+\section{Tailwind CSS}
+
+\section{Docker}
+
+\section{Środowisko Krajowego Systemu e-Faktur}
