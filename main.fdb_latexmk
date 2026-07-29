@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1782472415.67885 "main.bcf" "main.bbl" "main" 1782821680.58526 0
+["biber main"] 1784557186.30485 "main.bcf" "main.bbl" "main" 1784722097.46813 0
   "bibliografia.bib" 1768577844.17662 8752 434c5b75d2e6d2c37b8db03f5753b1fb ""
-  "main.bcf" 1782821680.45623 134933 f78009437856db67dc2b117c84e32c74 "pdflatex"
+  "main.bcf" 1784722097.33629 134933 f78009437856db67dc2b117c84e32c74 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1782821678.24533 "main.tex" "main.pdf" "main" 1782821680.5858 0
+["pdflatex"] 1784722094.82708 "main.tex" "main.pdf" "main" 1784722097.46859 0
   "/usr/share/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1775415801 2914 fdbc4a54b9bc76f4551b5303f2737d33 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1775415801 3124 3813fd4c981d99822890a2861b0d274c ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1775415801 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -19,9 +19,11 @@
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm" 1775415801 760 e8ec875a87aa119f1af7ea4be48da9e8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxexx.tfm" 1775415801 1788 252bc928adbd02cba8c68f0fccd62f6c ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxmi.tfm" 1775415801 4172 340ea89e25c9c33046a01b6076a08702 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxmi5.tfm" 1775415801 3308 d9d654d4f27ed240ea47773a02bead2a ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxmi7.tfm" 1775415801 3332 a520b9aff96ee52c272945382939f67a ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxmia.tfm" 1775415801 2608 9c7fe86deb83f37d09d400f6c4a8b2b4 ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsy.tfm" 1775415801 2024 35d8be81d65a081fa18ab2ba93aeb166 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsy5.tfm" 1775415801 2032 f45c629943b6f098ea13e1db6040dab0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsy7.tfm" 1775415801 2000 c8518036fe884fa294a1eeb2da3075ed ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsyc.tfm" 1775415801 1028 2f6cbe812325cff65b38e4c0a517f4cb ""
   "/usr/share/texmf-dist/fonts/tfm/public/newtx/ntxsym.tfm" 1775415801 1560 755acbe6da75f914298c79fa8bb324fd ""
@@ -103,6 +105,7 @@
   "/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg" 1775415801 678 4792914a8f45be57bb98413425e4c7af ""
   "/usr/share/texmf-dist/tex/latex/logreq/logreq.def" 1775415801 1620 fb1c32b818f2058eca187e5c41dfae77 ""
   "/usr/share/texmf-dist/tex/latex/logreq/logreq.sty" 1775415801 6187 b27afc771af565d3a9ff1ca7d16d0d46 ""
+  "/usr/share/texmf-dist/tex/latex/makecell/makecell.sty" 1775415801 15773 2dd7dde1ec1c2a3d0c85bc3b273e04d8 ""
   "/usr/share/texmf-dist/tex/latex/mweights/mweights.sty" 1775415801 4953 67f29a12ea26221103fce6bae3433e60 ""
   "/usr/share/texmf-dist/tex/latex/newtx/lmsntxsy.fd" 1775415801 1140 ee5963b0c88b5c4f92fed61a27034b79 ""
   "/usr/share/texmf-dist/tex/latex/newtx/lmxntxexx.fd" 1775415801 549 70a2497c311fc8b19acb02f7607eb4e9 ""
@@ -129,17 +132,17 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1775415801 43569 fd570f2fa160877d211e859f687312ba ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775490929 5541339 b32eb00eb34cd5c925a7827d916d9dbd ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1775490900 3765591 0b6ac8bc7b6324f3500f453de8df5295 ""
-  "chapters/00_cover.aux" 1782821679.94922 4141 8caa6d149909d5863036175ee16fb485 "pdflatex"
+  "chapters/00_cover.aux" 1784722096.76028 4166 cef0561fb97393f8986881004ddd8ede "pdflatex"
   "chapters/00_cover.tex" 1767780675.45216 750 8f30a4544b0aaf7e7ef8a65b6dcf9b1d ""
-  "chapters/01_introduction.aux" 1782821680.24923 5802 095ad6b34dcd2ec8cd4328d19a61e77a "pdflatex"
+  "chapters/01_introduction.aux" 1784722097.08328 5827 6f0c44743321c7648d9deac45b05bbdb "pdflatex"
   "chapters/01_introduction.tex" 1781783582.02853 14006 334c676a6fbe0ec61e6447b28aa23975 ""
-  "chapters/02_project_documentation.aux" 1782821680.31223 8214 cc99a23f24fedfe64ed1f54855e485f8 "pdflatex"
-  "chapters/02_project_documentation.tex" 1782821676.55817 18887 79b27e274da5b7d939915672dd749a0e ""
+  "chapters/02_project_documentation.aux" 1784722097.17128 9346 bf30872dba80ae00e1b11f27fbd32478 "pdflatex"
+  "chapters/02_project_documentation.tex" 1784722093.53922 25130 7bd9906c2fb1bc27882f4a103e98245b ""
   "images/pieczec_uek.png" 1630063144 78646 743eb18e76dbb1957afed4d205c9447b ""
-  "main.aux" 1782821680.44623 5836 aee9bce0f4fc2a16e125e7cf2f8dc5bf "pdflatex"
-  "main.bbl" 1782472416.99834 53638 97b85cf84ac7300065ba8f1700554120 "biber main"
-  "main.run.xml" 1782821680.45822 2429 15b6df33d5d8eb1304e7f85575d3a310 "pdflatex"
-  "main.tex" 1781783994.22131 1224 37f96e146c1ffc5367038d8b8c08c69a ""
+  "main.aux" 1784722097.32429 5836 9d86b8a4ef583db2e8a12dd1cfe5eeb9 "pdflatex"
+  "main.bbl" 1784557187.59354 53638 97b85cf84ac7300065ba8f1700554120 "biber main"
+  "main.run.xml" 1784722097.33901 2429 15b6df33d5d8eb1304e7f85575d3a310 "pdflatex"
+  "main.tex" 1784557025.05385 1246 72072f11b98e9c087f64356399d836e8 ""
   (generated)
   "chapters/00_cover.aux"
   "chapters/01_introduction.aux"

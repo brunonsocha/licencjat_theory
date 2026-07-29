@@ -1,58 +1,67 @@
 \relax 
-\gdef \LT@i {\LT@entry 
-    {1}{125.81102pt}\LT@entry 
-    {1}{68.9055pt}\LT@entry 
-    {1}{211.16928pt}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Projekt i wykorzystane technologie}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Projekt i architektura aplikacji}{8}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Wprowadzenie}{8}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Architektura rozwiązania}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Wejście}{8}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Pola żądania wejściowego HTTP przekazywanego do endpointu \texttt  {/invoices}}}{8}{}\protected@file@percent }
-\newlabel{tab:invoice_input_fields}{{2.1}{8}{}{table.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Walidacja otrzymanych danych}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Warstwa wejścia}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Warstwa przetwarzania danych}{8}{}\protected@file@percent }
+\gdef \LT@i {\LT@entry 
+    {1}{125.81102pt}\LT@entry 
+    {1}{68.9055pt}\LT@entry 
+    {1}{211.16928pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Warstwa przechowywania danych}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Warstwa przetwarzania w tle}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Warstwa integracji z systemami zewnętrznymi}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.6}Warstwa wizualna oraz kontroli}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Przepływ przetwarzania faktury}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Wejście}{9}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Pola żądania wejściowego HTTP przekazywanego do endpointu \texttt  {/invoices}}}{9}{}\protected@file@percent }
+\newlabel{tab:invoice_input_fields}{{2.1}{9}{}{table.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Walidacja otrzymanych danych}{10}{}\protected@file@percent }
 \gdef \LT@ii {\LT@entry 
     {1}{125.81102pt}\LT@entry 
     {1}{68.9055pt}\LT@entry 
     {1}{211.16928pt}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Utworzenie pliku w formacie XML}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Walidacja danych w formacie XML}{10}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Zapis danych}{10}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Najważniejsze kolumny tabeli Invoices w lokalnej bazie danych}}{10}{}\protected@file@percent }
-\newlabel{tab:sqlite_invoices}{{2.2}{10}{}{table.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.6}Lokalna kolejka oraz wysyłka}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.7}Webhooki}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Utworzenie pliku w formacie XML}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Walidacja danych w formacie XML}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.5}Zapis danych}{11}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.2}{\ignorespaces Najważniejsze kolumny tabeli Invoices w lokalnej bazie danych}}{11}{}\protected@file@percent }
+\newlabel{tab:sqlite_invoices}{{2.2}{11}{}{table.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.6}Lokalna kolejka oraz wysyłka}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.7}Webhooki}{12}{}\protected@file@percent }
 \gdef \LT@iii {\LT@entry 
     {1}{125.81102pt}\LT@entry 
     {1}{68.9055pt}\LT@entry 
     {1}{211.16928pt}}
-\@writefile{lot}{\contentsline {table}{\numberline {2.3}{\ignorespaces Pola żądania HTTP z informacją zwrotną przesyłanego do systemu zewnętrznego}}{12}{}\protected@file@percent }
-\newlabel{tab:webhook_payload}{{2.3}{12}{}{table.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.8}Panel użytkownika}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Komunikacja z KSeF}{12}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Uwierzytelnienie}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Otwieranie i zamykanie sesji}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Przesyłanie faktur}{13}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.4}Sprawdzenie statusu i pobranie Urzędowego Poświadczenia Odbioru}{13}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.3}{\ignorespaces Pola żądania HTTP z informacją zwrotną przesyłanego do systemu zewnętrznego}}{13}{}\protected@file@percent }
+\newlabel{tab:webhook_payload}{{2.3}{13}{}{table.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.8}Panel użytkownika}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Komunikacja z KSeF}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Uwierzytelnienie}{13}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Otwieranie i zamykanie sesji}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Przesyłanie faktur}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.4}Sprawdzenie statusu i pobranie Urzędowego Poświadczenia Odbioru}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Cykl życia aplikacji}{14}{}\protected@file@percent }
 \gdef \LT@iv {\LT@entry 
     {1}{148.5733pt}\LT@entry 
     {1}{60.36958pt}\LT@entry 
     {1}{196.9429pt}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Cykl życia aplikacji}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Konfiguracja}{14}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2.4}{\ignorespaces Plik konfiguracyjny aplikacji}}{14}{}\protected@file@percent }
-\newlabel{tab:config_fields}{{2.4}{14}{}{table.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Uruchomienie aplikacji}{15}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Działanie aplikacji}{15}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Konfiguracja}{15}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2.4}{\ignorespaces Plik konfiguracyjny aplikacji}}{15}{}\protected@file@percent }
+\newlabel{tab:config_fields}{{2.4}{15}{}{table.2.4}{}}
 \gdef \LT@v {\LT@entry 
-    {1}{97.35826pt}\LT@entry 
-    {1}{125.81102pt}\LT@entry 
+    {1}{63.21504pt}\LT@entry 
+    {1}{148.5733pt}\LT@entry 
     {1}{182.71652pt}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Uruchomienie aplikacji}{16}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Działanie aplikacji}{16}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {2.5}{\ignorespaces Endpointy eksponowane przez aplikację}}{16}{}\protected@file@percent }
 \newlabel{tab:app_endpoints}{{2.5}{16}{}{table.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.4}Bezpieczne zamykanie aplikacji}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.5}Wdrożenie kontenerowe}{18}{}\protected@file@percent }
 \@setckpt{chapters/02_project_documentation}{
-\setcounter{page}{17}
+\setcounter{page}{19}
 \setcounter{equation}{0}
 \setcounter{enumi}{0}
 \setcounter{enumii}{0}
@@ -62,8 +71,8 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
-\setcounter{section}{4}
-\setcounter{subsection}{3}
+\setcounter{section}{5}
+\setcounter{subsection}{5}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -75,6 +84,7 @@
 \setcounter{float@type}{4}
 \setcounter{LT@tables}{5}
 \setcounter{LT@chunks}{4}
+\setcounter{nlinenum}{0}
 \setcounter{tabx@nest}{0}
 \setcounter{listtotal}{0}
 \setcounter{listcount}{0}
