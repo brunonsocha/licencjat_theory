@@ -21,7 +21,7 @@ Typowy wątek wymaga stosu o wielkości jednego do dwóch megabajtów, w czasie 
 Go posiada również funkcjonalność zwana kontekstem, pozwalająca na wyznaczanie terminów oraz wysyłanie żądań między skoordynowanymi elementami programów.
 
 \subsection{Uzasadnienie wyboru Go do wykonania projektu}
-Go zostało wybrane przedewszystkim z uwagi na jego znajomość przez autora pracy - ale również prostotę składni i pracy z tym językiem. Kod jest przejrzysty i prosty w podziale na osobne elementy, a dzięki wymaganej kompilacji programu przy każdej próbie jego uruchomienia wykrywanie większości błędów odbywało się samoistnie. Biorąc pod uwagę założenia projektu, język umożliwił prostotę wdrożenia - plik końcowy uruchamialny jest na systemach Windows, Linux i macOS. 
+Go zostało wybrane przede wszystkim z uwagi na jego znajomość przez autora pracy - ale również prostotę składni i pracy z tym językiem. Kod jest przejrzysty i prosty w podziale na osobne elementy, a dzięki wymaganej kompilacji programu przy każdej próbie jego uruchomienia wykrywanie większości błędów odbywało się samoistnie. Biorąc pod uwagę założenia projektu, język umożliwił prostotę wdrożenia - plik końcowy uruchamialny jest na systemach Windows, Linux i macOS. 
 
 Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech zewnętrznych zależności:
 
@@ -50,11 +50,121 @@ modernc.org/sqlite & baza danych & Sterownik do bazy danych SQLite. \\
 
 Go, podobnie jak C, posiada wskaźniki pamięci, które wykorzystane zostały w projekcie do opcjonalnych pól faktur oraz odróżniania brakujących danych od danych, które są zwyczajnie puste. Najważniejszym elementem jednak są wspomniane w poprzedniej subsekcji gorutyny, umożliwiające aplikacji współbieżną obsługę żądań HTTP oraz cykliczne skanowanie bazy danych w poszukiwaniu rekordów do przetworzenia. Sama wysyłka faktur oraz webhooków również jest współbieżna, a limit maksymalnych asynchronicznych zadań narzucany jest przez pojemność kanałów. Aplikacja oczekuje zakończenia obecnej próby przed rozpoczęciem kolejnego cyklu działania poprzez użycie \texttt{WaitGroup}, a użycie kontekstu pozwoliło na wprowadzenie mechanizmu bezpiecznego zamykania programu.
 
+\subsection{Przykład użycia Go w projekcie}
+\begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład współbieżnego przetwarzania faktur}, label={lst:go-concurrency}]
+var wg sync.WaitGroup
+for _, inv := range invoices {
+	wg.Add(1)
+	go func(invoiceToProcess *models.Invoice) {
+		defer wg.Done()
+		c <- struct{}{}
+		defer func() {
+			<-c
+		}()
+		app.processInvoice(invoiceToProcess, inSession)
+	}(inv)
+}
+wg.Wait()
+\end{lstlisting}
+
+W powyższym fragmencie \ref{lst:go-concurrency} przedstawiono, w jaki sposób aplikacja korzysta z modelu współbieżności języka Go w trakcie przetwarzania faktur. Tworzona jest \texttt{WaitGroup} pozwalająca na koordynację gorutyn. Następnie, dla każdej z zebranych faktur powstaje osobna gorutyna, która zajmuje pojedyncze miejsce w kanale o limicie ustalonym przez użytkownika w pliku konfiguracyjnym. Po wywołaniu i zakończeniu działania funkcji \texttt{app.processInvoice()}, miejsce w kanale jest zwalniane, a funkcja zmniejsza licznik prac \texttt{WaitGroup}. Kanał przyjmuje pusty obiekt \texttt{struct\{\}}, z uwagi na to, że jest on mniejszy w pamięci niż jakikolwiek inny typ danych i nie przechowuje żadnych informacji, tak więc wystarcza do spełnienia roli semafora %TUTAJ PRZYPIS!
+. Aplikacja następnie oczekuje, aż wszystkie gorutyny zakończą pracę.
+
+
+\begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład mechanizmu bezpiecznego zamykania aplikacji}, label={lst:go-shutdown}]
+ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+defer stop()
+shutdownC := make(chan struct{}, 1)
+go app.startSender(ctx, shutdownC)
+
+<-ctx.Done()
+app.infoLog.Printf("event=shutdown_started")
+shutdownCtx, cancel := context.WithTimeout(
+	context.Background(),
+	time.Duration(app.config.ShutdownTimeoutSec)*time.Second,
+)
+defer cancel()
+
+if err := srv.Shutdown(shutdownCtx); err != nil {
+	app.errorLog.Fatalf("event=shutdown_failed error=%q", err.Error())
+}
+
+<-shutdownC
+app.infoLog.Printf("event=shutdown_finished")
+\end{lstlisting}
+
+W fragmencie \ref{lst:go-shutdown} zaprezentowany został mechanizm bezpiecznego zamykania aplikacji. Tworzony jest kontekst oczekujący sygnału zamknięcia SIGINT (zatrzymania) lub SIGTERM (terminacji procesu). Powstaje również buforowany kanał pozwalający na przyjęcie lub otrzymanie pojedynczego pustego obiektu \texttt{struct\{\}}. Wywoływany jest główny mechanizm przetwarzania faktur poprzez uruchomienie gorutyny z funkcją \texttt{app.startSender()}, której przekazywany jest kanał. Gdy kontekst otrzyma sygnał zamknięcia, gorutyna informowana jest, że ma zakończyć pracę, a aplikacja wyczekuje na odpowiedź na kanale. W tym samym czasie, serwer HTTP otrzymuje czas na zakończenie pracy, z limitem określonym przez użytkownika w pliku konfiguracyjnym. Gdy mechanizm przetwarzania faktur zakończy pracę, aplikacja zamknie się.
+
 \section{Baza danych SQLite}
+\subsection{Opis SQLite oraz jego cech}
+SQLite powstało jako prosty silnik baz danych SQL w 2000 roku, utworzone przez Dwayne'a Richarda Hippa w trakcie pracy dla General Dynamics, przy kontrakcie z Marynarką Wojenną Stanów Zjednoczonych. Jest obecnie najpopularniejszym silnikiem baz danych na świecie, używanym przez telefony komórkowe, systemy operacyjne oraz przeglądarki. Słynie przede wszystkim z tego, że nie wymaga serwera do działania - komunikacja odbywa się bezpośrednio poprzez pisanie do pojedynczego, lokalnego pliku, przez bibliotekę napisaną w języku C. Pomimo swojej prostoty, SQLite wspiera język SQL oraz operacje transakcyjne. 
+
+\subsection{Uzasadnienie wykorzystania SQLite w projekcie}
+Jednym z głównych założeń projektu jest prostota wdrożenia oraz minimalizm aplikacji. SQLite pozwala na przetrzymywanie danych w pojedynczym, lokalnym pliku gwarantując trwałość danych offline, oraz nie wymaga osobnego serwera, minimalizując wymagania administracyjne dla małych przedsiębiorstw. Zapewnia również wszystkie elementy wymagane przez projekt, w tym wcześniej wspomniane transakcje, gwarantujące bezpieczeństwo danych w trakcie pisania do bazy oraz pełne wsparcie dla języka SQL, pozwalając na proste tworzenie, aktualizowanie oraz usuwanie rekordów. SQLite zostało wybrane ze względu na swoją prostotę oraz spełnienie wszystkich wymogów projektu - w czasie gdy inne silniki również spełniają wymogi, jednak są bardziej skomplikowane oraz wyposażone w funkcje niepotrzebne do działania tworzonej aplikacji.
+
+\subsection{Przykład wykorzystania SQLite w projekcie}
+\begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład połączenia z bazą SQLite}, label={lst:sqlite-connect}]
+func Connect(dbPath string, busyTimeoutMs int) (*sql.DB, error) {
+	dirPath := filepath.Dir(dbPath)
+	if _, err := os.Stat(dirPath); os.IsNotExist(err) {
+		if err := os.MkdirAll(dirPath, 0755); err != nil {
+			return nil, err
+		}
+	}
+
+	db, err := sql.Open("sqlite", dbPath)
+	if err != nil {
+		return nil, err
+	}
+	if err := db.Ping(); err != nil {
+		db.Close()
+		return nil, err
+	}
+
+	concurrencySafe := fmt.Sprintf(
+		"PRAGMA journal_mode = WAL; "+
+			"PRAGMA synchronous = NORMAL; "+
+			"PRAGMA busy_timeout = %d; "+
+			"PRAGMA foreign_keys = ON;",
+		busyTimeoutMs,
+	)
+	if _, err := db.Exec(concurrencySafe); err != nil {
+		return nil, err
+	}
+	return db, nil
+}
+\end{lstlisting}
+
+Połączenie z bazą danych realizowane jest przez pakiet z biblioteki standardowej języka Go \texttt{database/sql}, służący jako interfejs do baz danych, jednak do komunikacji z samą bazą danych SQLite wykorzystywany jest osobny, zewnętrzny pakiet, jako sterownik dla \texttt{database/sql} używany następnie przez funkcję \texttt{sql.Open("sqlite", path)}. Przy pierwszym uruchomieniu aplikacji, tworzony jest katalog, a SQLite tworzy plik zawierający bazę. Następnie ustawiane są \enquote{pragmy}, instrukcje usprawnieniające i zabezpieczające działania asynchroniczne na rekordach. Przykładowo, instrukcja \texttt{busy\_timeout} określa, przez jaki czas baza danych może być zablokowana w trakcie pisania do niej bez uznania blokady za wystąpienie błędu. 
 
 \section{Protokół HTTP oraz styl architektoniczny REST API}
+\subsection{Opis ogólny protokołu HTTP}
+HTTP, lub Hypertext Transfer Protocol, to protokół wykorzystywany do wymiany danych między urządzeniami w sieci. Opiera się na modelu żądań i odpowiedzi - przykładowo, urządzenie wysyła do serwera żądanie o określoną informację i otrzymuje ją z powrotem. Żądania składają się z kilku elementów, których najważniejszym jest \enquote{metoda} lub czasownik, określający, jakiej odpowiedzi/działania spodziewa się klient. W projekcie wykorzystane są trzy: \texttt{GET}, \texttt{POST} oraz \texttt{DELETE}, gdzie pierwszy żąda danych, drugi służy do ich przesłania, a trzeci prosi o usunięcie określonego elementu.
+
+Kolejnym elementem są nagłówki, czyli pary kluczy i wartości, rozwijające szczegóły oczekiwanej odpowiedzi oraz przekazujące informacje na temat klienta - przykładowo, przeglądarkę, z której klient korzysta, lub formatu, w którym informacja zwrotna powinna zostać udzielona. 
+
+Same odpowiedzi zawierają kody statusu, które określają, do czego doprowadziło przyjęte żądanie. Przykładowo może to być odpowiedź \texttt{200}, oznaczająca poprawne przyjęcie, lub \texttt{404}, informującą, że żądana treść nie mogła zostać znaleziona.
+
+\subsection{Styl architektoniczny REST API}
+REST to skrót od Representational State Transfer (ang. transfer stanu przez reprezentację), czyli stylu budowania serwisów HTTP oraz interfejsów programowania aplikacji. Podstawowym założeniem jest wsparcie dla operacji CRUD (\enquote{Create, Read, Update, Delete}, ang. tworzenia, odczytu, aktualizacji i usunięcia) na udostępnianych poprzez odpowiednie endpointy zasobach - przykładowo, endpoint \texttt{\/delete\/invoice\/} służyć może do usunięcia rekordu w bazie danych, poprzez otrzymywanie żądań HTTP z metodą \texttt{DELETE}, wskazujących określony identyfikator faktury. Ważną cechą REST jest brak stanu - każde żądanie powinno być wystarczające samo w sobie do wykonania działania, bez polegania na informacjach ukrytych wewnątrz aplikacji.
+
+\subsection{Zastosowanie HTTP oraz REST w projekcie}
+Protokół HTTP został wybrany do wykorzystania w projekcie przede wszystkim ze względu na swoją uniwersalność i popularność - większość systemów komunikuje się ze sobą za jego pomocą, tak więc jest oczywistym wyborem dla maksymalizacji kompatybilności z jak największą ilością zewnętrznych aplikacji. Styl architektoniczny REST został wybrany dla swojej przejrzystości i przewidywalności.
+
+Utworzone oprogramowanie spodziewa się przyjmowania faktur od zewnętrznych systemów w postaci żądań zawierających dane w formacie JSON, oraz eksponuje dodatkowe endpointy pozwalające na sprawdzanie statusu wysyłki do Krajowego Systemu e-Faktur lub usuwanie faktur z bazy danych. Panel użytkownika również oparty jest na HTTP, przesyłającym HTML.
+
+Wykorzystanie HTTP ułatwiło również testowanie oprogramowania, przykładowo przy użyciu narzędzia \texttt{curl}.
 
 \section{Format JSON}
+\subsection{Opis ogólny formatu JSON}
+JSON (JavaScript Object Notation) to format plików oraz przekazywania danych utworzony przez Douglasa Crockforda we wczesnych latach dwutysięcznych, w celu zastąpienia wtyczek przeglądarkowych takich jak Flash. Jest obecnie najpopularniejszym formatem wykorzystywanym do elektronicznej wymiany danych.
+
+Pomimo, że nazwa odwołuje się do języka JavaScript, JSON jest niezależny od języka - większość nowoczesnych języków programowania wyposażona jest w narzędzia do zapisu i odczytu danych w tym formacie. 
+
+\subsection{Cechy formatu JSON}
+JSON, dzięki swojej strukturze, jest czytelny dla człowieka. Elementy przedstawione są jako listy par kluczy i wartości, gdzie wartości mogą być dowolnego typu danych - w tym innych, złożonych obiektów, takich jak listy. Wymaga mniejszej ilości znaków niż większość innych formatów wykorzystywanych do elektronicznej wymiany danych, ak przykładowo XML.
+
+\subsection{Przykładowe zastosowanie formatu JSON w aplikacji}
 
 \section{Format XML oraz schemat XSD}
 

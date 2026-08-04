@@ -1,21 +1,21 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'main.blg'
-[74] biber:342> INFO - === Mon Jul 20, 2026, 16:19:47
-[93] Biber.pm:421> INFO - Reading 'main.bcf'
-[179] Biber.pm:1002> INFO - Found 14 citekeys in bib section 0
+[77] biber:342> INFO - === Tue Aug  4, 2026, 15:12:30
+[97] Biber.pm:421> INFO - Reading 'main.bcf'
+[181] Biber.pm:1002> INFO - Found 14 citekeys in bib section 0
 [206] Biber.pm:4487> INFO - Processing section 0
-[218] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[219] bibtex.pm:1713> INFO - LaTeX decoding ...
-[245] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[367] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[367] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[367] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'pl-PL'
-[401] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[401] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[401] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'pl-PL'
-[424] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[216] Biber.pm:4678> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[217] bibtex.pm:1713> INFO - LaTeX decoding ...
+[238] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[360] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[360] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[360] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'pl-PL'
+[396] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[396] UCollate.pm:68> INFO - Overriding locale 'pl-PL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[396] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'pl-PL'
+[422] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
 [440] bbl.pm:779> INFO - Output to main.bbl
-[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_DwcK/499af1e6906591d6961f19d66c065a09_2986972.utf8, line 124, warning: undefined macro "june"
-[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_DwcK/499af1e6906591d6961f19d66c065a09_2986972.utf8, line 138, warning: undefined macro "june"
-[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_DwcK/499af1e6906591d6961f19d66c065a09_2986972.utf8, line 148, warning: undefined macro "june"
+[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_Zis0/499af1e6906591d6961f19d66c065a09_132363.utf8, line 124, warning: undefined macro "june"
+[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_Zis0/499af1e6906591d6961f19d66c065a09_132363.utf8, line 138, warning: undefined macro "june"
+[440] Biber.pm:132> WARN - BibTeX subsystem: /tmp/biber_tmp_Zis0/499af1e6906591d6961f19d66c065a09_132363.utf8, line 148, warning: undefined macro "june"
 [440] Biber.pm:134> INFO - WARNINGS: 3
