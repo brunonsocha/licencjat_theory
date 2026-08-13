@@ -333,6 +333,7 @@ OUTPUT chapters/02_technologies_used.aux
 INPUT ./chapters/02_technologies_used.tex
 INPUT ./chapters/02_technologies_used.tex
 INPUT chapters/02_technologies_used.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/newtx/t1ntxtt.fd

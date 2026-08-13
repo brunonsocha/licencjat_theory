@@ -11,7 +11,7 @@ Go jest językiem statycznie typowanym, o typowaniu silnym - gdzie typ zmiennej 
 
 Jest również językiem kompilowanym - kod nie jest na bieżąco interpretowany, jak w przypadku przykładowo Pythona, dzięki czemu większość błędów jest wykrywana zanim program zostanie uruchomiony. Zamiast tego tworzony jest w pełni przenośny, uruchamialny plik binarny, który uruchomiony może być na systemach Windows, Linux lub macOS. 
 
-Go wyposażone jest w prostą, jednak wysoko efektywną bibliotekę standardową, co pozwala na minimalizację zewnętrznych zależności. Słynie również ze swojego modelu współbieżności, opartego na \enquote{goroutines} w przeciwieństwie do tradycyjnie wykorzystywanych wątków. Go wymaga jawnej obsługi błędów w przypadku każdej funkcji, która może zwrócić błąd - co ułatwia gwarancję poprawnego funkcjonowania budowanej aplikacji.
+Go wyposażone jest w prostą, jednak wysoko efektywną bibliotekę standardową, co pozwala na minimalizację zewnętrznych zależności. Słynie również ze swojego modelu współbieżności, opartego na \textit{goroutines} w przeciwieństwie do tradycyjnie wykorzystywanych wątków. Go wymaga jawnej obsługi błędów w przypadku każdej funkcji, która może zwrócić błąd - co ułatwia gwarancję poprawnego funkcjonowania budowanej aplikacji.
 
 \subsection{Model współbieżności Go}
 Go wspiera współbieżne wykonywanie zadań w ramach jednego programu, dzięki swojej alternatywie dla wątków - goroutines (dalej: gorutyny). Język wyposażony jest w swój własny program planujący, który przypisuje osobne \enquote{gorutyny} wątkom systemu operacyjnego - co pozwala na przypisanie kilku pojedynczemu.
@@ -146,7 +146,7 @@ Kolejnym elementem są nagłówki, czyli pary kluczy i wartości, rozwijające s
 Same odpowiedzi zawierają kody statusu, które określają, do czego doprowadziło przyjęte żądanie. Przykładowo może to być odpowiedź \texttt{200}, oznaczająca poprawne przyjęcie, lub \texttt{404}, informującą, że żądana treść nie mogła zostać znaleziona.
 
 \subsection{Styl architektoniczny REST API}
-REST to skrót od Representational State Transfer (ang. transfer stanu przez reprezentację), czyli stylu budowania serwisów HTTP oraz interfejsów programowania aplikacji. Podstawowym założeniem jest wsparcie dla operacji CRUD (\enquote{Create, Read, Update, Delete}, ang. tworzenia, odczytu, aktualizacji i usunięcia) na udostępnianych poprzez odpowiednie endpointy zasobach - przykładowo, endpoint \texttt{\/delete\/invoice\/} służyć może do usunięcia rekordu w bazie danych, poprzez otrzymywanie żądań HTTP z metodą \texttt{DELETE}, wskazujących określony identyfikator faktury. Ważną cechą REST jest brak stanu - każde żądanie powinno być wystarczające samo w sobie do wykonania działania, bez polegania na informacjach ukrytych wewnątrz aplikacji.
+REST to skrót od Representational State Transfer (pol. transfer stanu przez reprezentację), czyli stylu budowania serwisów HTTP oraz interfejsów programowania aplikacji. Podstawowym założeniem jest wsparcie dla operacji CRUD (\enquote{Create, Read, Update, Delete}, pol. tworzenia, odczytu, aktualizacji i usunięcia) na udostępnianych poprzez odpowiednie endpointy zasobach - przykładowo, endpoint \texttt{\/delete\/invoice\/} służyć może do usunięcia rekordu w bazie danych, poprzez otrzymywanie żądań HTTP z metodą \texttt{DELETE}, wskazujących określony identyfikator faktury. Ważną cechą REST jest brak stanu - każde żądanie powinno być wystarczające samo w sobie do wykonania działania, bez polegania na informacjach ukrytych wewnątrz aplikacji.
 
 \subsection{Zastosowanie HTTP oraz REST w projekcie}
 Protokół HTTP został wybrany do wykorzystania w projekcie przede wszystkim ze względu na swoją uniwersalność i popularność - większość systemów komunikuje się ze sobą za jego pomocą, tak więc jest oczywistym wyborem dla maksymalizacji kompatybilności z jak największą ilością zewnętrznych aplikacji. Styl architektoniczny REST został wybrany dla swojej przejrzystości i przewidywalności.
@@ -157,7 +157,7 @@ Wykorzystanie HTTP ułatwiło również testowanie oprogramowania, przykładowo 
 
 \section{Format JSON}
 \subsection{Opis ogólny formatu JSON}
-JSON (JavaScript Object Notation, ang. \enquote{Notacja Obiektowa JavaScript}) to format plików oraz przekazywania danych utworzony przez Douglasa Crockforda we wczesnych latach dwutysięcznych, w celu zastąpienia wtyczek przeglądarkowych takich jak Flash. Jest obecnie najpopularniejszym formatem wykorzystywanym do elektronicznej wymiany danych.
+JSON (JavaScript Object Notation, pol. \enquote{Notacja Obiektowa JavaScript}) to format plików oraz przekazywania danych utworzony przez Douglasa Crockforda we wczesnych latach dwutysięcznych, w celu zastąpienia wtyczek przeglądarkowych takich jak Flash. Jest obecnie najpopularniejszym formatem wykorzystywanym do elektronicznej wymiany danych.
 
 Pomimo, że nazwa odwołuje się do języka JavaScript, JSON jest niezależny od języka - większość nowoczesnych języków programowania wyposażona jest w narzędzia do zapisu i odczytu danych w tym formacie. 
 
@@ -227,10 +227,10 @@ Przykład \ref{lst:json-webhook} przedstawia ładunek JSON przesyłany do system
 
 \section{Format XML oraz schemat XSD}
 \subsection{XML}
-XML (Extensible Markup Language, ang. \enquote{Rozszerzalny Język Znaczników}) to język służący przede wszystkim do elektronicznej wymiany danych. Pozwala na tworzenie ustrukturyzowanych dokumentów, niezależnych od platformy - wszystkie dane przechowywane są jako prosty tekst. Dzięki swojej hierarchicznej strukturze oraz znacznikach, jest prosty do odczytania i walidacji przez oprogramowanie. Pierwsza wersja powstała w 1998 roku, a ostatnia, powszechnie używana do dziś, w 2006. Format utworzony został przez World Wide Web Consortium, międzynarodową organizację defniującą standardy WWW, lub inaczej, internetu. Jego wykorzystanie w projekcie zostało odgórnie narzucone przez wymogi Krajowego Systemu e-Faktur - każda faktura do niego przesyłana musi być ustrukturyzowanym dokumentem w formacie XML, zgodnym z oficjalnym schematem.
+XML (Extensible Markup Language, pol. \enquote{Rozszerzalny Język Znaczników}) to język służący przede wszystkim do elektronicznej wymiany danych. Pozwala na tworzenie ustrukturyzowanych dokumentów, niezależnych od platformy - wszystkie dane przechowywane są jako prosty tekst. Dzięki swojej hierarchicznej strukturze oraz znacznikach, jest prosty do odczytania i walidacji przez oprogramowanie. Pierwsza wersja powstała w 1998 roku, a ostatnia, powszechnie używana do dziś, w 2006. Format utworzony został przez World Wide Web Consortium, międzynarodową organizację defniującą standardy WWW, lub inaczej, internetu. Jego wykorzystanie w projekcie zostało odgórnie narzucone przez wymogi Krajowego Systemu e-Faktur - każda faktura do niego przesyłana musi być ustrukturyzowanym dokumentem w formacie XML, zgodnym z oficjalnym schematem.
 
 \subsection{Schematy XSD}
-XSD (XML Schema Definition, ang. \enquote{Definicja Schematu XML}) to format pozwalający na określenie, w jaki sposób ustrukturyzowany powinien być określony dokument w formacie XML. XSD również zostało utworzone przez World Wide Web Consortium i jest przez nie polecane - istnieją inne formaty o podobnych zastosowaniach.
+XSD (XML Schema Definition, pol. \enquote{Definicja Schematu XML}) to format pozwalający na określenie, w jaki sposób ustrukturyzowany powinien być określony dokument w formacie XML. XSD również zostało utworzone przez World Wide Web Consortium i jest przez nie polecane - istnieją inne formaty o podobnych zastosowaniach.
 
 Schematy definiują przede wszystkim kolejność, ilość i rodzaj znaczników, które dokument powinien zawierać, oraz dopuszczalne wartości w polach. Zastosowanie tego formatu pozwala na automatyczną walidację faktur otrzymanych i przetransformowanych do formatu XML przez oprogramowanie utworzone w ramach projektu przed podjęciem prób wysyłki do Krajowego Systemu e-Faktur.
 
@@ -246,7 +246,7 @@ HTMX, zapisywane również jako htmx, to lekka biblioteka języka JavaScript, ut
 Przykładowo, w czasie gdy standardowy HTML pozwala jedynie na przesyłanie żądań HTTP o metodach GET i POST, HTMX umożliwia na przesyłanie wszystkich innych - przykładowo, żądanie o metodzie DELETE może zostać wykonane po naciśnięciu przycisku na stronie poprzez nadanie przyciskowi atrybutu \texttt{hx-delete}.
 
 \subsection{Uzasadnienie użycia HTMX w projekcie oraz przykład zastosowania}
-Jednym z głównych założeń tworzonego oprogramowania jest jego prostota - zarówno w obsłudze, jak i w kodzie źródłowym. W większości projektów, w przypadku tworzenia interfejsu dla użytkownika, wykorzystywane są ciężkie biblioteki JavaScript lub TypeScript, jak przykładowo React czy vue.js. HTMX zostało wybrane dzięki swojej prostocie, oraz możliwościom - żądania HTTP do serwera wysyłane są bezpośrednio poprzez oznaczenie elementów interfejsu odpowiednimi tagami, a dynamiczne działanie interfejsu (odświeżanie listy faktur, ładowanie szczegółowego widoku faktury, manualny reset licznika prób wysyłki webhooków) obsługiwane jest przez zastępowanie fragmentów HTML przez HTML zwracaną ze specjalnych endpointów, których żądania/odpowiedzi przesyłane są z tagiem \texttt{HX-Request}. 
+Jednym z głównych założeń tworzonego oprogramowania jest jego prostota - zarówno w obsłudze, jak i w kodzie źródłowym. W większości projektów, w przypadku tworzenia interfejsu dla użytkownika, wykorzystywane są ciężkie biblioteki JavaScript lub TypeScript, jak przykładowo React czy vue.js. HTMX zostało wybrane dzięki swojej prostocie, oraz możliwościom - żądania HTTP do serwera wysyłane są bezpośrednio poprzez oznaczenie elementów interfejsu odpowiednimi tagami, a dynamiczne działanie interfejsu (odświeżanie listy faktur, ładowanie szczegółowego widoku faktury, manualny reset licznika prób wysyłki webhooków) obsługiwane jest przez zastępowanie fragmentów HTML przez HTML zwracany ze specjalnych endpointów, których żądania/odpowiedzi przesyłane są z tagiem \texttt{HX-Request}. 
 
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład endpointu zwracającego fragment HTML dla HTMX}, label={lst:htmx-route}]
 func (app *application) getDashboardInvoice(w http.ResponseWriter, r *http.Request) {
@@ -286,7 +286,7 @@ func (app *application) getDashboardInvoice(w http.ResponseWriter, r *http.Reque
 </div>
 \end{lstlisting}
 
-Powyższe dwa fragmenty obrazują endpoint, zwracający HTML na podstawie wzoru poprzez funkcję \texttt{app.renderer.render()} oraz HTML, w którym za pomocą atrybutu \texttt{hx-target} wskazywany jest element, który zastąpiony będzie danymi wysyłanymi w odpowiedzi na żądanie \texttt{/ui/invoice?id={{ .Id }}} wykonane za pomocą \texttt{hx-get}. Żądanie wysyłane jest, gdy zostaną spełnione warunki opisane poprzez atrybut \texttt{hx-trigger} - w tym wypadku, gdy dojdzie do wydarzenia \texttt{refreshInvoice} lub \texttt{retryWebhook}, wywoływanych gdzieindziej na stronie.
+Powyższe dwa fragmenty obrazują endpoint, zwracający HTML na podstawie wzoru poprzez funkcję \texttt{app.renderer.render()} oraz HTML, w którym za pomocą atrybutu \texttt{hx-target} wskazywany jest element, który zastąpiony będzie danymi wysyłanymi w odpowiedzi na żądanie \texttt{/ui/invoice?id=\{\{ .Id \}\}} wykonane za pomocą \texttt{hx-get}. Żądanie wysyłane jest, gdy zostaną spełnione warunki opisane poprzez atrybut \texttt{hx-trigger} - w tym wypadku, gdy dojdzie do wydarzenia \texttt{refreshInvoice} lub \texttt{retryWebhook}, wywoływanych gdzieindziej na stronie.
 
 \section{Tailwind CSS}
 \subsection{Opis Tailwind CSS}
@@ -313,7 +313,34 @@ Powyższy przykład obrazuje zastosowanie Tailwind CSS w stylowaniu przycisku pa
 
 \section{Docker}
 \subsection{Opis ogólny Dockera}
+Docker to platforma pozwalająca na tzw. konteneryzację aplikacji, czyli tworzenie pakietów zawierających oprogramowanie oraz wymagane przez nie zależności systemowe, w celu wdrożenia na jakimkolwiek urządzeniu obsługującym Dockera. 
+
+Obrazy konenerów zawierają pliki i zależności wymagane przez określoną aplikację. Do uruchomienia aplikacji potrzebny jest również tzw. Dockerfile, czyli plik określający w jaki sposób obraz powinien być zbudowany.
+
 \subsection{Różnica między kontenerem i maszyną wirtualną}
+Maszyny wirtualne symulują całą maszynę - z wydzieloną pamięcią, procesorem, kartą sieciową, własnym systemem operacyjnym, etc. Dzięki temu, określony program może być uruchomiony na jakimkolwiek urządzeniu, które jest w stanie uruchomić maszynę wirtualną z systemem, którego wymaga oprogramowanie. 
+
+Kontenery Dockera wirtualizują środowisko wymagane do uruchomienia aplikacji na jakimkolwiek systemie operacyjnym, który wspiera Dockera. Sam kontener zawiera zależności wymagane do uruchomienia określonego programu. Dzięki temu kontenery są lżejsze niż maszyny wirtualne, które symulują całe urządzenie ze wszystkimi jego komponentami.
+
 \subsection{Zastosowanie Dockera w projekcie}
+Tworzone oprogramowanie ma być uruchamialne na możliwie jak najszerszej gamie urządzeń i systemów operacyjnych. Docker umożliwił utworzenie obrazu zawierającego aplikację i wszystkie jej zależności, wraz z plikiem Dockerfile, który określa dokładnie w jaki sposób obraz powinien zostać zbudowany. Plik konfiguracyjny, oraz baza danych, mogą zostać dostarczone spoza kontenera.
+
+Efektem końcowym jest możliwość uruchomienia aplikacji za pomocą jednej komendy - \texttt{docker compose up --build}.
 
 \section{Środowisko Krajowego Systemu e-Faktur}
+\subsection{Krajowy System e-Faktur jako system zewnętrzny}
+Krajowy System e-Faktur to platforma do tworzenia, przesyłania, odbierania oraz przechowywania faktur. Faktury poza tym systemem są uważane za nieważne w świetle polskiego prawa na dzień 13 sierpnia 2026 roku, z wyjątkiem przedsiębiorców nieprzekraczających 10 000 PLN w miesięcznych obrotach.
+
+Końcowym celem tworzonego oprogramowania jest integracja z Krajowym Systemem e-Faktur, w celu pośredniczenia między nim, a systemami zewnętrznymi. Aplikacja, poza podstawową walidacją otrzymywanych danych, nie decyduje czy faktura zostanie przyjęta przez KSeF - służy zaledwie do transformacji otrzymywanych faktur w formacie JSON do wymaganego formatu XML zgodnego z oficjalnym schematem XSD FA(3), próby podjęcia wysyłki, sprawdzenia statusu oraz ewentualnego poinformowania nadawcy faktury o sukcesie bądź porażce.  
+
+\subsection{Wymagania komunikacyjne}
+Środowisko Krajowego Systemu e-Faktur to API z eksponowanymi endpointami HTTP, przyjmującymi odpowiednie ładunki w formacie JSON. Ich struktura opisana jest w oficjalnej dokumentacji, pod adresem [link]. 
+
+Do komunikacji z KSeF wymagane jest uwierzytelnienie, na podstawie tokena pobieranego przez użytkownika z Panelu Podatnika, który później zamieszczany jest w pliku konfiguracyjnym. Do uwierzytelnienia wykorzystywane są algorytmy kryptograficzne oraz klucze udostępniane przez Ministerstwo Finansów.
+
+W celu przesłania faktury, musi ona zostać przetransformowana w dokument XML zgodny z oficjalnym schematem, oraz załączona w odpowiednim polu w ładunku JSON przesyłanym do KSeF. Następnie, sprawdzany jest status wysyłki, na podstawie identyfikatora zwracanego przez KSeF. Pomyślne przesłanie faktury nie oznacza jej akceptacji, więc by móc określić fakturę jako zaakceptowaną, odebrane musi zostać Urzędowe Poświadczenie Odbioru.
+
+\subsection{Wpływ środowiska KSeF na projekt}
+Biorąc pod uwagę wspomniane w poprzedniej podsekcji wymagania, aplikacja musi być zdolna do przyjmowania faktur w postaci JSON, transformowania ich do odpowiedniego formatu, oraz wysyłki do Krajowego Systemu e-Faktur, po wykonaniu odpowiednich kroków w celu uwierzytelnienia. Faktury przechowywane są w lokalnej bazie danych w celu ochrony danych w przypadku prac technicznych bądź innych problemów z komunikacją. 
+
+Oprogramowanie sprawdza również status przesyłek, i oznacza faktury jako przesłane dopiero, gdy odbierze Urzędowe Poświadczenie Odbioru. Ponieważ zewnętrzne systemy wysyłające do oprogramowania dane potrzebują informacji dotyczących ostatecznego rezultatu prób wysyłki, aplikacja wyposażona jest w mechanizm webhooków, tj. danych zwrotnych, wysyłanych jeśli w oryginalnym żądaniu zawierającym fakturę zamieszczony został adres, na który nadawca chciałby ową informację otrzymać.
