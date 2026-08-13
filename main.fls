@@ -353,6 +353,12 @@ INPUT /usr/share/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT /usr/share/texmf-dist/tex/latex/txfonts/t1txtt.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/public/txfonts/t1xbtt.tfm
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+INPUT /usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 INPUT ./chapters/03_project_design_architecture.tex
 INPUT ./chapters/03_project_design_architecture.tex
 OUTPUT chapters/03_project_design_architecture.aux
