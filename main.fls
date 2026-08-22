@@ -366,6 +366,16 @@ OUTPUT chapters/03_project_design_architecture.aux
 INPUT ./chapters/03_project_design_architecture.tex
 INPUT ./chapters/03_project_design_architecture.tex
 INPUT chapters/03_project_design_architecture.tex
+INPUT ./images/app_layers.pdf
+INPUT ./images/app_layers.pdf
+INPUT ./images/app_layers.pdf
+INPUT ./images/app_layers.pdf
+INPUT ./images/app_layers.pdf
+INPUT ./images/invoice_states.pdf
+INPUT ./images/invoice_states.pdf
+INPUT ./images/invoice_states.pdf
+INPUT ./images/invoice_states.pdf
+INPUT ./images/invoice_states.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-ot1.tfm

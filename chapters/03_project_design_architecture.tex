@@ -1,8 +1,17 @@
-\chapter{Projekt i architektura aplikacji}
+\chapter{Projekt, architektura aplikacji i jej zastosowanie}
 \section{Wprowadzenie}
 W celu dopasowania oprogramowania do założeń przedstawionych w poprzednim rozdziale, do realizacji wybrano narzędzia pozwalające na bezbolesną integrację, możliwie najniższe wymagania sprzętowe, niską ilość zależności (ang. dependencies) oraz przejrzystość kodu źródłowego. W tym rozdziale przedstawiona zostanie ogólna architektura rozwiązania, jego elementy.
 
 \section{Architektura rozwiązania}
+Ogólną strukturę aplikacji oraz komunikację pomiędzy jej najważniejszymi elementami przedstawiono na rysunku \ref{fig:application_architecture}:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/app_layers.pdf}
+    \caption{Architektura aplikacji integracyjnej}
+    \label{fig:application_architecture}
+\end{figure}
+
 \subsection{Warstwa wejścia}
 Składa się z kolejnych endpointów serwera HTTP, przyjmujących żądania od zewnętrznych systemów w postaci JSON, lub żądań od przeglądarki, zwracając HTML lub odpowiednie triggery HTMX. Endpointy podzielone są na dwie kategorie - te odpowiedzialne za przyjmowanie faktur oraz zapytań z nimi związanych oraz obsługujące interfejs panelu użytkownika. Dane przyjęte w tej warstwie przekazywane są głębiej do aplikacji. Zwracane są ustrukturyzowane odpowiedzi w formacie JSON.
 
@@ -37,13 +46,13 @@ status & TEXT & Status przetwarzania faktury - PENDING, PROCESSING, SENT, FAILED
 ksef\_id & TEXT & Numer faktury w KSeF. \\
 ksef\_error & TEXT & Błąd zwrócony przez KSeF w przypadku odrzucenia. \\
 upo\_xml & TEXT & Urzędowe Poświadczenie Odbioru w formacie XML. \\
-attempt\_count & INTEGER & Liczba prób wysłania faktury do KSeF. \\
+attempt\_count & INTEGER & Liczba prób ponownych wysłania faktury do KSeF. \\
 created\_at & DATETIME & Data utworzenia. \\
 updated\_at & DATETIME & Data ostatniej aktualizacji. \\
 submission\_reference & TEXT & Identyfikator przesłania, nadany przez KSeF. \\
 callback\_url & TEXT & Opcjonalny adres do przesłania informacji dotyczącej statusu faktury, po zakończeniu przetwarzania. \\
 webhook\_delivered & BINARY & Informacja, czy dane dotyczące statusu przesyłki zostały zwrócone. \\
-webhook\_attempt\_count & INTEGER & Liczba prób dostarczenia informacji zwrotnej. \\
+webhook\_attempt\_count & INTEGER & Liczba prób ponownych dostarczenia informacji zwrotnej. \\
 webhook\_error & TEXT & Błąd w przypadku niepomyślnego dostarczenia informacji zwrotnej. \\
 \end{longtable}
 \end{small}
@@ -69,7 +78,7 @@ Kolumna \texttt{status} pozwala na pięć różnych wartości:
 PENDING & Faktura została przyjęta przez aplikację i oczekuje na przetwarzanie oraz próbę wysyłki. \\
 PROCESSING & Faktura została pobrana przez mechanizm wysyłki i obecnie jest w trakcie przetwarzania. Zależnie od efektu końcowego podejmowanych prób, status zostanie zmieniony. \\
 SENT & Faktura została wysłana do Krajowego Systemu e-Faktur, a aplikacja otrzymała Urzędowe Poświadczenie Odbioru. \\
-FAILED & Faktura nie mogła zostać wysłana, lub została odrzucona przez Krajowy System e-Faktur. Podjęta została maksymalna liczba prób wysyłki. \\
+FAILED & Faktura nie mogła zostać wysłana, lub została odrzucona przez Krajowy System e-Faktur. Podjęta została maksymalna liczba prób ponownych wysyłki. \\
 UNKNOWN & Faktura została wysłana, ale nie otrzymano informacji zwrotnej z Krajowego Systemu e-Faktur. W trakcie kolejnych cykli działania aplikacji podjęte zostaną próby uzyskania odpowiedzi dotyczącej stanu faktury, by przypisać jej odpowiedni status. \\
 \end{longtable}
 \end{small}
@@ -77,22 +86,31 @@ UNKNOWN & Faktura została wysłana, ale nie otrzymano informacji zwrotnej z Kra
 W przypadku przyjęcia faktury o zewnętrznym identyfikatorze identycznym do faktury już istniejącej w bazie danych, o statusie \enquote{FAILED}, rekord zostanie nadpisany, traktując nowe żądanie jako poprawioną wersję poprzedniej.
 
 \subsection{Warstwa przetwarzania w tle}
-Warstwa ta składa się z cyklicznego mechanizmu, który skanuje bazę danych w poszukiwaniu rekordów wymagających przetwarzania, zależnie od ich statusu. Mechanizm ten pobiera zbiór faktur (z limitem określanym przez użytkownika w pliku konfiguracyjnym), następnie uruchamia asynchroniczne procesy wysyłki dla każdego z nich. Faktury oraz webhooki, których wysyłka się nie powiodła, ale nie osiągnęły limitu prób wysyłki, również są procesowane w kolejnych cyklach. Pobierane są również faktury o statusie \enquote{UNKNOWN} w celu sprawdzenia ich statusu.
+Warstwa ta składa się z cyklicznego mechanizmu, który skanuje bazę danych w poszukiwaniu rekordów wymagających przetwarzania, zależnie od ich statusu. Mechanizm ten pobiera zbiór faktur (z limitem określanym przez użytkownika w pliku konfiguracyjnym), następnie uruchamia asynchroniczne procesy wysyłki dla każdego z nich. Faktury oraz webhooki, których wysyłka się nie powiodła, ale nie osiągnęły limitu prób ponownych wysyłki, również są procesowane w kolejnych cyklach. Pobierane są również faktury o statusie \enquote{UNKNOWN} w celu sprawdzenia ich statusu.
 
 \subsection{Warstwa integracji z systemami zewnętrznymi}
-Warstwa ta odpowiada za komunikację z Krajowym Systemem e-Faktur, oraz systemami, od których aplikacja przyjmuje faktury. Autentykuje użytkownika na podstawie tokenu wprowadzonego w pliku konfiguracyjnym, odświeża pozyskany token pozwalający na wysyłkę w przypadku jego przedawnienia, otwiera i zamyka sesje interaktywne w celu wysyłki, sprawdza ich status oraz pobiera Urzędowe Poświadczenia Odbioru. Cała komunikacja odbywa się poprzez wysyłanie żądań w HTTP oraz przyjmowanie odpowiedzi w odpowiednich formatach opisanych przez oficjalną dokumentację Krajowego Systemu e-Faktur. 
+Warstwa ta odpowiada za komunikację z Krajowym Systemem e-Faktur, oraz systemami, od których aplikacja przyjmuje faktury. Autentykuje użytkownika na podstawie tokenu wprowadzonego w pliku ze zmiennymi środowiskowymi, odświeża pozyskany token pozwalający na wysyłkę w przypadku jego przedawnienia, otwiera i zamyka sesje interaktywne w celu wysyłki, sprawdza ich status oraz pobiera Urzędowe Poświadczenia Odbioru. Cała komunikacja odbywa się poprzez wysyłanie żądań w HTTP oraz przyjmowanie odpowiedzi w odpowiednich formatach opisanych przez oficjalną dokumentację Krajowego Systemu e-Faktur. 
 
 Komunikacja odbywa się również z systemami, które wysyłając aplikacji fakturę, przesłały adres URL, na który wysłana ma zostać informacja zwrotna. Warstwa wysyła odpowiednio ustrukturyzowane żądania w formacie JSON zawierające informacje dotyczące statusu końcowego (\enquote{SENT} lub \enquote{FAILED}) faktur, które zostały przetworzone.
 
 \subsection{Warstwa wizualna oraz kontroli}
-Aplikacja eksponuje panel wizualny dla użytkownika, w postaci listy rekordów z bazy danych. Użytkownik może filtrować listę przez status faktury, oraz wyszukiwać je za pomocą ich zewnętrznego identyfikatora. Możliwy jest również szczegółowy podgląd pojedynczej faktury oraz manualne jej usunięcie, jeśli jest o statusie \enquote{FAILED}. W przypadku, gdy wysyłki webhooka osiągnęły swój limit prób, możliwy jest również manualny reset licznika za pomocą przycisku. Panel jest automatycznie i dynamicznie odświeżany, bez przeładowywania strony.  
+Aplikacja eksponuje panel wizualny dla użytkownika, w postaci listy rekordów z bazy danych. Użytkownik może filtrować listę przez status faktury, oraz wyszukiwać je za pomocą ich zewnętrznego identyfikatora. Możliwy jest również szczegółowy podgląd pojedynczej faktury oraz manualne jej usunięcie, jeśli jest o statusie \enquote{FAILED}. W przypadku, gdy wysyłki webhooka osiągnęły swój limit prób ponownych, możliwy jest również manualny reset licznika za pomocą przycisku. Panel jest automatycznie i dynamicznie odświeżany, bez przeładowywania strony.  
 
+\subsection{Warstwa bezpieczeństwa}
+Dane uwierzytelniające i poufne wymagane do działania aplikacji pobierane są ze zmiennych środowiskowych. \texttt{APP\_API\_KEY} to klucz, który musi być załączany do żądań przesyłanych przez systemy zewnętrzne na endpointy służące do komunikacji z nimi, w nagłówku \texttt{Authorization} w schemacie \texttt{Bearer}. \texttt{DASHBOARD\_USERNAME} oraz \texttt{DASHBOARD\_PASSWORD} chronią endpointy odpowiedzialne za interfejs i służą do uwierzytelnienia użytkownika przy próbie dostępu do wspomnianego w poprzedniej subsekcji panelu wizualnego, za pomocą HTTP Basic Authentication (przypis). Niepowodzenie w uwierzytelnieniu w czasie interakcji z endpointami jego wymagającymi skutkuje odpowiedzią o kodzie HTTP 401, \enquote{Unauthorized}. \texttt{KSEF\_TOKEN} to token uwierzytelniający, pobierany przez użytkownika z Panelu Podatnika Krajowego Systemu e-Faktur i umożliwia komunikację z samym KSeF.
 
 \section{Przepływ przetwarzania faktury}
+Możliwe zmiany statusu faktury podczas jej przetwarzania przedstawiono na rysunku \ref{fig:invoice_state_transitions}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/invoice_states.pdf}
+    \caption{Przejścia pomiędzy stanami przetwarzania faktury}
+    \label{fig:invoice_state_transitions}
+\end{figure}
+
 \subsection{Wejście}
-Proces rozpoczyna się poprzez przyjęcie danych w formacie JSON % citation
-od systemu zewnętrznego poprzez żądanie POST % citation
-do endpointu \texttt{/invoices}, eksponowanego przez aplikację. 
+Proces rozpoczyna się poprzez przyjęcie danych w formacie JSON od systemu zewnętrznego poprzez żądanie POST do endpointu \texttt{/invoices}, eksponowanego przez aplikację. 
 Format JSON został wybrany ze względu na swoją kompatybilność z HTTP API oraz szerokie wsparcie przez systemy zintegrowane i aplikacje backendowe. Jest on również czytelny dla człowieka. Aplikacja akceptuje dane w formacie JSON, służącym jako pośredni, integracyjny format, i używa ich do stworzenia bardziej ustrukturyzowanego pliku XML dostosowanego do oficjalnego schematu (FA3) udostępnionego przez Ministerstwo Finansów
 % citation
 . 
@@ -148,7 +166,6 @@ Faktura jest następnie przetwarzana - występuje walidacja podstawowych danych 
 \end{itemize}
 
 \subsection{Utworzenie pliku w formacie XML}
-% my nie mamy nawet wsparcia dla grup vat..... strasznie duzo magicznych liczb w transformacji do xml...
 Dane są następnie transformowane do formatu XML wymaganego przez Krajowy System e-Faktur, poprzez mapowanie odpowiednich pól JSON do pól wymaganych przez oficjalny schemat XSD, m.in. nagłówek, informacje dotyczące sprzedawcy oraz nabywcy, wiersze sprzedaży, wartości podatkowe, informacje o płatności oraz ewentualnie pola korygujące.
 Pola są generowane na podstawie struktur odpowiadających elementom końcowego pliku XML, a nie korzystając z manipulacji tekstem, minimalizując prawdopodobieństwo niepoprawności dokumentu. 
 
@@ -163,11 +180,11 @@ W przypadku pomyślności poprzednich kroków, dane zapisywane są w lokalnej ba
 Tabela przedstawiająca strukturę rekordów przechowywanych w bazie danych została przedstawiona w tabeli \ref{tab:sqlite_invoices}.
 
 \subsection{Lokalna kolejka oraz wysyłka}
-Aplikacja skanuje bazę danych w poszukiwaniu faktur oznaczonych jako niewysłane oraz dodaje je do lokalnej kolejki. Jeśli kolejka nie jest pusta, otwierana jest sesja interaktywna przez uwierzytelnienie w KSeF, faktury są wysyłane oraz monitorowane pod względem statusu wysyłki. W przypadku akceptacji, faktura oznaczana jest jako wysłana - w przypadku nieznanego statusu, aplikacja ponowi zapytanie dotyczące faktury. Jeśli zaś dojdzie do porażki, aplikacja spróbuje wysłać fakturę ponownie w następnym cyklu działania, do momentu gdy nie zostanie osiągnięty określony przez użytkownika w pliku konfiguracyjnym limit prób. Wyjątkiem jest tutaj błąd połączenia z internetem - w tym wypadku, faktura pozostanie w kolejce, do momentu, gdy możliwa będzie wysyłka.
+Aplikacja skanuje bazę danych w poszukiwaniu faktur oznaczonych jako niewysłane oraz dodaje je do lokalnej kolejki. Jeśli kolejka nie jest pusta, otwierana jest sesja interaktywna przez uwierzytelnienie w KSeF, faktury są wysyłane oraz monitorowane pod względem statusu wysyłki. W przypadku akceptacji, faktura oznaczana jest jako wysłana - w przypadku nieznanego statusu, aplikacja ponowi zapytanie dotyczące faktury. Jeśli zaś dojdzie do porażki, aplikacja spróbuje wysłać fakturę ponownie w następnym cyklu działania, do momentu gdy nie zostanie osiągnięty określony przez użytkownika w pliku konfiguracyjnym limit prób ponownych. Wyjątkiem jest tutaj błąd połączenia z internetem - w tym wypadku, faktura pozostanie w kolejce, do momentu, gdy możliwa będzie wysyłka.
 
 \subsection{Webhooki}
 Jeśli w oryginalnych danych przekazanych aplikacji żądaniem figurował adres, na który wysłana powinna zostać informacja zwrotna dotycząca statusu wysyłki, mechanizm webhooków (\textit{webhook} - dosł. hak sieciowy - aplikacja zapamiętuje dostawcę danych, na potrzebę przyszłej interakcji)
-prześle zewnętrznemu systemowi dane w formacie JSON po oznaczeniu faktury jako wysłana lub odrzucona, potwierdzając pomyślność operacji lub podając powód odrzucenia faktury. W przypadku błędu w trakcie próby przekazania danych, aplikacja podejmie kolejne próby, aż do osiągnięcia określonego przez użytkownika limitu prób. Zresetowanie licznika prób może zostać wykonane przez użytkownika z poziomu panelu dostępnego przez przeglądarkę.
+prześle zewnętrznemu systemowi dane w formacie JSON po oznaczeniu faktury jako wysłana lub odrzucona, potwierdzając pomyślność operacji lub podając powód odrzucenia faktury. W przypadku błędu w trakcie próby przekazania danych, aplikacja podejmie kolejne próby, aż do osiągnięcia określonego przez użytkownika limitu prób ponownych. Zresetowanie licznika prób ponownych może zostać wykonane przez użytkownika z poziomu panelu dostępnego przez przeglądarkę.
 
 \noindent Informacja zwrotna przesyłana jest w następującej postaci:
 \begin{small}
@@ -199,7 +216,7 @@ timestamp & DATETIME & Czas przesyłki informacji zwrotnej. \\
 \end{small}
 
 \subsection{Panel użytkownika}
-Aplikacja eksponuje również prosty panel na endpoincie \texttt{/ui/invoices} umożliwiający wgląd do historii wysyłek, filtrowanie faktur według statusu, wyszukiwanie pojedynczych rekordów oraz ich manualne usuwanie w przypadku niepomyślnej wysyłki i osiągnięcia limitu prób. Możliwy jest również reset licznika prób wysyłki webhooków, jeśli limit został poprzednio osiągnięty. Panel automatycznie odświeża swoją zawartość. Panel wykonany został z użyciem HTMX oraz ostylowany za pomocą Tailwind CSS.
+Aplikacja eksponuje również prosty panel na endpoincie \texttt{/ui/invoices} umożliwiający wgląd do historii wysyłek, filtrowanie faktur według statusu, wyszukiwanie pojedynczych rekordów oraz ich manualne usuwanie w przypadku niepomyślnej wysyłki i osiągnięcia limitu prób ponownych. Możliwy jest również reset licznika prób ponownych wysyłki webhooków, jeśli limit został poprzednio osiągnięty. Panel automatycznie odświeża swoją zawartość. Panel wykonany został z użyciem HTMX oraz ostylowany za pomocą Tailwind CSS.
 
 \section{Komunikacja z KSeF}
 Podstawowym elementem działania aplikacji jest interakcja z samym Krajowym Systemem e-Faktur - uwierzytelnienie, otwieranie i zamykanie sesji interaktywnych w celu wysyłki faktur oraz sprawdzanie statusu i odbiór Urzędowych Poświadczeń Odbioru. 
@@ -220,7 +237,7 @@ Aplikacja sprawdza status faktury aż do otrzymania odpowiedzi, lub osiągnięci
 W tej sekcji opisane będzie ogólne działanie - od konfiguracji i uruchomienia, przez działanie, po mechanizm bezpiecznego zamknięcia oraz w jaki sposób aplikacja jest wdrażana kontenerowo.
 
 \subsection{Konfiguracja}
-Oprogramowanie jest konfigurowane za pomocą pliku \enquote{config.yaml}, którego format został wybrany ze względu na swoją prostotę, czytelność dla człowieka oraz powielenie użycia we wdrożeniu kontenerowym (plik \enquote{docker-compose.yaml}), któremu dedykowana jest osobna subsekcja. 
+Oprogramowanie jest konfigurowane za pomocą pliku \texttt{config.yaml}, którego format został wybrany ze względu na swoją prostotę, czytelność dla człowieka oraz powielenie użycia we wdrożeniu kontenerowym (plik \texttt{docker-compose.yaml}), któremu dedykowana jest osobna subsekcja. 
 
 
 \noindent Struktura pliku konfiguracyjnego jest następująca:
@@ -244,7 +261,6 @@ Oprogramowanie jest konfigurowane za pomocą pliku \enquote{config.yaml}, które
 
 ksef.nip & TEXT & Numer Identyfikacji Podatkowej podmiotu, który reprezentuje użytkownik. \\
 ksef.url & TEXT & Oficjalny adres API KSeF, na wypadek zmiany, lub chęci użytkownika do przetestowania oprogramowania na środowisku testowym. \\
-ksef.token & TEXT & Oficjalny token API pozyskany przez użytkownika z Panelu Podatnika KSeF. \\
 ksef.http\_timeout\_sec & INTEGER & Maksymalny czas oczekiwania na odpowiedź HTTP z KSeF. \\
 ksef.auth\_retry\_delay\_sec & INTEGER & Przerwa w sekundach pomiędzy kolejnymi próbami uwierzytelnienia w KSeF. \\
 ksef.polling\_delay\_sec & INTEGER & Przerwa w sekundach pomiędzy kolejnymi zapytaniami o status wysłanej do KSeF faktury. \\
@@ -252,7 +268,7 @@ ksef.confirmation\_max\_attempts & INTEGER & Maksymalna liczba prób sprawdzenia
 sqlite.db\_path & TEXT & Ścieżka do lokalnej bazy danych, wybierana przez użytkownika. \\
 sqlite.busy\_timeout\_ms & INTEGER & Czas oczekiwania SQLite na zwolnienie blokady bazy danych. \\
 server.port & TEXT & Port HTTP, na którym uruchamiana jest aplikacja. \\
-user.max\_retries & INTEGER & Maksymalna liczba prób wysyłki faktury lub webhooka w przypadku błędów. \\
+user.max\_retries & INTEGER & Maksymalna liczba prób ponownych wysyłki faktury lub webhooka w przypadku błędów. \\
 xsd\_path & TEXT & Ścieżka do pliku schematu XSD używanego do walidacji faktur w formacie XML. \\
 dash\_page\_size & INTEGER & Liczba faktur wyświetlanych na jednej stronie panelu użytkownika. \\
 polling\_interval & INTEGER & Czas w sekundach między skanowaniem bazy danych w poszukiwaniu faktur do wysyłki. \\
@@ -262,8 +278,47 @@ sender\_worker\_limit & INTEGER & Limit równoległych wysyłek faktur lub webho
 \end{longtable}
 \end{small}
 
+Dodatkowo, użytkownik musi skonfigurować plik \texttt{.env} zawierający zmienne środowiskowe, poprzez skopiowanie, zmianę nazwy i uzupełnienie pliku \texttt{.env.example}. Te zmienne występują w osobnym pliku, ponieważ wszystkie poza \texttt{DASHBOARD\_USERNAME} są danymi poufnymi - ich jawność mogłaby umożliwić dostęp do aplikacji osobom trzecim. 
+
+\begin{small}
+\begin{longtable}{
+    >{\raggedright\arraybackslash}p{5.2cm}
+    >{\raggedright\arraybackslash}p{9cm}
+}
+\caption{Zmienne środowiskowe wymagane przez aplikację}
+\label{tab:environment_variables} \\
+\toprule
+\textbf{Zmienna} & \textbf{Opis} \\
+\midrule
+\endfirsthead
+
+\toprule
+\textbf{Zmienna} & \textbf{Opis} \\
+\midrule
+\endhead
+
+\bottomrule
+\endfoot
+
+KSEF\_TOKEN
+& Token uwierzytelniający uzyskany przez użytkownika z Krajowego Systemu e-Faktur. \\
+
+APP\_API\_KEY
+& Klucz wykorzystywany do uwierzytelniania systemów zewnętrznych korzystających z endpointów API aplikacji. \\
+
+DASHBOARD\_USERNAME
+& Nazwa użytkownika wymagana podczas uwierzytelniania w panelu użytkownika. \\
+
+DASHBOARD\_PASSWORD
+& Hasło wymagane podczas uwierzytelniania w panelu użytkownika. \\
+
+\end{longtable}
+\end{small}
+
+Brak wartości w którymkolwiek z pól nie pozwoli użytkownikowi na uruchomienie aplikacji.
+
 \subsection{Uruchomienie aplikacji}
-Po uruchomieniu aplikacji, tworzone są loggery odpowiadające za rejestrowanie wszystkich działań aplikacji. Otwierany jest wcześniej wspomniany plik konfiguracyjny, a jego wartości są walidowane. Oprogramowanie utworzy odpowiednią bazę danych SQLite, lub spróbuje połączyć się z już isntiejącą, jeśli owa istnieje. Następnie wczytywany jest schemat XSD służący do walidacji faktur w formacie XML oraz tworzony jest specjalny walidator.
+Po uruchomieniu aplikacji, tworzone są loggery odpowiadające za rejestrowanie wszystkich działań aplikacji. Otwierany jest wcześniej wspomniany plik konfiguracyjny, a jego wartości są walidowane. Wczytywane są również zmienne środowiskowe. Oprogramowanie utworzy odpowiednią bazę danych SQLite, lub spróbuje połączyć się z już isntiejącą, jeśli owa istnieje. Następnie wczytywany jest schemat XSD służący do walidacji faktur w formacie XML oraz tworzony jest specjalny walidator.
 
 Tworzony jest klient HTTP oraz struktura aplikacji, z użyciem parametrów z pliku konfiguracyjnego, oraz uruchamiany jest serwer HTTP, asynchronicznie z pętlą odpowiadającą za skanowanie bazy danych w poszukiwaniu faktur. Przygotowywany jest również kontekst pozwalający później na bezpieczne zamknięcie aplikacji. 
 
@@ -273,34 +328,34 @@ Aplikacja w ramach swojego działania eksponuje odpowiednie endpointy API HTTP o
 \noindent Eksponowane są następujące endpointy:
 
 \begin{small}
-\begin{longtable}{>{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{4.8cm} >{\raggedright\arraybackslash}p{6.0cm}}
+\begin{longtable}{>{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{4.6cm}}
 \caption{Endpointy eksponowane przez aplikację}
 \label{tab:app_endpoints} \\
 \toprule
-\textbf{Metoda} & \textbf{Endpoint} & \textbf{Opis} \\
+\textbf{Metoda} & \textbf{Endpoint} & \textbf{Dostęp} & \textbf{Opis} \\
 \midrule
 \endfirsthead
 
 \toprule
-\textbf{Metoda} & \textbf{Endpoint} & \textbf{Opis} \\
+\textbf{Metoda} & \textbf{Endpoint} & \textbf{Dostęp} & \textbf{Opis} \\
 \midrule
 \endhead
 
 \bottomrule
 \endfoot
 
-POST & /invoices & Główny endpoint wejściowy aplikacji. Przyjmuje faktury w formacie JSON i zapisuje je do dalszego przetwarzania. \\
-GET & /invoice?id=\{id\} & Endpoint API zwracający status pojedynczej faktury na podstawie wewnętrznego identyfikatora w bazie fanych. \\
-GET & \makecell[l]{/invoice?external\_id=\\\{external\_id\}} & Endpoint API zwracający status pojedynczej faktury na podstawie identyfikatora z systemu zewnętrznego. \\
-DELETE & \makecell[l]{/deleteinvoice?external\_id=\\\{external\_id\}} & Endpoint API pozwalający usunąć fakturę o statusie FAILED na podstawie identyfikatora zewnętrznego. \\
-GET & / & Endpoint przekierowujący użytkownika do panelu administracyjnego. \\
-GET & /ui/invoices & Główny widok panelu użytkownika. \\
-GET & /ui/invoicetable & Endpoint zwracający tabelę faktur, wykorzystywany do odświeżania widoku z użyciem HTMX. \\
-GET & /ui/invoice?id=\{id\} & Endpoint zwracający szczegółowy widok pojedynczej faktury w panelu użytkownika. \\
-DELETE & \makecell[l]{/ui/deleteinvoice?id=\\\{id\}} & Endpoint panelu użytkownika pozwalający ręcznie usunąć fakturę o statusie FAILED. \\
-POST & \makecell[l]{/ui/retrywebhook?id=\\\{id\}} & Endpoint panelu użytkownika resetujący licznik prób webhooka dla wybranej faktury. \\
-GET & /health/live & Endpoint pozwalający sprawdzić, czy aplikacja działa. \\
-GET & /health/ready & Endpoint pozwalający sprawdzić, czy aplikacja jest gotowa do obsługi faktur. \\
+POST & /invoices & Bearer & Główny endpoint wejściowy aplikacji. Przyjmuje faktury w formacie JSON i zapisuje je do dalszego przetwarzania. \\
+GET & /invoice?id=\{id\} & Bearer & Endpoint API zwracający status pojedynczej faktury na podstawie wewnętrznego identyfikatora w bazie fanych. \\
+GET & \makecell[l]{/invoice?external\_id=\\\{external\_id\}} & Bearer & Endpoint API zwracający status pojedynczej faktury na podstawie identyfikatora z systemu zewnętrznego. \\
+DELETE & \makecell[l]{/deleteinvoice?external\_id=\\\{external\_id\}} & Bearer & Endpoint API pozwalający usunąć fakturę o statusie FAILED na podstawie identyfikatora zewnętrznego. \\
+GET & / & Publiczny & Endpoint przekierowujący użytkownika do panelu administracyjnego, pod chronionym endpointem \texttt{/ui/invoices}. \\
+GET & /ui/invoices & Basic Auth & Główny widok panelu użytkownika. \\
+GET & /ui/invoicetable & Basic Auth & Endpoint zwracający tabelę faktur, wykorzystywany do odświeżania widoku z użyciem HTMX. \\
+GET & /ui/invoice?id=\{id\} & Basic Auth & Endpoint zwracający szczegółowy widok pojedynczej faktury w panelu użytkownika. \\
+DELETE & \makecell[l]{/ui/deleteinvoice?id=\\\{id\}} & Basic Auth & Endpoint panelu użytkownika pozwalający ręcznie usunąć fakturę o statusie FAILED. \\
+POST & \makecell[l]{/ui/retrywebhook?id=\\\{id\}} & Basic Auth & Endpoint panelu użytkownika resetujący licznik prób ponownych webhooka dla wybranej faktury. \\
+GET & /health/live & Publiczny & Endpoint pozwalający sprawdzić, czy aplikacja działa. \\
+GET & /health/ready & Publiczny & Endpoint pozwalający sprawdzić, czy aplikacja jest gotowa do obsługi faktur. \\
 \end{longtable}
 \end{small}
 
@@ -313,3 +368,41 @@ W celu dbania o zgodność danych, oprogramowanie zostało wyposażone w mechani
 
 \subsection{Wdrożenie kontenerowe}
 Kod źródłowy aplikacji zawiera również pliki pozwalające na nieskomplikowane wdrożenie kontenerowe z użyciem Dockera. Budowany kontener zawiera aplikację w postaci pliku wykonawczego wraz z plikami wymaganymi w trakcie pracy, m.in. elementami interfejsu użytkownika wyświetlanego w przeglądarce lub schematem XSD służącym do walidacji faktur w formacie XML przed wysyłką. Dane przechowywane są w zamontowanym folderze z bazą SQLite. Dzięki Docker Compose, uruchomienie aplikacji wymaga od użytkownika jedynie edycji przykładowego pliku konfiguracyjnego poprzez dodanie swoich danych (oraz ewentualną modyfikację pól wpływających na działanie aplikacji) oraz wykonanie pojedynczego polecenia.
+
+\section{Przykładowy scenariusz użycia aplikacji}
+\subsection{Środowisko i cel}
+Aplikacja została uruchomiona poprzez Docker Compose w celu przeprowadzenia scenariusza testowego obejmującego przyjęcie faktury od zewnętrznego systemu, przetworzenie jej, zapisanie w bazie danych, uwierzytelnienie w środowisku testowym Krajowego Systemu e-Faktur, wysyłkę, pobraniu Urzędowego Poświadczenia Odbioru oraz dostarczenie informacji zwrotnej do systemu zewnętrznego. Oprogramowanie komunikowało się ze środowiskiem testowym KSeF \texttt{https://api-test.ksef.mf.gov.pl/v2}. Zmienne środowiskowe wykorzystane do uwierzytelnienia nie zostały zaprezentowane.
+
+\subsection{Uruchomienie aplikacji w ramach scenariusza}
+W celu uruchomienia aplikacji wywołane zostały dwie komendy: \texttt{docker compose up -d --build}, w celu zbudowania i uruchomienia kontenera z aplikacją, oraz \texttt{docker compose logs -f app}, w celu śledzenia jej logów. Aplikacja pomyślnie odczytała zmienne środowiskowe, utworzyła bazę danych SQLite, walidator schematów XSD, serwer HTTP i uruchomiła sender. 
+
+\subsection{Przekazanie faktury do aplikacji}
+Następnie do aplikacji przesłane zostało żądanie HTTP zawierające fakturę testową, za pomocą programu \texttt{curl}, następującą komendą:
+
+\begin{lstlisting}[style=thesiscode, caption={Przekazanie faktury do aplikacji}, label={lst:scenario-submit-invoice}]
+curl -X POST http://localhost:8080/invoices \
+  -H "Authorization: Bearer [APP_API_KEY]" \
+  -H "Content-Type: application/json" \
+  --data-binary @invoice.json
+\end{lstlisting}
+
+\texttt{@invoice.json} odwołuje się do pliku w formacie JSON zawierającego dane o podobnej strukturze do danych w przykładowym listingu \ref{lst:json-invoice}, zawierającego fakturę z jednym produktem o wartości 100,00 PLN, stawką VAT 23\% i podatkiem o wartości 23,00 PLN.
+
+W odpowiedzi aplikacja zwróciła kod HTTP 201 oraz następujące dane w formacie JSON:
+
+\begin{lstlisting}[style=thesiscode, caption={Odpowiedź aplikacji po przyjęciu faktury}, label={lst:scenario-create-response}]
+{
+  "status": "ok",
+  "message": "The invoice has been created.",
+  "data": {
+    "id": 1,
+    "status": "PENDING"
+  }
+}
+\end{lstlisting}
+
+Ta odpowiedź potwierdza przyjęcie faktury przez aplikację, walidację jej danych, transformację do formatu XML, walidację wobec schematu XSD oraz zapis w bazie danych.
+
+\subsection{Przetworzenie faktury przez aplikację}
+
+\section{Ograniczenia aplikacji}
