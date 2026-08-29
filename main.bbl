@@ -336,7 +336,7 @@
       \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
       \endverb
     \endentry
-    \entry{mf_offline_2025}{misc}{}{}
+    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
            family={{Ministerstwo Finansów}},
@@ -357,90 +357,6 @@
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Tryb offline - niedostępność {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
-      \field{urlday}{16}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/65X87L25/tryb-offline-niedostepnosc-ksef.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
-      \endverb
-      \verb{url}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
-      \endverb
-    \endentry
-    \entry{mf_offline24_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
-           family={{Ministerstwo Finansów}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {pl-PL}%
-      }
-      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{5}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradate}{5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Tryb offline24 - {KSeF} ({Krajowy} {System} e-{Faktur})}
-      \field{urlday}{16}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/HSWW5UEX/tryb-offline24.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
-      \endverb
-      \verb{url}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
-      \endverb
-    \endentry
-    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
-           family={{Ministerstwo Finansów}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {pl-PL}%
-      }
-      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{6}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradate}{6}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -480,7 +396,7 @@
       \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{7}
+      \field{extraname}{5}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{1}
@@ -518,7 +434,7 @@
       \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{8}
+      \field{extraname}{6}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{2}
@@ -539,49 +455,6 @@
       \endverb
       \verb{url}
       \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
-      \endverb
-    \endentry
-    \entry{statcounter_desktop_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=fee3fc182e02f376217580e5bfec4f51}{%
-           family={{StatCounter}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \strng{namehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{fullhash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{fullhashraw}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{bibnamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorbibnamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authornamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorfullhash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorfullhashraw}{fee3fc182e02f376217580e5bfec4f51}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This graph shows the market share of desktop operating systems in Poland based on over 5 billion monthly page views.}
-      \field{journaltitle}{StatCounter Global Stats}
-      \field{month}{12}
-      \field{title}{Desktop {Operating} {System} {Market} {Share} {Poland}}
-      \field{urlday}{6}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/M2YT5M5X/poland.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://gs.statcounter.com/os-market-share/desktop/poland
-      \endverb
-      \verb{url}
-      \verb https://gs.statcounter.com/os-market-share/desktop/poland
       \endverb
     \endentry
     \entry{zebrowska-fresenbet_jpk_2021}{misc}{}{}
@@ -948,7 +821,7 @@
       \verb https://ksef.podatki.gov.pl/pytania-i-odpowiedzi-ksef-20
       \endverb
     \endentry
-    \entry{mf_offline_2025}{misc}{}{}
+    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
            family={{Ministerstwo Finansów}},
@@ -969,90 +842,6 @@
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Tryb offline - niedostępność {KSeF} - {KSeF} ({Krajowy} {System} e-{Faktur})}
-      \field{urlday}{16}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/65X87L25/tryb-offline-niedostepnosc-ksef.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
-      \endverb
-      \verb{url}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline-niedostepnosc-ksef/
-      \endverb
-    \endentry
-    \entry{mf_offline24_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
-           family={{Ministerstwo Finansów}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {pl-PL}%
-      }
-      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{5}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradate}{5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Tryb offline24 - {KSeF} ({Krajowy} {System} e-{Faktur})}
-      \field{urlday}{16}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/HSWW5UEX/tryb-offline24.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
-      \endverb
-      \verb{url}
-      \verb https://ksef.podatki.gov.pl/informacje-ogolne-ksef-20/tryb-offline24/
-      \endverb
-    \endentry
-    \entry{ministerstwo_finansow_zakres_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=960b753c934c60b5c41b758ec4fe6893}{%
-           family={{Ministerstwo Finansów}},
-           familyi={M\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {pl-PL}%
-      }
-      \strng{namehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{fullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{bibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorbibnamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
-      \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{6}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradate}{6}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -1092,7 +881,7 @@
       \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{7}
+      \field{extraname}{5}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{1}
@@ -1130,7 +919,7 @@
       \strng{authornamehash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhash}{960b753c934c60b5c41b758ec4fe6893}
       \strng{authorfullhashraw}{960b753c934c60b5c41b758ec4fe6893}
-      \field{extraname}{8}
+      \field{extraname}{6}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
       \field{extradate}{2}
@@ -1151,49 +940,6 @@
       \endverb
       \verb{url}
       \verb https://mf-arch2.mf.gov.pl/web/bip/ministerstwo-finansow/dla-mediow/informacje-prasowe/-/asset_publisher/6PxF/content/jednolity-plik-kontrolny-najwazniejsze-informacje?redirect=https%3A%2F%2Fmf-arch2.mf.gov.pl%2Fweb%2Fbip%2Fministerstwo-finansow%2Fdla-mediow%2Finformacje-prasowe%3Fp_p_id%3D101_INSTANCE_6PxF%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_p_col_id%3Dcolumn-2%26p_p_col_count%3D1%26p_r_p_564233524_tag%3Djednolity%2Bplik%2Bkontrolny%26_101_INSTANCE_6PxF_changeViewTo%3Dabstracts
-      \endverb
-    \endentry
-    \entry{statcounter_desktop_2025}{misc}{}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=fee3fc182e02f376217580e5bfec4f51}{%
-           family={{StatCounter}},
-           familyi={S\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {en}%
-      }
-      \strng{namehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{fullhash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{fullhashraw}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{bibnamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorbibnamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authornamehash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorfullhash}{fee3fc182e02f376217580e5bfec4f51}
-      \strng{authorfullhashraw}{fee3fc182e02f376217580e5bfec4f51}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This graph shows the market share of desktop operating systems in Poland based on over 5 billion monthly page views.}
-      \field{journaltitle}{StatCounter Global Stats}
-      \field{month}{12}
-      \field{title}{Desktop {Operating} {System} {Market} {Share} {Poland}}
-      \field{urlday}{6}
-      \field{urlmonth}{1}
-      \field{urlyear}{2026}
-      \field{year}{2025}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb Snapshot:/home/anon/Zotero/storage/M2YT5M5X/poland.html:text/html
-      \endverb
-      \verb{urlraw}
-      \verb https://gs.statcounter.com/os-market-share/desktop/poland
-      \endverb
-      \verb{url}
-      \verb https://gs.statcounter.com/os-market-share/desktop/poland
       \endverb
     \endentry
     \entry{zebrowska-fresenbet_jpk_2021}{misc}{}{}

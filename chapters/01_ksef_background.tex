@@ -1,13 +1,10 @@
-\chapter{Wstęp i założenia}
+\chapter{Krajowy System e-Faktur i założenia integracji}
 \section{Wprowadzenie}
-Krajowy System e-Faktur, w skrócie KSeF, to platforma online pozwalająca na wystawianie, odbieranie oraz przechowywanie faktur ustrukturyzowanych, opracowana przez Ministerstwo Finansów \parencite{ministerstwo_finansow_pytania_2025}. 
-W trakcie powstawania tej pracy nie występuje wciąż obowiązek wystawiania faktur za pomocą platformy - jednak obowiązek ten będzie stopniowo wprowadzany na przestrzeni 2026 roku \parencite{ministerstwo_finansow_pytania_2025}. 
+Obowiązek wystawiania faktur za pomocą platformy został stopniowo wprowadzony na przestrzeni pierwszej połowy 2026 roku \parencite{ministerstwo_finansow_pytania_2025}. 
 
-Pierwszy etap wdrożenia rozpoczyna się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT \parencite{ministerstwo_finansow_terminy_2025}. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypada na 1 kwietnia 2026 \parencite{ministerstwo_finansow_terminy_2025} - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje wszystkich, z jednym wyjątkiem, opisanym poniżej.
+Pierwszy etap wdrożenia rozpoczął się 1 lutego 2026 roku, dla firm, których sprzedaż w roku 2024 przekroczyła wartość 200 milionów PLN, wliczając VAT \parencite{ministerstwo_finansow_terminy_2025}. Drugi, bardziej znaczący dla projektu realizowanego w tej pracy termin przypadł na 1 kwietnia 2026 \parencite{ministerstwo_finansow_terminy_2025} - poczynając od tego dnia, obowiązek wykorzystywania narzędzia obowiązuje prawie wszystkich, z jednym głównym wyjątkiem, opisanym poniżej.
 
-W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma podatku należnego VAT z tych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. 
-
-Celem niniejszej pracy będzie utworzenie oraz dokumentacja oprogramowania pozwalającego małym i średnim przedsiębiorstwom na prostą integrację z wprowadzanym systemem. 
+W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma brutto tych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. Dnia 1 stycznia 2027 roku, obowiązek korzystania z Krajowego Systemu e-Faktur dotyczył będzie prawie wszystkich przedsiębiorców.
 
 \section{Tło prawne i gospodarcze}
 KSeF wprowadzany jest w celu załatania luki VAT, wywiązania się ze zgodności z dyrektywą UE 2025/516 oraz ułatwienia procesu fakturowania - jednak wprowadzenie tego systemu może wiązać się z wieloma komplikacjami dla małych i średnich przedsiębiorstw, biorąc pod uwagę skalę zmian, które niesie ze sobą pełna cyfryzacja.
@@ -65,51 +62,32 @@ Jednolite Pliki Kontrolne jednak opierają się w głównej mierze na uczciwośc
 Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych \parencite{european_directive_2014}. W celu ułatwienia handlu interunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 25 marca 2025 ustanowiono zaś dyrektywę 2025/516, znaną również jako ViDA (VAT in the Digital Age, w skrócie ViDA), nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku \parencite{vida_council_2025}. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, można traktować jako krok w stronę wywiązania się z tego obowiązku.
 
 \subsection{Wyzwania dla małych i średnich przedsiębiorstw}
-Nadchodzące zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i jest wyposażone w tryb awaryjny w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
+Wprowadzone zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i posiada mechanizmy ochronne w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
 
 \subsection{Faktury ustrukturyzowane}
-Wprowadzany system przyjmować będzie jedynie faktury ustrukturyzowane - czyli w formacie XML (eXtensible Markup Language), o jednolitym układzie danych, umożliwiającym automatyczną analizę danych \parencite{structured_invoice_2025}. Faktury najpierw walidowane są wobec schematu (schema, w formacie XSD) \parencite{structured_invoice_2025}, po czym otrzymują unikalny numer identifykacyjny nadany przez KSeF i przechowywane są na okres 10 lat od wystawienia \parencite{ministerstwo_finansow_pytania_2025}. Na dzień powstawania tej pracy obowiązujący schemat to FA(3) \parencite{structured_invoice_2025}, na który poświęcona jest cała sekcja [odnośnik do sekcji w rozdziale 2]. 
+Wprowadzony system przyjmuje jedynie faktury ustrukturyzowane - czyli w formacie XML (eXtensible Markup Language), o jednolitym układzie danych, umożliwiającym automatyczną analizę danych \parencite{structured_invoice_2025}. Faktury najpierw walidowane są wobec schematu (schema, w formacie XSD) \parencite{structured_invoice_2025}, po czym otrzymują unikalny numer identifykacyjny nadany przez KSeF i przechowywane są na okres 10 lat od wystawienia \parencite{ministerstwo_finansow_pytania_2025}. Na dzień powstawania tej pracy obowiązujący schemat to FA(3) \parencite{structured_invoice_2025}, opublikowany 30 czerwca 2025 roku i obowiązujący od 1 lutego 2026 roku.
 
 Faktury te różnią się od \enquote{tradycyjnych} faktur elektronicznych w formacie PDF przede wszystkim tym, że mogą być odczytywane maszynowo - choć tracą na czytelności dla człowieka. Dlatego również system pozwala na pobieranie wizualizacji tych faktur w wyżej wspomnianym formacie.
 
-\subsection{Tryby offline oraz offline24}
-Oficjalna dokumentacja KSeF zakłada możliwość wyłączenia system na czas prac serwisowych \parencite{mf_offline_2025} oraz możliwe problemy z łącznością po stronie przedsiębiorcy \parencite{mf_offline24_2025} - jednak rozwiązaniem jest możliwość wystawiania faktur w trybie offline z nałożonym obowiązkiem wysłania ich następnego dnia roboczego, lub 7 dni roboczych w przypadku awarii po stronie Krajowego Systemu e-Faktur. Oprogramowanie, którego tyczy niniejsza praca, ma ułatwić proces wywiązywania się z tego obowiązku poprzez nacisk na offline-first - przechowywanie faktur lokalnie i pilnowanie wysłania ich w terminie. 
-
-\section{Cel, zakres oraz założenia pracy}
-Celem pracy jest zaprojektowanie oraz utworzenie oprogramowania umożliwiającego bezpieczną, nieinwazyjną i minimalizującą koszty integrację z Krajowym Systemem e-Faktur, w szczególności dla małych i średnich przedsiębiorstw. Projekt zrealizowany będzie w języku Go i przybierze formę pojedynczego pliku wykonywalnego, kompatybilnego z systemami Windows, MacOS oraz Linux. 
-\par
-Zakres pracy obejmuje:
-\begin{itemize}
-    \item analizę wymagań technicznych oraz oficjalnej dokumentacji Krajowego Systemu e-Faktur
-    \item zaprojektowanie architektury oprogramowania,
-    \item implementację oprogramowania,
-    \item testowanie jego działania,
-    \item praktyczne wykorzystanie go w realnym scenariuszu oraz ocenę działania na podstawie wyników.
-\end{itemize}
-
-Niniejsza praca ustrukturyzowana jest według powyższej listy. Końcowy rozdział składa się z analizy wykorzystania oprogramowania w realnym scenariuszu, dla [napisać nazwę spółki dla której wykorzystane będzie oprogramowanie?]. 
-
-\subsection{Założenia pracy}
-Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia progu podatku należnego w rozliczanym miesiącu, lub na stałe od początku roku 2027 \parencite{ministerstwo_finansow_zakres_2025}. 
+\section{Założenia pracy}
+Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia kwoty obrotów 10 000 PLN brutto w rozliczanym miesiącu, lub na stałe od początku roku 2027 \parencite{ministerstwo_finansow_zakres_2025}. 
 
 Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla których integracja z Krajowym Systemem e-Faktur może wiązać się z komplikacjami oraz znaczącym podniesieniem kosztów - i na podstawie tego założenia zostaną przyjęte wszystkie inne.
 \par
 Założenia:
 \begin{itemize}
     \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw (bis)
-    \item oprogramowanie może być dostosowane do wymagań użytkownika % TODO: w którejś części pracy zamieścić informacje o możliwości integracji z systemami ERP, Excelem, etc.
-    \item oprogramowanie nie wymaga wiedzy na temat funkcjonalności Krajowego Systemu e-Faktur
-    \item oprogramowanie jest kompatybilne z trzema najpopularniejszymi systemami operacyjnymi w Polsce, na dzień przygotowywania tej pracy \parencite{statcounter_desktop_2025}
-    \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego % TODO: w którejś części pracy zamieścić wymagania sprzętowe
-    \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi
+    \item oprogramowanie może być dostosowane do wymagań użytkownika poprzez konfigurację 
+    \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego 
+    \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi, z pominięciem trybów offline/offline24
     \item oprogramowanie nie ingeruje w treść faktur poza walidacją i normalizacją (przykładowo, wypełnienie pustych pól, które muszą zawierać wartości domyślne) i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
-    %TODO: dodatkowe wymagania, wspomnieć o panelu zatwierdzania?
+    \item oprograowanie pozwala na przeglądanie faktur poprzez panel użytkownika
 \end{itemize}
 
 Najważniejszym założeniem jednak jest poprawność danych wprowadzanych przez użytkownika, a zatem również brak odpowiedzialności oprogramowania za ewentualne błędy, takie jak przykładowo niepoprawna stawka VAT - system nie waliduje danych pod względem prawidłowości prawnej, ani nie zastępuje pełnoprawnych narzędzi księgowych.
 
 \section{Ogólna architektura oprogramowania}
-Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między przedsiębiorcą lub pracownikiem a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur od użytkownika/z systemu zewnętrznego poprzez interfejs HTTP API, przekonwertowanie ich do formatu akceptowanego przez KSeF, wysyłka, upewnienie się, że proces został wykonany bez żadnych nieprawidłowości oraz wysłanie informacji zwrotnej o statusie faktury.
+Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między systemami stosowanymi przez przedsiębiorcę lub pracownika a Krajowym Systemem e-Faktur. Jego główną rolą jest przyjęcie faktur od użytkownika/z systemu zewnętrznego poprzez interfejs HTTP API, przekonwertowanie ich do formatu akceptowanego przez KSeF, wysyłka, monitorowanie procesu pod względem ewentualnych nieprawidłowości oraz wysłanie informacji zwrotnej o statusie faktury.
 \par
 Na oprogramowanie składają się następujące elementy:
 \begin{itemize}

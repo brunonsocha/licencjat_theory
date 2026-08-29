@@ -43,7 +43,7 @@ Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech
 \endfoot
 
 github.com/goccy/go-yaml & konfiguracja & Odczyt i przetwarzanie pliku konfiguracyjnego \texttt{config.yaml} w formacie YAML. \\
-github.com/terminalstatic/go-xsd-validate & walidacja XML & Walidacja wygenerowanych faktur XML wobec oficjalnego schematu XSD faktur ustrukturyzowanych FA(3). \\
+github.com/lestrrat-go/helium v0.8.0 & walidacja XML & Walidacja wygenerowanych faktur XML wobec oficjalnego schematu XSD faktur ustrukturyzowanych FA(3). \\
 modernc.org/sqlite & baza danych & Sterownik do bazy danych SQLite. \\
 \end{longtable}
 \end{small}
@@ -235,7 +235,7 @@ XSD (XML Schema Definition, pol. \enquote{Definicja Schematu XML}) to format poz
 Schematy definiują przede wszystkim kolejność, ilość i rodzaj znaczników, które dokument powinien zawierać, oraz dopuszczalne wartości w polach. Zastosowanie tego formatu pozwala na automatyczną walidację faktur otrzymanych i przetransformowanych do formatu XML przez oprogramowanie utworzone w ramach projektu przed podjęciem prób wysyłki do Krajowego Systemu e-Faktur.
 
 \subsection{FA(3)}
-Faktury wysyłane do Krajowego Systemu e-Faktur muszą być zgodne z oficjalnym schematem, udostępnionym przez Ministerstwo Finansów 17 lutego 2026 roku, o nazwie FA(3). Schemat ten dokładnie określa w jaki sposób ustrukturyzowany powinien być przesyłany dokument, jakie dane powinien zawierać, oraz jakie wartości są dopuszczalne. 
+Faktury wysyłane do Krajowego Systemu e-Faktur muszą być zgodne z oficjalnym schematem, udostępnionym przez Ministerstwo Finansów 30 czerwca 2025 roku, o nazwie FA(3). Schemat ten dokładnie określa w jaki sposób ustrukturyzowany powinien być przesyłany dokument, jakie dane powinien zawierać, oraz jakie wartości są dopuszczalne. 
 
 Utworzone w ramach projektu oprogramowanie przetwarza otrzymywane od zewnętrznego systemu faktury w postaci JSON do formatu XML zgodnego z FA(3), następnie waliduje je wobec schematu przed wysyłką w poszukiwaniu niezgodności. 
 
@@ -250,14 +250,21 @@ Jednym z głównych założeń tworzonego oprogramowania jest jego prostota - za
 
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład endpointu zwracającego fragment HTML dla HTMX}, label={lst:htmx-route}]
 func (app *application) getDashboardInvoice(w http.ResponseWriter, r *http.Request) {
-	id, err := strconv.ParseInt(r.URL.Query().Get("id"), 10, 64)
+	idRaw := r.URL.Query().Get("id")
+	id, err := strconv.ParseInt(idRaw, 10, 64)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("Wystąpił błąd: %v", err), http.StatusBadRequest)
+		app.errorLog.Printf("event=dashboard_invoice_id_invalid id=%q error=%q", idRaw, err.Error())
+		http.Error(w, "identyfikator faktury jest nieprawidłowy.", http.StatusBadRequest)
 		return
 	}
 	invoice, err := app.invoices.GetInvoice(id)
 	if err != nil {
-		http.Error(w, fmt.Sprintf("Wystąpił błąd przy pozyskiwaniu faktury: %v", err), http.StatusNotFound)
+		if errors.Is(err, sql.ErrNoRows) {
+			http.Error(w, fmt.Sprintf("nie znaleziono faktury o identyfikatorze %d.", id), http.StatusNotFound)
+		} else {
+			app.errorLog.Printf("event=dashboard_invoice_load_failed invoice_id=%d error=%q", id, err.Error())
+			http.Error(w, "nie udało się pobrać faktury.", http.StatusInternalServerError)
+		}
 		return
 	}
 	app.renderer.render(w, "invoice-container", invoice)
@@ -329,12 +336,12 @@ Efektem końcowym jest możliwość uruchomienia aplikacji za pomocą jednej kom
 
 \section{Środowisko Krajowego Systemu e-Faktur}
 \subsection{Krajowy System e-Faktur jako system zewnętrzny}
-Krajowy System e-Faktur to platforma do tworzenia, przesyłania, odbierania oraz przechowywania faktur. Faktury poza tym systemem są uważane za nieważne w świetle polskiego prawa na dzień 13 sierpnia 2026 roku, z wyjątkiem przedsiębiorców nieprzekraczających 10 000 PLN w miesięcznych obrotach.
+Krajowy System e-Faktur to platforma do tworzenia, przesyłania, odbierania oraz przechowywania faktur.
 
 Końcowym celem tworzonego oprogramowania jest integracja z Krajowym Systemem e-Faktur, w celu pośredniczenia między nim, a systemami zewnętrznymi. Aplikacja, poza podstawową walidacją otrzymywanych danych, nie decyduje czy faktura zostanie przyjęta przez KSeF - służy zaledwie do transformacji otrzymywanych faktur w formacie JSON do wymaganego formatu XML zgodnego z oficjalnym schematem XSD FA(3), próby podjęcia wysyłki, sprawdzenia statusu oraz ewentualnego poinformowania nadawcy faktury o sukcesie bądź porażce.  
 
 \subsection{Wymagania komunikacyjne}
-Środowisko Krajowego Systemu e-Faktur to API z eksponowanymi endpointami HTTP, przyjmującymi odpowiednie ładunki w formacie JSON. Ich struktura opisana jest w oficjalnej dokumentacji, pod adresem [link]. 
+Środowisko Krajowego Systemu e-Faktur to API z eksponowanymi endpointami HTTP, przyjmującymi odpowiednie ładunki w formacie JSON. Ich struktura opisana jest w oficjalnej dokumentacji, pod adresem \url{https://api-test.ksef.mf.gov.pl/docs/v2/}. 
 
 Do komunikacji z KSeF wymagane jest uwierzytelnienie, na podstawie tokena pobieranego przez użytkownika z Panelu Podatnika, który później zamieszczany jest w pliku konfiguracyjnym. Do uwierzytelnienia wykorzystywane są algorytmy kryptograficzne oraz klucze udostępniane przez Ministerstwo Finansów.
 
