@@ -9,7 +9,8 @@
     numbersep=8pt,
     showstringspaces=false,
     breaklines=true,
-    breakatwhitespace=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
     frame=single,
     tabsize=4,
     captionpos=b
@@ -37,6 +38,9 @@
         {Ź}{{\'Z}}1
         {Ż}{{\.Z}}1
 }
+\makeatletter
+\lst@AddToHook{Init}{\hyphenpenalty=50\relax\exhyphenpenalty=50\relax}
+\makeatother
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
@@ -48,6 +52,7 @@
     ]{geometry}
 \usepackage{newtxtext}
 \usepackage{newtxmath}
+\usepackage{microtype}
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{setspace}
@@ -61,6 +66,10 @@
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{makecell}
+\usepackage{chngcntr}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\AtBeginDocument{\counterwithout{lstlisting}{chapter}}
 \usepackage[
     backend=biber,
     style=apa,
@@ -95,6 +104,21 @@
 }
 
 \addbibresource{bibliografia.bib}
+\renewcommand{\listtablename}{Spis tabel}
+\renewcommand{\listfigurename}{Spis rysunków}
+\renewcommand{\lstlistlistingname}{Spis listingów}
+\captionsetup{
+    font=normalsize,
+    labelfont=bf,
+    textfont=bf
+}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\emergencystretch=2em
+\defbibenvironment{bibliography}
+  {\begin{enumerate}}
+  {\end{enumerate}}
+  {\item}
 \begin{document}
 \include{chapters/00_cover}
 \tableofcontents
@@ -103,5 +127,14 @@
 \include{chapters/02_technologies_used}
 \include{chapters/03_project_design_architecture}
 \include{chapters/04_conclusion}
-\printbibliography
+\printbibliography[heading=bibintoc,title={Bibliografia}]
+\clearpage
+\addcontentsline{toc}{chapter}{Spis tabel}
+\listoftables
+\clearpage
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\clearpage
+\addcontentsline{toc}{chapter}{Spis listingów}
+\lstlistoflistings
 \end{document}

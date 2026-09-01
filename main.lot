@@ -1,0 +1,13 @@
+\babel@toc {polish}{}\relax 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1}{\ignorespaces Wielkość luki VAT w Polsce w latach 2004--2023}}{7}{}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2}{\ignorespaces Biblioteki zewnętrzne wykorzystane w projekcie}}{12}{}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3}{\ignorespaces Najważniejsze kolumny tabeli \texttt {Invoices} w lokalnej bazie danych}}{29}{}%
+\contentsline {table}{\numberline {4}{\ignorespaces Wartości kolumny \texttt {status} w tabeli \texttt {Invoices}}}{30}{}%
+\contentsline {table}{\numberline {5}{\ignorespaces Pola żądania wejściowego HTTP przekazywanego do endpointu \texttt {/invoices}}}{33}{}%
+\contentsline {table}{\numberline {6}{\ignorespaces Pola żądania HTTP z informacją zwrotną przesyłanego do systemu zewnętrznego}}{36}{}%
+\contentsline {table}{\numberline {7}{\ignorespaces Plik konfiguracyjny aplikacji}}{38}{}%
+\contentsline {table}{\numberline {8}{\ignorespaces Zmienne środowiskowe wymagane przez aplikację}}{39}{}%
+\contentsline {table}{\numberline {9}{\ignorespaces Endpointy eksponowane przez aplikację}}{40}{}%

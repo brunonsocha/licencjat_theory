@@ -7,10 +7,10 @@ Pierwszy etap wdrożenia rozpoczął się 1 lutego 2026 roku, dla firm, których
 W związku z szeroką gamą zmian, które spowoduje wdrożenie systemu, Ministerstwo Finansów pozostawia możliwość wystawiania faktur poza platformą do 31 grudnia 2026 roku, o ile suma brutto tych faktur nie przekroczy wartości 10 000 PLN na przestrzeni rozliczanego miesiąca \parencite{ministerstwo_finansow_zakres_2025}. Dnia 1 stycznia 2027 roku, obowiązek korzystania z Krajowego Systemu e-Faktur dotyczył będzie prawie wszystkich przedsiębiorców.
 
 \section{Tło prawne i gospodarcze}
-KSeF wprowadzany jest w celu załatania luki VAT, wywiązania się ze zgodności z dyrektywą UE 2025/516 oraz ułatwienia procesu fakturowania - jednak wprowadzenie tego systemu może wiązać się z wieloma komplikacjami dla małych i średnich przedsiębiorstw, biorąc pod uwagę skalę zmian, które niesie ze sobą pełna cyfryzacja.
+KSeF wprowadzany jest w celu pomniejszenia luki VAT, wywiązania się ze zgodności z dyrektywą UE 2025/516 oraz ułatwienia procesu fakturowania \parencite{ministerstwo_finansow_pytania_2025,vida_council_2025} - jednak wprowadzenie tego systemu może wiązać się z wieloma komplikacjami dla małych i średnich przedsiębiorstw, biorąc pod uwagę skalę zmian, które niesie ze sobą pełna cyfryzacja.
 
 \subsection{Luka VAT}
-Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z konsumpcji dóbr i usług, a faktycznym przychodem skarbu państwa na jego podstawie \parencite{mf_raport_luka_2019}. W przypadku Polski, na 2024 rok, wynosiła ona 6,9 proc., czyli ok. 21,5 miliardów złotych \parencite{mf_wiadomosci_luka_2024}.
+Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z konsumpcji dóbr i usług a faktycznym przychodem skarbu państwa na jego podstawie \parencite{mf_raport_luka_2019}. W przypadku Polski, na 2024 rok, wynosiła ona 6,9 proc., czyli ok. 21,5 miliarda złotych \parencite{mf_wiadomosci_luka_2024}.
 
 \begin{table}[H]
     \centering
@@ -54,20 +54,20 @@ Luka VAT to różnica między przewidywaną kwotą podatku VAT wynikającą z ko
     }
 \end{table}
 
-Jak widać, wystapił znaczący spadek luki po latach 2015/2016. Można wywnioskować, że przyczyniło się do tego wprowadzenie JPK, czyli inaczej Jednolitego Pliku Kontrolnego - dokumentu elektronicznego, w którym przedsiębiorcy informują Urząd Skarbowy na temat transakcji dokonanych w ramach działalności gospodarczej, takich jak zakup czy sprzedaż towarów lub usług \parencite{mf_jpk_informacje}. Obowiązek składania plików JPK\_VAT, w odmianie V7M (miesięcznej) lub V7K (kwartalnej) \parencite{zebrowska-fresenbet_jpk_2021} nałożony został na wszystkich podatników VAT w trzech terminach, między połową 2016 roku a początkiem 2018 \parencite{mf_jpk_informacje}.
+Jak widać w tabeli \ref{tab:luka_vat_full}, wystąpił znaczący spadek luki po roku 2016. Można wywnioskować, że przyczyniło się do tego wprowadzenie JPK, czyli inaczej Jednolitego Pliku Kontrolnego - dokumentu elektronicznego, w którym przedsiębiorcy informują Urząd Skarbowy na temat transakcji dokonanych w ramach działalności gospodarczej, takich jak zakup czy sprzedaż towarów lub usług \parencite{mf_jpk_informacje}. Obowiązek składania plików JPK\_VAT, w odmianie V7M (miesięcznej) lub V7K (kwartalnej) \parencite{zebrowska-fresenbet_jpk_2021} nałożony został na wszystkich podatników VAT w trzech terminach, między połową 2016 roku a początkiem 2018 \parencite{mf_jpk_informacje}.
 
 Jednolite Pliki Kontrolne jednak opierają się w głównej mierze na uczciwości podatników - są to pliki XML, do których wnoszone są informacje na temat faktur wystawionych oraz odebranych w określonym okresie rozliczeniowym, jednak same faktury nie są załączane, tak więc prawidłowość raportu może być sprawdzona jedynie za pomocą audytu. Kolejnym problemem jest fakt, że informacja na temat transakcji dociera do Urzędu Skarbowego do 25 dni \parencite{zebrowska-fresenbet_jpk_2021} po zakończeniu okresu rozliczeniowego. Wprowadzenie Krajowego Systemu e-Faktur ma wyeliminować te problemy poprzez eliminację tradycyjnych faktur oraz wprowadzenie faktur ustrukturyzowanych, które będą mogły być monitorowane na bieżąco. 
 
 \subsection{Dyrektywy UE 2014/55 oraz UE 2025/516}
-Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych \parencite{european_directive_2014}. W celu ułatwienia handlu interunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 25 marca 2025 ustanowiono zaś dyrektywę 2025/516, znaną również jako ViDA (VAT in the Digital Age, w skrócie ViDA), nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku \parencite{vida_council_2025}. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, można traktować jako krok w stronę wywiązania się z tego obowiązku.
+Dnia 26 maja 2014 roku weszła w życie dyrektywa Parlamentu Europejskiego 2014/55 w sprawie fakturowania elektronicznego w zamówieniach publicznych \parencite{european_directive_2014}. W celu ułatwienia handlu wewnątrzunijnego, wprowadzono standard określający zasady dotyczące zawartości faktur elektronicznych. 11 marca 2025 ustanowiono zaś dyrektywę 2025/516, znaną również jako ViDA (VAT in the Digital Age, w skrócie ViDA), nakazującą pełne wdrożenie unijnego standardu, również w transakcjach B2B, do lipca 2030 roku \parencite{vida_council_2025}. Wprowadzenie Krajowego Systemu e-Faktur, a wraz z nim faktur ustrukturyzowanych, można traktować jako krok w stronę wywiązania się z tego obowiązku.
 
 \subsection{Wyzwania dla małych i średnich przedsiębiorstw}
-Wprowadzone zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowanych do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i posiada mechanizmy ochronne w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
+Wprowadzone zmiany całkowicie zmieniają proces wystawiania oraz odbierania faktur. Na rynku pojawiają się już pierwsze rozwiązania integracji z systemem, jednak większość z nich nie jest dopasowana do wymogów małych i średnich przedsiębiorstw - wdrożenie systemu ERP przynosi wysokie koszty i jest wyposażone w narzędzia, które większości mniejszych przedsiębiorców nie przyniosą korzyści, a rozwiązania SaaS (Software as a Service) funkcjonują jako abonament, wymagają udziału osób trzecich oraz wymagają stałego połączenia z internetem. Na rynku brakuje niezłożonego rozwiązania, które jest w stanie sprostać wymaganiom mniejszych przedsiębiorców, pozwala na pominięcie pośredników i posiada mechanizmy ochronne w razie problemów z połączeniem internetowym lub przerwy serwisowej Ministerstwa Finansów.
 
 \subsection{Faktury ustrukturyzowane}
-Wprowadzony system przyjmuje jedynie faktury ustrukturyzowane - czyli w formacie XML (eXtensible Markup Language), o jednolitym układzie danych, umożliwiającym automatyczną analizę danych \parencite{structured_invoice_2025}. Faktury najpierw walidowane są wobec schematu (schema, w formacie XSD) \parencite{structured_invoice_2025}, po czym otrzymują unikalny numer identifykacyjny nadany przez KSeF i przechowywane są na okres 10 lat od wystawienia \parencite{ministerstwo_finansow_pytania_2025}. Na dzień powstawania tej pracy obowiązujący schemat to FA(3) \parencite{structured_invoice_2025}, opublikowany 30 czerwca 2025 roku i obowiązujący od 1 lutego 2026 roku.
+Wprowadzony system przyjmuje jedynie faktury ustrukturyzowane - czyli w formacie XML (eXtensible Markup Language), o jednolitym układzie danych, umożliwiającym automatyczną analizę danych \parencite{structured_invoice_2025}. Faktury najpierw walidowane są wobec schematu (schema, w formacie XSD) \parencite{structured_invoice_2025}, po czym otrzymują unikalny numer identyfikacyjny nadany przez KSeF i przechowywane są na okres 10 lat od końca roku, w którym zostały wystawione \parencite{ministerstwo_finansow_pytania_2025}. Na dzień powstawania tej pracy obowiązujący schemat to FA(3) \parencite{structured_invoice_2025}, opublikowany 30 czerwca 2025 roku i obowiązujący od 1 lutego 2026 roku.
 
-Faktury te różnią się od \enquote{tradycyjnych} faktur elektronicznych w formacie PDF przede wszystkim tym, że mogą być odczytywane maszynowo - choć tracą na czytelności dla człowieka. Dlatego również system pozwala na pobieranie wizualizacji tych faktur w wyżej wspomnianym formacie.
+Faktury te różnią się od \enquote{tradycyjnych} faktur elektronicznych w formacie PDF przede wszystkim tym, że mogą być odczytywane maszynowo - choć tracą na czytelności dla człowieka. Dlatego również system pozwala na pobieranie wizualizacji tych faktur w wyżej wspomnianym formacie \parencite{structured_invoice_2025}.
 
 \section{Założenia pracy}
 Projekt realizowany jest zakładając scenariusz, w którym wiele mniejszych przedsiębiorców, którzy nie wpisują się w kategorie obejmowane warunkami towarzyszącymi terminowi pierwszemu lub drugiemu, zdecyduje się na rozwiązanie problemu poprzez zatrudnienie księgowego, gdy będzie to potrzebne - zleceniowo w przypadku przekroczenia kwoty obrotów 10 000 PLN brutto w rozliczanym miesiącu, lub na stałe od początku roku 2027 \parencite{ministerstwo_finansow_zakres_2025}. 
@@ -76,12 +76,15 @@ Oprogramowanie tak więc kierowane jest wobec mniejszych przedsiębiorców, dla 
 \par
 Założenia:
 \begin{itemize}
-    \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw (bis)
-    \item oprogramowanie może być dostosowane do wymagań użytkownika poprzez konfigurację 
-    \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego 
-    \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi, z pominięciem trybów offline/offline24
-    \item oprogramowanie nie ingeruje w treść faktur poza walidacją i normalizacją (przykładowo, wypełnienie pustych pól, które muszą zawierać wartości domyślne) i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika.
-    \item oprograowanie pozwala na przeglądanie faktur poprzez panel użytkownika
+    \setlength{\itemsep}{-3pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{6pt}
+    \item oprogramowanie kierowane jest wobec małych i średnich przedsiębiorstw,
+    \item oprogramowanie może być dostosowane do wymagań użytkownika poprzez konfigurację,
+    \item oprogramowanie nie wymaga nowoczesnego sprzętu komputerowego,
+    \item oprogramowanie przewiduje możliwe zakłócenia w komunikacji z Krajowym Systemem e-Faktur - przez niedostępność serwisu lub problemy z połączeniem internetowym - oraz zapewnia odpowiednie mechanizmy bezpieczeństwa do radzenia sobie z nimi, z pominięciem trybów offline/offline24,
+    \item oprogramowanie nie ingeruje w treść faktur poza walidacją i normalizacją (przykładowo, wypełnienie pustych pól, które muszą zawierać wartości domyślne) i zapewnia, że dane przekazywane do Urzędu Skarbowego poprzez KSeF odzwierciedlają dane wprowadzone przez użytkownika,
+    \item oprogramowanie pozwala na przeglądanie faktur poprzez panel użytkownika.
 \end{itemize}
 
 Najważniejszym założeniem jednak jest poprawność danych wprowadzanych przez użytkownika, a zatem również brak odpowiedzialności oprogramowania za ewentualne błędy, takie jak przykładowo niepoprawna stawka VAT - system nie waliduje danych pod względem prawidłowości prawnej, ani nie zastępuje pełnoprawnych narzędzi księgowych.
@@ -91,12 +94,15 @@ Oprogramowanie, którego dotyczy ta praca, pełni rolę pośrednika między syst
 \par
 Na oprogramowanie składają się następujące elementy:
 \begin{itemize}
-    \item interfejs wejściowy, przyjmujący dane bezpośrednio od użytkownika lub systemów zewnętrznych
-    \item oprogramowanie przetwarzające faktury i konwertujące je do formatu akceptowanego przez KSeF
-    \item oprogramowanie komunikujące się z Krajowym Systemem e-Faktur, odpowiedzialne za wysyłanie faktur oraz pobieranie informacji na temat ich stanu - m.in. Urzędowe Poświadczenia Odbioru
-    \item lokalna baza danych do przechowywania danych na temat statusu wysyłki poszczególnych faktur
-    \item \enquote{kolejka} lokalna, do przechowywania danych w przypadku przerwania komunikacji z internetem/braku dostępności KSeF 
-    \item panel z interfejsem graficznym przeznaczonym dla użytkownika, informujący o statusie wysyłki lub/oraz o napotkanych nieprawidłowościach
+    \setlength{\itemsep}{-3pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{6pt}
+    \item interfejs wejściowy, przyjmujący dane bezpośrednio od użytkownika lub systemów zewnętrznych,
+    \item oprogramowanie przetwarzające faktury i konwertujące je do formatu akceptowanego przez KSeF,
+    \item oprogramowanie komunikujące się z Krajowym Systemem e-Faktur, odpowiedzialne za wysyłanie faktur oraz pobieranie informacji na temat ich stanu - m.in. Urzędowe Poświadczenia Odbioru,
+    \item lokalna baza danych do przechowywania danych na temat statusu wysyłki poszczególnych faktur,
+    \item \enquote{kolejka} lokalna, do przechowywania danych w przypadku przerwania komunikacji z internetem/braku dostępności KSeF,
+    \item panel z interfejsem graficznym przeznaczonym dla użytkownika, informujący o statusie wysyłki oraz o napotkanych nieprawidłowościach.
 \end{itemize}
 
-Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie. Jeśli przyjęte przez interfejs HTTP API żądanie zawierało adres, na który powinna zostać wysłana informacja zwrotna, aplikacja zwraca informacje dotyczące pomyślnego przetworzenia faktury lub ewentualnej porażki.
+Oprogramowanie przyjmuje faktury od użytkownika/systemu zewnętrznego oraz przetwarza dane, przygotowywując je do wysyłki i dodając do lokalnej kolejki. Następnie, warstwa odpowiedzialna za komunikację z KSeF weryfikuje połączenie, wysyła dane i nasłuchuje odpowiedzi, zależnie od której aktualizuje status faktury. W przypadku niepowodzenia, oprogramowanie dokonuje dodatkowych prób i ostatecznie oznacza status wysyłki jako niepowodzenie. Jeśli przyjęte przez interfejs HTTP API żądanie zawierało adres, na który powinna zostać wysłana informacja zwrotna, aplikacja zwraca informacje dotyczące pomyślnego przetworzenia faktury lub ewentualnego niepowodzenia.

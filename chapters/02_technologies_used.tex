@@ -4,26 +4,26 @@ W tym rozdziale omówione zostaną technologie (języki programowania, protokoł
 
 \section{Język programowania Go}
 \subsection{Geneza oraz użycie Go}
-Utworzony w 2006 roku przez trzech pracowników Google - Roba Pike'a, Kena Thompsona oraz Roberta Griesemera - Go to język programowania charakteryzujący się prostotą składni, która przypomina język C, z wydajnością języków kompilowanych, takich jak C++ lub Rust. Go jest obecnie popularne w projektach backendowych oraz chmurowych, wykorzystywane przez przykładowo Google, Dropbox, Uber, PayPal, Soundcloud, BBC, Docker, Kubernetes, American Express oraz Netflix. 
+Go to język programowania zaprojektowany przez trzech pracowników Google - Roba Pike'a, Kena Thompsona oraz Roberta Griesemera - charakteryzujący się prostotą składni, która przypomina język C, z wydajnością języków kompilowanych, takich jak C++ lub Rust \parencite{go_faq}. Udostępniony publicznie został w 2009 roku. Go jest obecnie popularne w projektach backendowych oraz chmurowych, wykorzystywane przez przykładowo Google, Dropbox, Uber, PayPal, Soundcloud, BBC, Docker, Kubernetes, American Express oraz Netflix. 
 
 \subsection{Cechy Go}
-Go jest językiem statycznie typowanym, o typowaniu silnym - gdzie typ zmiennej (przykładowo, liczba całkowita, liczba zmiennoprzecinkowa) znany jest przed uruchomieniem programu, a każda zmienna ma odgórnie ustalony typ w kodzie. 
+Go jest językiem statycznie typowanym, o typowaniu silnym - gdzie typ zmiennej (przykładowo, liczba całkowita, liczba zmiennoprzecinkowa) znany jest przed uruchomieniem programu, a każda zmienna ma odgórnie ustalony typ w kodzie \parencite{golang_specification}. 
 
-Jest również językiem kompilowanym - kod nie jest na bieżąco interpretowany, jak w przypadku przykładowo Pythona, dzięki czemu większość błędów jest wykrywana zanim program zostanie uruchomiony. Zamiast tego tworzony jest w pełni przenośny, uruchamialny plik binarny, który uruchomiony może być na systemach Windows, Linux lub macOS. 
+Jest również językiem kompilowanym - kod nie jest na bieżąco interpretowany, jak w przypadku przykładowo Pythona, dzięki czemu większość błędów jest wykrywana zanim program zostanie uruchomiony. Zamiast tego tworzony jest w pełni przenośny, pojedynczy, uruchamialny plik binarny.
 
-Go wyposażone jest w prostą, jednak wysoko efektywną bibliotekę standardową, co pozwala na minimalizację zewnętrznych zależności. Słynie również ze swojego modelu współbieżności, opartego na \textit{goroutines} w przeciwieństwie do tradycyjnie wykorzystywanych wątków. Go wymaga jawnej obsługi błędów w przypadku każdej funkcji, która może zwrócić błąd - co ułatwia gwarancję poprawnego funkcjonowania budowanej aplikacji.
+Go wyposażone jest w prostą, jednak wysoko efektywną bibliotekę standardową, co pozwala na minimalizację zewnętrznych zależności \parencite{golang_stdlib}. Słynie również ze swojego modelu współbieżności, opartego na \textit{goroutines} w przeciwieństwie do tradycyjnie wykorzystywanych wątków \parencite{go_faq}. Go zachęca do jawnej obsługi błędów w przypadku każdej funkcji, która może zwrócić błąd - co ułatwia gwarancję poprawnego funkcjonowania budowanej aplikacji.
 
 \subsection{Model współbieżności Go}
-Go wspiera współbieżne wykonywanie zadań w ramach jednego programu, dzięki swojej alternatywie dla wątków - goroutines (dalej: gorutyny). Język wyposażony jest w swój własny program planujący, który przypisuje osobne \enquote{gorutyny} wątkom systemu operacyjnego - co pozwala na przypisanie kilku pojedynczemu.
+Go wspiera współbieżne wykonywanie zadań w ramach jednego programu, dzięki swojej alternatywie dla wątków - goroutines (dalej: gorutyny). Język wyposażony jest w swój własny program planujący, który przypisuje osobne \enquote{gorutyny} wątkom systemu operacyjnego - co pozwala na przypisanie kilku pojedynczemu wątkowi \parencite{go_faq}.
 
-Typowy wątek wymaga stosu o wielkości jednego do dwóch megabajtów, w czasie gdy gorutyna potrzebuje zaledwie dwóch kilobajtów. Różnicą jest również to, w jaki sposób dochodzi do dzielenia się danymi pomiędzy wątkami. Tradycyjne wątki odczytują i nadpisują współdzieloną pamięć, w czasie gdy Go zachęca do używania tzw. kanałów, przez które przesyłane mogą być dane lub sygnały, ułatwiając omijanie zjawiska wyścigu, to jest błędów wywołanych pseudolosową kolejnością wykonywanych współbieżnych zadań.
+Typowy wątek wymaga stosu o wielkości jednego do dwóch megabajtów, w czasie gdy gorutyna potrzebuje zaledwie kilku kilobajtów, a jej stos rośnie zależnie od wymagań. Różnicą jest również to, w jaki sposób dochodzi do dzielenia się danymi pomiędzy wątkami. Tradycyjne wątki odczytują i nadpisują współdzieloną pamięć, w czasie gdy Go zachęca do używania tzw. kanałów, przez które przesyłane mogą być dane lub sygnały, ułatwiając omijanie zjawiska wyścigu, to jest błędów wywołanych pseudolosową kolejnością wykonywanych współbieżnych zadań.
 
-Go posiada również funkcjonalność zwana kontekstem, pozwalająca na wyznaczanie terminów oraz wysyłanie żądań między skoordynowanymi elementami programów.
+Biblioteka standardowa Go posiada również funkcjonalność zwaną kontekstem, pozwalającą na wyznaczanie terminów oraz wysyłanie sygnałów między skoordynowanymi elementami programów.
 
 \subsection{Uzasadnienie wyboru Go do wykonania projektu}
-Go zostało wybrane przede wszystkim z uwagi na jego znajomość przez autora pracy - ale również prostotę składni i pracy z tym językiem. Kod jest przejrzysty i prosty w podziale na osobne elementy, a dzięki wymaganej kompilacji programu przy każdej próbie jego uruchomienia wykrywanie większości błędów odbywało się samoistnie. Biorąc pod uwagę założenia projektu, język umożliwił prostotę wdrożenia - plik końcowy uruchamialny jest na systemach Windows, Linux i macOS. 
+Go zostało wybrane przede wszystkim z uwagi na jego znajomość przez autora pracy - ale również prostotę składni i pracy z tym językiem. Kod jest przejrzysty i prosty w podziale na osobne elementy, a dzięki wymaganej kompilacji programu przy każdej próbie jego uruchomienia wykrywanie większości błędów odbywało się samoistnie. Biorąc pod uwagę założenia projektu, język umożliwił prostotę wdrożenia - końcowe pliki uruchamialne są na systemach Windows, Linux i macOS. 
 
-Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech zewnętrznych zależności:
+Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech bezpośrednich zewnętrznych zależności, jak przedstawiono w tabeli \ref{tab:external_libraries}.
 
 \begin{small}
 \begin{longtable}{>{\raggedright\arraybackslash}p{4.5cm} >{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{6cm}}
@@ -42,13 +42,14 @@ Dzięki swojej bibliotece standardowej, cały projekt korzysta zaledwie z trzech
 \bottomrule
 \endfoot
 
-github.com/goccy/go-yaml & konfiguracja & Odczyt i przetwarzanie pliku konfiguracyjnego \texttt{config.yaml} w formacie YAML. \\
-github.com/lestrrat-go/helium v0.8.0 & walidacja XML & Walidacja wygenerowanych faktur XML wobec oficjalnego schematu XSD faktur ustrukturyzowanych FA(3). \\
-modernc.org/sqlite & baza danych & Sterownik do bazy danych SQLite. \\
+github.com/goccy/go-yaml & konfiguracja & Odczyt i przetwarzanie pliku konfiguracyjnego \texttt{config.yaml} w formacie YAML \parencite{yaml_package}. \\
+github.com/lestrrat-go/helium v0.8.0 & walidacja XML & Walidacja wygenerowanych faktur XML wobec oficjalnego schematu XSD faktur ustrukturyzowanych FA(3) \parencite{helium_package}. \\
+modernc.org/sqlite & baza danych & Sterownik do bazy danych SQLite \parencite{sqlite_package}. \\
 \end{longtable}
+\noindent{\footnotesize\textit{Źródło: opracowanie własne.}}
 \end{small}
 
-Go, podobnie jak C, posiada wskaźniki pamięci, które wykorzystane zostały w projekcie do opcjonalnych pól faktur oraz odróżniania brakujących danych od danych, które są zwyczajnie puste. Najważniejszym elementem jednak są wspomniane w poprzedniej subsekcji gorutyny, umożliwiające aplikacji współbieżną obsługę żądań HTTP oraz cykliczne skanowanie bazy danych w poszukiwaniu rekordów do przetworzenia. Sama wysyłka faktur oraz webhooków również jest współbieżna, a limit maksymalnych asynchronicznych zadań narzucany jest przez pojemność kanałów. Aplikacja oczekuje zakończenia obecnej próby przed rozpoczęciem kolejnego cyklu działania poprzez użycie \texttt{WaitGroup}, a użycie kontekstu pozwoliło na wprowadzenie mechanizmu bezpiecznego zamykania programu.
+Go, podobnie jak C, posiada wskaźniki pamięci, które wykorzystane zostały w projekcie do opcjonalnych pól faktur oraz odróżniania brakujących danych od danych, które są zwyczajnie puste. Najważniejszym elementem jednak są wspomniane w poprzedniej subsekcji gorutyny, umożliwiające aplikacji współbieżną obsługę żądań HTTP oraz cykliczne skanowanie bazy danych w poszukiwaniu rekordów do przetworzenia. Sama wysyłka faktur oraz webhooków \parencite{redhat_webhooks} również jest współbieżna, a limit maksymalnych asynchronicznych zadań narzucany jest przez pojemność kanałów. Aplikacja oczekuje zakończenia obecnej próby przed rozpoczęciem kolejnego cyklu działania poprzez użycie \texttt{WaitGroup}, a użycie kontekstu pozwoliło na wprowadzenie mechanizmu bezpiecznego zamykania programu.
 
 \subsection{Przykład użycia Go w projekcie}
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład współbieżnego przetwarzania faktur}, label={lst:go-concurrency}]
@@ -67,8 +68,7 @@ for _, inv := range invoices {
 wg.Wait()
 \end{lstlisting}
 
-W powyższym fragmencie \ref{lst:go-concurrency} przedstawiono, w jaki sposób aplikacja korzysta z modelu współbieżności języka Go w trakcie przetwarzania faktur. Tworzona jest \texttt{WaitGroup} pozwalająca na koordynację gorutyn. Następnie, dla każdej z zebranych faktur powstaje osobna gorutyna, która zajmuje pojedyncze miejsce w kanale o limicie ustalonym przez użytkownika w pliku konfiguracyjnym. Po wywołaniu i zakończeniu działania funkcji \texttt{app.processInvoice()}, miejsce w kanale jest zwalniane, a funkcja zmniejsza licznik prac \texttt{WaitGroup}. Kanał przyjmuje pusty obiekt \texttt{struct\{\}}, z uwagi na to, że jest on mniejszy w pamięci niż jakikolwiek inny typ danych i nie przechowuje żadnych informacji, tak więc wystarcza do spełnienia roli semafora %TUTAJ PRZYPIS!
-. Aplikacja następnie oczekuje, aż wszystkie gorutyny zakończą pracę.
+W powyższym fragmencie \ref{lst:go-concurrency} przedstawiono, w jaki sposób aplikacja korzysta z modelu współbieżności języka Go w trakcie przetwarzania faktur. Tworzona jest \texttt{WaitGroup} pozwalająca na koordynację gorutyn. Następnie, dla każdej z zebranych faktur powstaje osobna gorutyna, która zajmuje pojedyncze miejsce w kanale o limicie ustalonym przez użytkownika w pliku konfiguracyjnym. Po wywołaniu i zakończeniu działania funkcji \texttt{app.processInvoice()}, miejsce w kanale jest zwalniane, a funkcja zmniejsza licznik prac \texttt{WaitGroup}. Kanał przyjmuje pusty obiekt \texttt{struct\{\}}, z uwagi na to, że w przeciwieństwie do innych typów danych zajmuje zero pamięci i nie przechowuje żadnych informacji, tak więc wystarcza do spełnienia roli semafora \parencite{golang_specification}. Aplikacja następnie oczekuje, aż wszystkie gorutyny zakończą pracę.
 
 
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład mechanizmu bezpiecznego zamykania aplikacji}, label={lst:go-shutdown}]
@@ -97,10 +97,10 @@ W fragmencie \ref{lst:go-shutdown} zaprezentowany został mechanizm bezpiecznego
 
 \section{Baza danych SQLite}
 \subsection{Opis SQLite oraz jego cech}
-SQLite powstało jako prosty silnik baz danych SQL w 2000 roku, utworzone przez Dwayne'a Richarda Hippa w trakcie pracy dla General Dynamics, przy kontrakcie z Marynarką Wojenną Stanów Zjednoczonych. Jest obecnie najpopularniejszym silnikiem baz danych na świecie, używanym przez telefony komórkowe, systemy operacyjne oraz przeglądarki. Słynie przede wszystkim z tego, że nie wymaga serwera do działania - komunikacja odbywa się bezpośrednio poprzez pisanie do pojedynczego, lokalnego pliku, przez bibliotekę napisaną w języku C. Pomimo swojej prostoty, SQLite wspiera język SQL oraz operacje transakcyjne. 
+SQLite powstało jako prosty silnik baz danych SQL w 2000 roku, utworzony przez Dwayne'a Richarda Hippa w trakcie pracy dla General Dynamics, przy kontrakcie z Marynarką Wojenną Stanów Zjednoczonych. Jest obecnie najpopularniejszym silnikiem baz danych na świecie, używanym przez telefony komórkowe, systemy operacyjne oraz przeglądarki. Słynie przede wszystkim z tego, że nie wymaga serwera do działania - komunikacja odbywa się bezpośrednio poprzez pisanie do pojedynczego, lokalnego pliku, przez bibliotekę napisaną w języku C. Pomimo swojej prostoty, SQLite wspiera język SQL oraz operacje transakcyjne \parencite{sqlite_about}. 
 
 \subsection{Uzasadnienie wykorzystania SQLite w projekcie}
-Jednym z głównych założeń projektu jest prostota wdrożenia oraz minimalizm aplikacji. SQLite pozwala na przetrzymywanie danych w pojedynczym, lokalnym pliku gwarantując trwałość danych offline, oraz nie wymaga osobnego serwera, minimalizując wymagania administracyjne dla małych przedsiębiorstw. Zapewnia również wszystkie elementy wymagane przez projekt, w tym wcześniej wspomniane transakcje, gwarantujące bezpieczeństwo danych w trakcie pisania do bazy oraz pełne wsparcie dla języka SQL, pozwalając na proste tworzenie, aktualizowanie oraz usuwanie rekordów. SQLite zostało wybrane ze względu na swoją prostotę oraz spełnienie wszystkich wymogów projektu - w czasie gdy inne silniki również spełniają wymogi, jednak są bardziej skomplikowane oraz wyposażone w funkcje niepotrzebne do działania tworzonej aplikacji.
+Jednym z głównych założeń projektu jest prostota wdrożenia oraz minimalizm aplikacji. SQLite pozwala na przetrzymywanie danych w pojedynczym, lokalnym pliku gwarantując trwałość danych offline oraz nie wymaga osobnego serwera, minimalizując wymagania administracyjne dla małych przedsiębiorstw \parencite{sqlite_about}. Zapewnia również wszystkie elementy wymagane przez projekt, w tym wcześniej wspomniane transakcje, gwarantujące bezpieczeństwo danych w trakcie pisania do bazy oraz pełne wsparcie dla języka SQL, pozwalając na proste tworzenie, aktualizowanie oraz usuwanie rekordów. SQLite zostało wybrane ze względu na swoją prostotę oraz spełnienie wszystkich wymogów projektu - w czasie gdy inne silniki również spełniają wymogi, jednak są bardziej skomplikowane oraz wyposażone w funkcje niepotrzebne do działania tworzonej aplikacji.
 
 \subsection{Przykład wykorzystania SQLite w projekcie}
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład połączenia z bazą SQLite}, label={lst:sqlite-connect}]
@@ -135,34 +135,34 @@ func Connect(dbPath string, busyTimeoutMs int) (*sql.DB, error) {
 }
 \end{lstlisting}
 
-Połączenie z bazą danych realizowane jest przez pakiet z biblioteki standardowej języka Go \texttt{database/sql}, służący jako interfejs do baz danych, jednak do komunikacji z samą bazą danych SQLite wykorzystywany jest osobny, zewnętrzny pakiet, jako sterownik dla \texttt{database/sql} używany następnie przez funkcję \texttt{sql.Open("sqlite", path)}. Przy pierwszym uruchomieniu aplikacji, tworzony jest katalog, a SQLite tworzy plik zawierający bazę. Następnie ustawiane są \enquote{pragmy}, instrukcje usprawnieniające i zabezpieczające działania asynchroniczne na rekordach. Przykładowo, instrukcja \texttt{busy\_timeout} określa, przez jaki czas baza danych może być zablokowana w trakcie pisania do niej bez uznania blokady za wystąpienie błędu. 
+Połączenie z bazą danych realizowane jest przez pakiet z biblioteki standardowej języka Go \texttt{database/sql}, służący jako interfejs do baz danych, jednak do komunikacji z samą bazą danych SQLite wykorzystywany jest osobny, zewnętrzny pakiet, jako sterownik dla \texttt{database/sql} używany następnie przez funkcję \texttt{sql.Open("sqlite", path)}. Przy pierwszym uruchomieniu aplikacji, tworzony jest katalog, a SQLite tworzy plik zawierający bazę. Następnie ustawiane są \enquote{pragmy}, instrukcje usprawniające i zabezpieczające działania asynchroniczne na rekordach. Przykładowo, instrukcja \texttt{busy\_timeout} określa, przez jaki czas baza danych może być zablokowana w trakcie pisania do niej bez uznania blokady za wystąpienie błędu \parencite{sqlite_pragma}. 
 
 \section{Protokół HTTP oraz styl architektoniczny REST API}
 \subsection{Opis ogólny protokołu HTTP}
-HTTP, lub Hypertext Transfer Protocol, to protokół wykorzystywany do wymiany danych między urządzeniami w sieci. Opiera się na modelu żądań i odpowiedzi - przykładowo, urządzenie wysyła do serwera żądanie o określoną informację i otrzymuje ją z powrotem. Żądania składają się z kilku elementów, których najważniejszym jest \enquote{metoda} lub czasownik, określający, jakiej odpowiedzi/działania spodziewa się klient. W projekcie wykorzystane są trzy: \texttt{GET}, \texttt{POST} oraz \texttt{DELETE}, gdzie pierwszy żąda danych, drugi służy do ich przesłania, a trzeci prosi o usunięcie określonego elementu.
+HTTP, lub Hypertext Transfer Protocol, to protokół wykorzystywany do wymiany danych między urządzeniami w sieci. Opiera się na modelu żądań i odpowiedzi - przykładowo, urządzenie wysyła do serwera żądanie o określoną informację i otrzymuje ją z powrotem. Żądania składają się z kilku elementów, których najważniejszym jest \enquote{metoda} lub czasownik, określający, jakiej odpowiedzi/działania spodziewa się klient. W projekcie wykorzystane są trzy: \texttt{GET}, \texttt{POST} oraz \texttt{DELETE}, gdzie pierwszy żąda danych, drugi służy do ich przesłania, a trzeci prosi o usunięcie określonego elementu \parencite{rfc9110}.
 
 Kolejnym elementem są nagłówki, czyli pary kluczy i wartości, rozwijające szczegóły oczekiwanej odpowiedzi oraz przekazujące informacje na temat klienta - przykładowo, przeglądarkę, z której klient korzysta, lub formatu, w którym informacja zwrotna powinna zostać udzielona. 
 
 Same odpowiedzi zawierają kody statusu, które określają, do czego doprowadziło przyjęte żądanie. Przykładowo może to być odpowiedź \texttt{200}, oznaczająca poprawne przyjęcie, lub \texttt{404}, informującą, że żądana treść nie mogła zostać znaleziona.
 
 \subsection{Styl architektoniczny REST API}
-REST to skrót od Representational State Transfer (pol. transfer stanu przez reprezentację), czyli stylu budowania serwisów HTTP oraz interfejsów programowania aplikacji. Podstawowym założeniem jest wsparcie dla operacji CRUD (\enquote{Create, Read, Update, Delete}, pol. tworzenia, odczytu, aktualizacji i usunięcia) na udostępnianych poprzez odpowiednie endpointy zasobach - przykładowo, endpoint \texttt{\/delete\/invoice\/} służyć może do usunięcia rekordu w bazie danych, poprzez otrzymywanie żądań HTTP z metodą \texttt{DELETE}, wskazujących określony identyfikator faktury. Ważną cechą REST jest brak stanu - każde żądanie powinno być wystarczające samo w sobie do wykonania działania, bez polegania na informacjach ukrytych wewnątrz aplikacji.
+REST to skrót od Representational State Transfer (pol. transfer stanu przez reprezentację), czyli stylu budowania serwisów HTTP oraz interfejsów programowania aplikacji \parencite{fielding_rest}. Jednym z założeń jest wsparcie dla operacji CRUD (\enquote{Create, Read, Update, Delete}, pol. tworzenia, odczytu, aktualizacji i usunięcia) na udostępnianych poprzez odpowiednie endpointy zasobach - przykładowo, endpoint \texttt{\/deleteinvoice?external\_id=} służyć może do usunięcia rekordu w bazie danych, poprzez otrzymywanie żądań HTTP z metodą \texttt{DELETE}, wskazujących określony identyfikator faktury. Ważną cechą REST jest brak stanu - każde żądanie powinno być wystarczające samo w sobie do wykonania działania, bez polegania na informacjach ukrytych wewnątrz aplikacji.
 
 \subsection{Zastosowanie HTTP oraz REST w projekcie}
 Protokół HTTP został wybrany do wykorzystania w projekcie przede wszystkim ze względu na swoją uniwersalność i popularność - większość systemów komunikuje się ze sobą za jego pomocą, tak więc jest oczywistym wyborem dla maksymalizacji kompatybilności z jak największą ilością zewnętrznych aplikacji. Styl architektoniczny REST został wybrany dla swojej przejrzystości i przewidywalności.
 
-Utworzone oprogramowanie spodziewa się przyjmowania faktur od zewnętrznych systemów w postaci żądań zawierających dane w formacie JSON, oraz eksponuje dodatkowe endpointy pozwalające na sprawdzanie statusu wysyłki do Krajowego Systemu e-Faktur lub usuwanie faktur z bazy danych. Panel użytkownika również oparty jest na HTTP, przesyłającym HTML.
+Utworzone oprogramowanie spodziewa się przyjmowania faktur od zewnętrznych systemów w postaci żądań zawierających dane w formacie JSON oraz eksponuje dodatkowe endpointy pozwalające na sprawdzanie statusu wysyłki do Krajowego Systemu e-Faktur lub usuwanie faktur z bazy danych. Panel użytkownika również oparty jest na HTTP, przesyłającym HTML.
 
 Wykorzystanie HTTP ułatwiło również testowanie oprogramowania, przykładowo przy użyciu narzędzia \texttt{curl}.
 
 \section{Format JSON}
 \subsection{Opis ogólny formatu JSON}
-JSON (JavaScript Object Notation, pol. \enquote{Notacja Obiektowa JavaScript}) to format plików oraz przekazywania danych utworzony przez Douglasa Crockforda we wczesnych latach dwutysięcznych, w celu zastąpienia wtyczek przeglądarkowych takich jak Flash. Jest obecnie najpopularniejszym formatem wykorzystywanym do elektronicznej wymiany danych.
+JSON (JavaScript Object Notation, pol. \enquote{Notacja Obiektowa JavaScript}) to format plików oraz przekazywania danych utworzony przez Douglasa Crockforda we wczesnych latach dwutysięcznych, w celu zastąpienia wtyczek przeglądarkowych takich jak Flash. Jest obecnie jednym z najpopularniejszych formatów wykorzystywanych do elektronicznej wymiany danych.
 
-Pomimo, że nazwa odwołuje się do języka JavaScript, JSON jest niezależny od języka - większość nowoczesnych języków programowania wyposażona jest w narzędzia do zapisu i odczytu danych w tym formacie. 
+Pomimo, że nazwa odwołuje się do języka JavaScript, JSON jest niezależny od języka - większość nowoczesnych języków programowania wyposażona jest w narzędzia do zapisu i odczytu danych w tym formacie \parencite{rfc8259}. 
 
 \subsection{Cechy formatu JSON}
-JSON, dzięki swojej strukturze, jest czytelny dla człowieka. Elementy przedstawione są jako listy par kluczy i wartości, gdzie wartości mogą być dowolnego typu danych - w tym innych, złożonych obiektów, takich jak listy. Wymaga mniejszej ilości znaków niż większość innych formatów wykorzystywanych do elektronicznej wymiany danych, jak przykładowo XML.
+JSON, dzięki swojej strukturze, jest czytelny dla człowieka. Elementy przedstawione są jako listy par kluczy i wartości, gdzie wartości mogą być różnego typu danych - w tym innych, złożonych obiektów, takich jak listy. Wymaga mniejszej ilości znaków niż większość innych formatów wykorzystywanych do elektronicznej wymiany danych, jak przykładowo XML.
 
 \subsection{Przykładowe zastosowanie formatu JSON w aplikacji}
 
@@ -208,7 +208,7 @@ JSON, dzięki swojej strukturze, jest czytelny dla człowieka. Elementy przedsta
 }
 \end{lstlisting}
 
-W powyższym przykładzie prezentowana jest faktura przesyłana przez system zewnętrzny do oprogramowania utworzonego w ramach projektu. Pola na początku dokumentu zawierają podstawowe dane, takie jak typ faktury, jej identyfikator, czy data wystawienia. Poniżej osadzone są informacje o sprzedawcy oraz nabywcy. Na końcu pojawiają się dwie listy - pierwsza, \texttt{items} zawierająca wszystkie produkty/usługi, których dotyczy faktura, oraz druga, \texttt{tax\_breakdowns} podsumowanie ich opodatkowania. Dane są czytelne dla człowieka, a przykład powyżej zawiera wszystkie dane potrzebne do ich transformacji do formatu akceptowanego przez Krajowy System e-Faktur.
+W powyższym przykładzie prezentowana jest faktura przesyłana przez system zewnętrzny do oprogramowania utworzonego w ramach projektu. Pola na początku dokumentu zawierają podstawowe dane, takie jak typ faktury, jej identyfikator, czy data wystawienia. Poniżej osadzone są informacje o sprzedawcy oraz nabywcy. Na końcu pojawiają się dwie listy - pierwsza, \texttt{items} zawierająca wszystkie produkty/usługi, których dotyczy faktura oraz druga, \texttt{tax\_breakdowns} podsumowanie ich opodatkowania. Dane są czytelne dla człowieka, a przykład powyżej zawiera wszystkie dane potrzebne do ich transformacji do formatu akceptowanego przez Krajowy System e-Faktur.
 
 \begin{lstlisting}[style=thesiscode, caption={Przykładowa informacja zwrotna (webhook) w formacie JSON przesyłana do systemu zewnętrznego po poprawnym przetworzeniu faktury}, label={lst:json-webhook}]
 {
@@ -227,26 +227,26 @@ Przykład \ref{lst:json-webhook} przedstawia ładunek JSON przesyłany do system
 
 \section{Format XML oraz schemat XSD}
 \subsection{XML}
-XML (Extensible Markup Language, pol. \enquote{Rozszerzalny Język Znaczników}) to język służący przede wszystkim do elektronicznej wymiany danych. Pozwala na tworzenie ustrukturyzowanych dokumentów, niezależnych od platformy - wszystkie dane przechowywane są jako prosty tekst. Dzięki swojej hierarchicznej strukturze oraz znacznikach, jest prosty do odczytania i walidacji przez oprogramowanie. Pierwsza wersja powstała w 1998 roku, a ostatnia, powszechnie używana do dziś, w 2006. Format utworzony został przez World Wide Web Consortium, międzynarodową organizację defniującą standardy WWW, lub inaczej, internetu. Jego wykorzystanie w projekcie zostało odgórnie narzucone przez wymogi Krajowego Systemu e-Faktur - każda faktura do niego przesyłana musi być ustrukturyzowanym dokumentem w formacie XML, zgodnym z oficjalnym schematem.
+XML (Extensible Markup Language, pol. \enquote{Rozszerzalny Język Znaczników}) to język służący przede wszystkim do elektronicznej wymiany danych \parencite{w3c_xml}. Pozwala na tworzenie ustrukturyzowanych dokumentów, niezależnych od platformy - wszystkie dane przechowywane są jako prosty tekst. Dzięki swojej hierarchicznej strukturze oraz znacznikach, jest prosty do odczytania i walidacji przez oprogramowanie. Pierwsza wersja powstała w 1998 roku, a ostatnia, powszechnie używana do dziś, w 2008. Format utworzony został przez World Wide Web Consortium, międzynarodową organizację definiującą standardy WWW. Jego wykorzystanie w projekcie zostało odgórnie narzucone przez wymogi Krajowego Systemu e-Faktur - każda faktura do niego przesyłana musi być ustrukturyzowanym dokumentem w formacie XML, zgodnym z oficjalnym schematem.
 
 \subsection{Schematy XSD}
-XSD (XML Schema Definition, pol. \enquote{Definicja Schematu XML}) to format pozwalający na określenie, w jaki sposób ustrukturyzowany powinien być określony dokument w formacie XML. XSD również zostało utworzone przez World Wide Web Consortium i jest przez nie polecane - istnieją inne formaty o podobnych zastosowaniach.
+XSD (XML Schema Definition, pol. \enquote{Definicja Schematu XML}) to format pozwalający na określenie, w jaki sposób ustrukturyzowany powinien być określony dokument w formacie XML \parencite{w3c_xsd}. XSD również zostało utworzone przez World Wide Web Consortium i jest przez nie polecane - istnieją inne formaty o podobnych zastosowaniach.
 
-Schematy definiują przede wszystkim kolejność, ilość i rodzaj znaczników, które dokument powinien zawierać, oraz dopuszczalne wartości w polach. Zastosowanie tego formatu pozwala na automatyczną walidację faktur otrzymanych i przetransformowanych do formatu XML przez oprogramowanie utworzone w ramach projektu przed podjęciem prób wysyłki do Krajowego Systemu e-Faktur.
+Schematy definiują przede wszystkim kolejność, ilość i rodzaj znaczników, które dokument powinien zawierać oraz dopuszczalne wartości w polach. Zastosowanie tego formatu pozwala na automatyczną walidację faktur otrzymanych i przetransformowanych do formatu XML przez oprogramowanie utworzone w ramach projektu przed podjęciem prób wysyłki do Krajowego Systemu e-Faktur.
 
 \subsection{FA(3)}
-Faktury wysyłane do Krajowego Systemu e-Faktur muszą być zgodne z oficjalnym schematem, udostępnionym przez Ministerstwo Finansów 30 czerwca 2025 roku, o nazwie FA(3). Schemat ten dokładnie określa w jaki sposób ustrukturyzowany powinien być przesyłany dokument, jakie dane powinien zawierać, oraz jakie wartości są dopuszczalne. 
+Faktury wysyłane do Krajowego Systemu e-Faktur muszą być zgodne z oficjalnym schematem, udostępnionym przez Ministerstwo Finansów 30 czerwca 2025 roku, o nazwie FA(3). Schemat ten dokładnie określa, w jaki sposób ustrukturyzowany powinien być przesyłany dokument, jakie dane powinien zawierać oraz jakie wartości są dopuszczalne \parencite{structured_invoice_2025}. 
 
 Utworzone w ramach projektu oprogramowanie przetwarza otrzymywane od zewnętrznego systemu faktury w postaci JSON do formatu XML zgodnego z FA(3), następnie waliduje je wobec schematu przed wysyłką w poszukiwaniu niezgodności. 
 
 \section{HTMX}
 \subsection{Opis ogólny i cechy HTMX}
-HTMX, zapisywane również jako htmx, to lekka biblioteka języka JavaScript, utworzona przez Carsona Grossa, rozszerzająca możliwości HTML (HyperText Markup Language) poprzez dodanie nowych atrybutów. Pozwala między innymi na interakcję z serwerami za pomocą HTTP bezpośrednio z plików HTML oraz odświeżanie elementów strony bez jej całkowitego przeładowania. Głównym założeniem HTMX jest maksymalizacja możliwości języka HTML bez wspierania się ręcznie pisanym kodem w JavaScript.
+HTMX, zapisywane również jako htmx, to lekka biblioteka języka JavaScript, utworzona przez Carsona Grossa, rozszerzająca możliwości HTML (HyperText Markup Language) poprzez dodanie nowych atrybutów. Pozwala między innymi na interakcję z serwerami za pomocą HTTP bezpośrednio z plików HTML oraz odświeżanie elementów strony bez jej całkowitego przeładowania. Głównym założeniem HTMX jest maksymalizacja możliwości języka HTML bez wspierania się ręcznie pisanym kodem w JavaScript \parencite{htmx_docs}.
 
-Przykładowo, w czasie gdy standardowy HTML pozwala jedynie na przesyłanie żądań HTTP o metodach GET i POST, HTMX umożliwia na przesyłanie wszystkich innych - przykładowo, żądanie o metodzie DELETE może zostać wykonane po naciśnięciu przycisku na stronie poprzez nadanie przyciskowi atrybutu \texttt{hx-delete}.
+Przykładowo, w czasie gdy standardowy HTML pozwala jedynie na przesyłanie żądań HTTP o metodach GET i POST, HTMX umożliwia przesyłanie wszystkich innych - przykładowo, żądanie o metodzie DELETE może zostać wykonane po naciśnięciu przycisku na stronie poprzez nadanie przyciskowi atrybutu \texttt{hx-delete}.
 
 \subsection{Uzasadnienie użycia HTMX w projekcie oraz przykład zastosowania}
-Jednym z głównych założeń tworzonego oprogramowania jest jego prostota - zarówno w obsłudze, jak i w kodzie źródłowym. W większości projektów, w przypadku tworzenia interfejsu dla użytkownika, wykorzystywane są ciężkie biblioteki JavaScript lub TypeScript, jak przykładowo React czy vue.js. HTMX zostało wybrane dzięki swojej prostocie, oraz możliwościom - żądania HTTP do serwera wysyłane są bezpośrednio poprzez oznaczenie elementów interfejsu odpowiednimi tagami, a dynamiczne działanie interfejsu (odświeżanie listy faktur, ładowanie szczegółowego widoku faktury, manualny reset licznika prób ponownych wysyłki webhooków) obsługiwane jest przez zastępowanie fragmentów HTML przez HTML zwracany ze specjalnych endpointów, których żądania/odpowiedzi przesyłane są z tagiem \texttt{HX-Request}. 
+Jednym z głównych założeń tworzonego oprogramowania jest jego prostota - zarówno w obsłudze, jak i w kodzie źródłowym. W większości projektów, w przypadku tworzenia interfejsu dla użytkownika, wykorzystywane są ciężkie biblioteki JavaScript lub TypeScript, jak przykładowo React czy Vue.js. HTMX zostało wybrane dzięki swojej prostocie oraz możliwościom - żądania HTTP do serwera wysyłane są bezpośrednio poprzez oznaczenie elementów interfejsu odpowiednimi tagami, a dynamiczne działanie interfejsu (odświeżanie listy faktur, ładowanie szczegółowego widoku faktury, manualny reset licznika prób ponownych wysyłki webhooków) obsługiwane jest przez zastępowanie fragmentów HTML przez HTML zwracany ze specjalnych endpointów, których żądania/odpowiedzi przesyłane są z tagiem \texttt{HX-Request}. 
 
 \begin{lstlisting}[style=thesiscode, language=Go, caption={Przykład endpointu zwracającego fragment HTML dla HTMX}, label={lst:htmx-route}]
 func (app *application) getDashboardInvoice(w http.ResponseWriter, r *http.Request) {
@@ -297,12 +297,12 @@ Powyższe dwa fragmenty obrazują endpoint, zwracający HTML na podstawie wzoru 
 
 \section{Tailwind CSS}
 \subsection{Opis Tailwind CSS}
-Tailwind CSS to biblioteka CSS, Cascading Style Sheets, czyli języka do stylowania elementów HTML. W przeciwieństwie do bibliotek takich jak Bootstrap, które dostarczają użytkownikowi z góry definiowane klasy, jak przykładowo gotowe, ostylowane przyciski, Tailwind CSS pozwala na stylowanie za pomocą wielu różnych klas, którymi oznaczane są elementy. Przykładowo, przycisk ostylować można dodając po jednym atrybucie dla koloru, kształtu, czcionki oraz koloru tekstu.
+Tailwind CSS to biblioteka CSS, Cascading Style Sheets, czyli języka do stylowania elementów HTML. W przeciwieństwie do bibliotek takich jak Bootstrap, które dostarczają użytkownikowi z góry definiowane klasy, jak przykładowo gotowe, ostylowane przyciski, Tailwind CSS pozwala na stylowanie za pomocą wielu różnych klas, którymi oznaczane są elementy. Przykładowo, przycisk ostylować można dodając po jednej klasie dla koloru, kształtu, czcionki oraz koloru tekstu \parencite{tailwind_docs}.
 
-Tailwind CSS pozwala na bezpośrednie stylowanie elementów, bez tworzenia dodatkowego pliku lub sekcji ze stylami, podobnie jak HTMX pozwala na nadawanie elementom funkcjonalności bezpośrednio. 
+Tailwind CSS pozwala na bezpośrednie stylowanie elementów i podobnie jak HTMX pozwala na nadawanie elementom funkcjonalności bezpośrednio. 
 
 \subsection{Uzasadnienie użycia Tailwind CSS oraz przykład jego zastosowania w projekcie}
-Tailwind CSS pozwala na szybkie stylowanie elementów za pomocą pojedynczych klas. Biorąc pod uwagę użycie HTMX, oraz prostotę interfejsu eksponowanego przez oprogramowanie, praca z tą biblioteką ułatwiła szybkie utworzenie funkcjonalnego i przejrzystego panelu bez tworzenia osobnego, dedykowanego pliku ze stylami, umożliwiając pracę jak najbliżej samego HTML.
+Tailwind CSS pozwala na szybkie stylowanie elementów za pomocą pojedynczych klas. Biorąc pod uwagę użycie HTMX oraz prostotę interfejsu eksponowanego przez oprogramowanie, praca z tą biblioteką ułatwiła szybkie utworzenie funkcjonalnego i przejrzystego panelu bez tworzenia osobnego, dedykowanego pliku ze stylami, umożliwiając pracę jak najbliżej samego HTML.
 
 \begin{lstlisting}[style=thesiscode, language=HTML, caption={Przykład użycia klas Tailwind CSS w przycisku panelu użytkownika}, label={lst:tailwind-button}]
 <button
@@ -316,38 +316,38 @@ Tailwind CSS pozwala na szybkie stylowanie elementów za pomocą pojedynczych kl
 </button>
 \end{lstlisting}
 
-Powyższy przykład obrazuje zastosowanie Tailwind CSS w stylowaniu przycisku panelu użytkownika. Element został oznaczony siedmioma klasami: \texttt{bg-red-600} nadającą czerwone tło, \texttt{text-white} nadającą tekstowi biały kolor, \texttt{px-3} i \texttt{py-1} definiującą odstępy tekstu od krawędzi bocznych i wertykalnych, \texttt{rounded} nadającą przyciskowi zaokrąglone rogi, \texttt{text-sm} określającą rozmiar tekstu oraz \texttt{cursor-pointer} zmieniającą kursor na wskazujący możliwość przyciśnięcia. Fragment kodu pokazuje również dlaczego Tailwind CSS dobrze współpracuje z HTMX - tuż nad klasami stylującymi element widzimy atrybuty nadające mu funkcjonalność. Dzięki temu większość definicji wyglądu i działania elementu znajduje się bezpośrednio we fragmencie kodu, który go zawiera.
+Powyższy przykład obrazuje zastosowanie Tailwind CSS w stylowaniu przycisku panelu użytkownika. Element został oznaczony siedmioma klasami: \texttt{bg-red-600} nadającą czerwone tło, \texttt{text-white} nadającą tekstowi biały kolor, \texttt{px-3} i \texttt{py-1} definiujące odstępy tekstu od krawędzi bocznych i wertykalnych, \texttt{rounded} nadającą przyciskowi zaokrąglone rogi, \texttt{text-sm} określającą rozmiar tekstu oraz \texttt{cursor-pointer} zmieniającą kursor na wskazujący możliwość przyciśnięcia. Fragment kodu pokazuje również dlaczego Tailwind CSS dobrze współpracuje z HTMX - tuż nad klasami stylującymi element widzimy atrybuty nadające mu funkcjonalność. Dzięki temu większość definicji wyglądu i działania elementu znajduje się bezpośrednio we fragmencie kodu, który go zawiera.
 
 \section{Docker}
 \subsection{Opis ogólny Dockera}
-Docker to platforma pozwalająca na tzw. konteneryzację aplikacji, czyli tworzenie pakietów zawierających oprogramowanie oraz wymagane przez nie zależności systemowe, w celu wdrożenia na jakimkolwiek urządzeniu obsługującym Dockera. 
+Docker to platforma pozwalająca na tzw. konteneryzację aplikacji, czyli tworzenie pakietów zawierających oprogramowanie oraz wymagane przez nie zależności systemowe, w celu wdrożenia na jakimkolwiek urządzeniu obsługującym Dockera \parencite{docker_overview}. 
 
-Obrazy konenerów zawierają pliki i zależności wymagane przez określoną aplikację. Do uruchomienia aplikacji potrzebny jest również tzw. Dockerfile, czyli plik określający w jaki sposób obraz powinien być zbudowany.
+Obrazy kontenerów zawierają pliki i zależności wymagane przez określoną aplikację. Do uruchomienia aplikacji potrzebny jest również tzw. Dockerfile, czyli plik określający, w jaki sposób obraz powinien być zbudowany.
 
 \subsection{Różnica między kontenerem i maszyną wirtualną}
-Maszyny wirtualne symulują całą maszynę - z wydzieloną pamięcią, procesorem, kartą sieciową, własnym systemem operacyjnym, etc. Dzięki temu, określony program może być uruchomiony na jakimkolwiek urządzeniu, które jest w stanie uruchomić maszynę wirtualną z systemem, którego wymaga oprogramowanie. 
+Maszyny wirtualne symulują całą maszynę - z wydzieloną pamięcią, procesorem, kartą sieciową, własnym systemem operacyjnym, itd. Dzięki temu, określony program może być uruchomiony na jakimkolwiek urządzeniu, które jest w stanie uruchomić maszynę wirtualną z systemem, którego wymaga oprogramowanie. 
 
-Kontenery Dockera wirtualizują środowisko wymagane do uruchomienia aplikacji na jakimkolwiek systemie operacyjnym, który wspiera Dockera. Sam kontener zawiera zależności wymagane do uruchomienia określonego programu. Dzięki temu kontenery są lżejsze niż maszyny wirtualne, które symulują całe urządzenie ze wszystkimi jego komponentami.
+Kontenery Dockera wirtualizują środowisko wymagane do uruchomienia aplikacji na jakimkolwiek systemie operacyjnym, który wspiera Dockera. Sam kontener zawiera zależności wymagane do uruchomienia określonego programu. Dzięki temu kontenery są lżejsze niż maszyny wirtualne, które symulują całe urządzenie ze wszystkimi jego komponentami \parencite{docker_containers}.
 
 \subsection{Zastosowanie Dockera w projekcie}
-Tworzone oprogramowanie ma być uruchamialne na możliwie jak najszerszej gamie urządzeń i systemów operacyjnych. Docker umożliwił utworzenie obrazu zawierającego aplikację i wszystkie jej zależności, wraz z plikiem Dockerfile, który określa dokładnie w jaki sposób obraz powinien zostać zbudowany. Plik konfiguracyjny, oraz baza danych, mogą zostać dostarczone spoza kontenera.
+Tworzone oprogramowanie ma być uruchamialne na możliwie jak najszerszej gamie urządzeń i systemów operacyjnych. Docker umożliwił utworzenie obrazu zawierającego aplikację i wszystkie jej zależności, wraz z plikiem Dockerfile, który określa dokładnie w jaki sposób obraz powinien zostać zbudowany. Plik konfiguracyjny oraz baza danych, mogą zostać dostarczone spoza kontenera.
 
-Efektem końcowym jest możliwość uruchomienia aplikacji za pomocą jednej komendy - \texttt{docker compose up --build}.
+Efektem końcowym jest możliwość uruchomienia aplikacji za pomocą jednej komendy - \texttt{docker compose up -{}-build}.
 
 \section{Środowisko Krajowego Systemu e-Faktur}
 \subsection{Krajowy System e-Faktur jako system zewnętrzny}
 Krajowy System e-Faktur to platforma do tworzenia, przesyłania, odbierania oraz przechowywania faktur.
 
-Końcowym celem tworzonego oprogramowania jest integracja z Krajowym Systemem e-Faktur, w celu pośredniczenia między nim, a systemami zewnętrznymi. Aplikacja, poza podstawową walidacją otrzymywanych danych, nie decyduje czy faktura zostanie przyjęta przez KSeF - służy zaledwie do transformacji otrzymywanych faktur w formacie JSON do wymaganego formatu XML zgodnego z oficjalnym schematem XSD FA(3), próby podjęcia wysyłki, sprawdzenia statusu oraz ewentualnego poinformowania nadawcy faktury o sukcesie bądź porażce.  
+Końcowym celem tworzonego oprogramowania jest integracja z Krajowym Systemem e-Faktur, w celu pośredniczenia między nim a systemami zewnętrznymi. Aplikacja, poza podstawową walidacją otrzymywanych danych, nie decyduje czy faktura zostanie przyjęta przez KSeF - służy zaledwie do transformacji otrzymywanych faktur w formacie JSON do wymaganego formatu XML zgodnego z oficjalnym schematem XSD FA(3), próby podjęcia wysyłki, sprawdzenia statusu oraz ewentualnego poinformowania nadawcy faktury o sukcesie bądź porażce.  
 
 \subsection{Wymagania komunikacyjne}
-Środowisko Krajowego Systemu e-Faktur to API z eksponowanymi endpointami HTTP, przyjmującymi odpowiednie ładunki w formacie JSON. Ich struktura opisana jest w oficjalnej dokumentacji, pod adresem \url{https://api-test.ksef.mf.gov.pl/docs/v2/}. 
+Środowisko Krajowego Systemu e-Faktur to API z eksponowanymi endpointami HTTP, przyjmującymi odpowiednie ładunki w formacie JSON. Ich struktura opisana jest w oficjalnej dokumentacji, pod adresem \url{https://api-test.ksef.mf.gov.pl/docs/v2/} \parencite{ksef_api_docs}. 
 
-Do komunikacji z KSeF wymagane jest uwierzytelnienie, na podstawie tokena pobieranego przez użytkownika z Panelu Podatnika, który później zamieszczany jest w pliku konfiguracyjnym. Do uwierzytelnienia wykorzystywane są algorytmy kryptograficzne oraz klucze udostępniane przez Ministerstwo Finansów.
+Do komunikacji z KSeF wymagane jest uwierzytelnienie, na podstawie tokena pobieranego przez użytkownika z Panelu Podatnika. Do uwierzytelnienia wykorzystywane są algorytmy kryptograficzne oraz klucze udostępniane przez Ministerstwo Finansów \parencite{ksef_api_docs}.
 
-W celu przesłania faktury, musi ona zostać przetransformowana w dokument XML zgodny z oficjalnym schematem, oraz załączona w odpowiednim polu w ładunku JSON przesyłanym do KSeF. Następnie, sprawdzany jest status wysyłki, na podstawie identyfikatora zwracanego przez KSeF. Pomyślne przesłanie faktury nie oznacza jej akceptacji, więc by móc określić fakturę jako zaakceptowaną, odebrane musi zostać Urzędowe Poświadczenie Odbioru.
+W celu przesłania faktury, musi ona zostać przetransformowana w dokument XML zgodny z oficjalnym schematem oraz załączona w odpowiednim polu w ładunku JSON przesyłanym do KSeF. Następnie, sprawdzany jest status wysyłki, na podstawie identyfikatora zwracanego przez KSeF. Pomyślne przesłanie faktury nie oznacza jej akceptacji, więc by móc określić fakturę jako zaakceptowaną, odebrane musi zostać Urzędowe Poświadczenie Odbioru \parencite{ksef_api_docs}.
 
 \subsection{Wpływ środowiska KSeF na projekt}
-Biorąc pod uwagę wspomniane w poprzedniej podsekcji wymagania, aplikacja musi być zdolna do przyjmowania faktur w postaci JSON, transformowania ich do odpowiedniego formatu, oraz wysyłki do Krajowego Systemu e-Faktur, po wykonaniu odpowiednich kroków w celu uwierzytelnienia. Faktury przechowywane są w lokalnej bazie danych w celu ochrony danych w przypadku prac technicznych bądź innych problemów z komunikacją. 
+Biorąc pod uwagę wspomniane w poprzedniej podsekcji wymagania, aplikacja musi być zdolna do przyjmowania faktur w postaci JSON, transformowania ich do odpowiedniego formatu oraz wysyłki do Krajowego Systemu e-Faktur, po wykonaniu odpowiednich kroków w celu uwierzytelnienia. Faktury przechowywane są w lokalnej bazie danych w celu ochrony danych w przypadku prac technicznych bądź innych problemów z komunikacją. 
 
 Oprogramowanie sprawdza również status przesyłek, i oznacza faktury jako przesłane dopiero, gdy odbierze Urzędowe Poświadczenie Odbioru. Ponieważ zewnętrzne systemy wysyłające do oprogramowania dane potrzebują informacji dotyczących ostatecznego rezultatu prób wysyłki, aplikacja wyposażona jest w mechanizm webhooków, tj. danych zwrotnych, wysyłanych jeśli w oryginalnym żądaniu zawierającym fakturę zamieszczony został adres, na który nadawca chciałby ową informację otrzymać.
