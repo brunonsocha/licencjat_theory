@@ -331,7 +331,7 @@ Tworzony jest klient HTTP oraz struktura aplikacji, z użyciem parametrów z pli
 \subsection{Działanie aplikacji}
 Aplikacja w ramach swojego działania eksponuje odpowiednie endpointy API HTTP oraz rozpoczyna cykliczne skanowanie bazy danych SQLite. Endpointy służące do komunikacji z zewnętrznymi systemami zwracają ustrukturyzowane odpowiedzi w formacie JSON, a endpointy wspomagające panel użytkownika przekazują HTML lub odpowiedzi specyficzne do HTMX.
 
-\noindent Eksponowane są endpointy przedstawione w tabeli \ref{app_endpoints}.
+\noindent Eksponowane są endpointy przedstawione w tabeli \ref{tab:app_endpoints}.
 
 \begin{small}
 \begin{longtable}{>{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{4.3cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{4.6cm}}
@@ -647,3 +647,5 @@ Na poniższej liście przedstawione są inne, pomniejsze ograniczenia:
     \item dane są przechowywane lokalnie bez enkrypcji,
     \item aplikacja z góry ufa adresom systemów zewnętrznych podanym wraz z danymi faktury.
 \end{itemize}
+
+Przedstawione ograniczenia wskazują możliwe kierunki rozwoju aplikacji w przyszłości.
